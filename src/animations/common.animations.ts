@@ -159,3 +159,84 @@ export const techStackGridCascade = {
         },
     } satisfies Variants,
 };
+
+export const projectShowcaseCascade = {
+    section: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.08,
+                staggerChildren: 0.18,
+            },
+        },
+    } satisfies Variants,
+    heading: {
+        hidden: { opacity: 0, y: 24 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.7,
+                ease: softRevealEase,
+            },
+        },
+    } satisfies Variants,
+    list: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.12,
+                staggerChildren: 0.22,
+            },
+        },
+    } satisfies Variants,
+    project: {
+        hidden: { opacity: 0, y: 36 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: cinematicEase,
+            },
+        },
+    } satisfies Variants,
+    media: {
+        hidden: (direction: number) => ({ opacity: 0, x: direction * 36, scale: 0.97 }),
+        visible: {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            transition: {
+                duration: 0.82,
+                ease: cinematicEase,
+            },
+        },
+    } satisfies Variants,
+    content: {
+        hidden: (direction: number) => ({ opacity: 0, x: direction * -36 }),
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.74,
+                ease: softRevealEase,
+                delay: 0.08,
+            },
+        },
+    } satisfies Variants,
+    footer: {
+        hidden: { opacity: 0, y: 16 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: softRevealEase,
+                delay: 0.2,
+            },
+        },
+    } satisfies Variants,
+};
