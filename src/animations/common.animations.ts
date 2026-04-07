@@ -240,3 +240,53 @@ export const projectShowcaseCascade = {
         },
     } satisfies Variants,
 };
+
+export const contactAmbientReveal = {
+    section: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.08,
+                staggerChildren: 0.14,
+            },
+        },
+    } satisfies Variants,
+    card: {
+        hidden: { opacity: 0, y: 28 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.78,
+                ease: cinematicEase,
+            },
+        },
+    } satisfies Variants,
+    detail: {
+        hidden: { opacity: 0, x: 28, y: -28, scale: 0.88 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            transition: {
+                duration: 0.9,
+                ease: softRevealEase,
+                delay: 0.12,
+            },
+        },
+    } satisfies Variants,
+    footer: {
+        hidden: { opacity: 0, y: 16 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: softRevealEase,
+                delay: 0.18,
+            },
+        },
+    } satisfies Variants,
+};

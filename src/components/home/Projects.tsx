@@ -124,13 +124,13 @@ export const Projects = () => {
                     ))}
                 </div>
             </div>
-            
+{/*             
             <motion.div
                 className="w-full max-w-7xl mt-32 flex flex-col items-center gap-8 py-16 border-y border-outline-variant/10"
                 variants={projectShowcaseCascade.footer}
             >
                 <p className="font-technical text-[10px] uppercase text-outline underline underline-offset-4 decoration-primary/50">Load Archive (24+ Projects)</p>
-            </motion.div>
+            </motion.div> */}
         </motion.section>
     );
 };
