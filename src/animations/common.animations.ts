@@ -101,3 +101,61 @@ export const navbarSoftReveal = {
         },
     } satisfies Variants,
 };
+
+export const techStackGridCascade = {
+    section: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.08,
+                staggerChildren: 0.18,
+            },
+        },
+    } satisfies Variants,
+    heading: {
+        hidden: { opacity: 0, y: 24 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.7,
+                ease: softRevealEase,
+            },
+        },
+    } satisfies Variants,
+    grid: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.12,
+                staggerChildren: 0.16,
+            },
+        },
+    } satisfies Variants,
+    card: {
+        hidden: { opacity: 0, y: 28, scale: 0.97 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+                duration: 0.72,
+                ease: cinematicEase,
+            },
+        },
+    } satisfies Variants,
+    footer: {
+        hidden: { opacity: 0, y: 16 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: softRevealEase,
+                delay: 0.18,
+            },
+        },
+    } satisfies Variants,
+};
