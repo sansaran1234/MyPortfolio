@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { heroLeadSlideReveal, heroSoftReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
@@ -32,6 +33,20 @@ export const Hero = () => {
                     sixth: "86,198,255",
                 }}
             />
+            <div className="absolute inset-y-[-18%] left-[-8%] right-[52%] -z-10 overflow-hidden rounded-[3rem] border border-outline-variant/10 bg-surface-container-high/20 -rotate-[10deg] max-[1024px]:right-[42%]">
+                <div className="absolute inset-[8%] rotate-[10deg] top-[-35rem] scale-110 w-[62rem] max-[1501px]:w-[55rem] max-[1251px]:w-[45rem]">
+                    <Image
+                        src="/images/img-bg-profile-x3.webp"
+                        alt="Profile background"
+                        fill
+                        priority
+                        className="object-cover object-center opacity-45"
+                    />
+                </div>
+                <div className="absolute inset-0 bg-linear-to-r from-background/20 via-background/55 to-background" />
+                <div className="absolute inset-0 bg-linear-to-t from-background via-background/35 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-l from-primary/8 via-transparent to-[#7aa2ff]/10" />
+            </div>
             
             <motion.div
                 className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
@@ -40,7 +55,7 @@ export const Hero = () => {
                 animate="visible"
             >
                 <div className="lg:col-span-8 flex flex-col gap-8">
-                    <motion.div className="flex flex-col gap-2" variants={heroLeadSlideReveal}>
+                    <motion.div className="relative flex flex-col gap-2 pt-6 md:pt-10" variants={heroLeadSlideReveal}>
                         <Badge variant="outline" className="w-fit">Welcome to My Portfolio // 2026</Badge>
                         <h1 className="font-display text-6xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter">
                             SANSARAN <br />
@@ -62,17 +77,13 @@ export const Hero = () => {
                     </motion.div>
                 </div>
                 
-                <div className="lg:col-span-4 flex flex-col gap-6 lg:items-end">
-                    {/* <motion.div variants={heroSoftReveal.item} className="w-full lg:w-72">
-                        <StatusTerminal 
-                            status="online" 
-                            label="Experience: 6+ Years" 
-                            metadata="Software Architecture // Frontend Engineering"
-                            className="w-full"
-                        />
-                    </motion.div> */}
+                {/* Right */}
+                <motion.div
+                    className="relative lg:col-span-4 flex flex-col gap-6 lg:items-end"
+                    variants={heroSoftReveal.item}
+                >
                     <motion.div
-                        className="w-full lg:w-72 p-6 bg-surface-container rounded-xl border border-outline-variant/10"
+                        className="w-full lg:w-72 p-6 bg-surface-container/85 backdrop-blur-xs rounded-xl border border-outline-variant/10"
                         variants={heroSoftReveal.item}
                     >
                         <div className="flex flex-col gap-1">
@@ -87,9 +98,9 @@ export const Hero = () => {
                         </div>
                     </motion.div>
                     <motion.div className="w-full lg:w-72" variants={heroSoftReveal.item}>
-                        <StatsPanel title="Global Stats" items={stats} />
+                        <StatsPanel title="Global Stats" items={stats} className="bg-surface-container/85 backdrop-blur-xs" />
                     </motion.div>
-                </div>
+                </motion.div>
             </motion.div>
             
              <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-background to-transparent pointer-events-none" />
