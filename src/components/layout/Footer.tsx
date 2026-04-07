@@ -31,7 +31,7 @@ export const Footer = () => {
             
             <div className="w-full max-w-7xl mt-24 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
-                    <Badge variant="outline">© {currentYear} AL.</Badge>
+                    <Badge variant="outline">© {currentYear} MyPortfolio.</Badge>
                     <Badge variant="outline">System Stable</Badge>
                 </div>
                 <div className="font-technical text-[10px] uppercase text-outline-variant tracking-widest">

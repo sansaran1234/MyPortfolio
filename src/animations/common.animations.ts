@@ -1,0 +1,103 @@
+import type { Variants } from "motion/react";
+
+const softRevealEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const cinematicEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+export const heroSoftReveal = {
+    container: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.14,
+                delayChildren: 0.12,
+            },
+        },
+    } satisfies Variants,
+    item: {
+        hidden: { opacity: 0, y: 28 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.7,
+                ease: softRevealEase,
+            },
+        },
+    } satisfies Variants,
+};
+
+export const heroStaggeredCinematic = {
+    container: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.18,
+            },
+        },
+    } satisfies Variants,
+    item: {
+        hidden: { opacity: 0, y: 40, scale: 0.98 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+                duration: 0.85,
+                ease: cinematicEase,
+            },
+        },
+    } satisfies Variants,
+};
+
+export const heroMinimalFade = {
+    container: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.08,
+            },
+        },
+    } satisfies Variants,
+    item: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 0.55,
+                ease: "easeOut",
+            },
+        },
+    } satisfies Variants,
+};
+
+export const navbarSoftReveal = {
+    container: {
+        hidden: { opacity: 0, y: -20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.7,
+                ease: softRevealEase,
+                staggerChildren: 0.12,
+                delayChildren: 0.08,
+            },
+        },
+    } satisfies Variants,
+    item: {
+        hidden: { opacity: 0, y: -12 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.55,
+                ease: softRevealEase,
+            },
+        },
+    } satisfies Variants,
+};
