@@ -7,8 +7,20 @@ import { StatusTerminal } from "../ui/StatusTerminal";
 import { Badge } from "../ui/Badge";
 import { AmbientGlow } from "../ui/AmbientGlow";
 import { AmbientDetail } from "../ui/AmbientDetail";
+import { StatsPanel } from "../ui/StatsPanel";
 
 export const Hero = () => {
+    const stats = [
+        {
+            value: "2,059",
+            label: "contributions in the last year",
+        },
+        {
+            value: "124+",
+            label: "Commits/Week",
+        },
+    ];
+
     return (
         <section className="relative w-full min-h-screen flex flex-col justify-center px-8 pt-32 pb-24 overflow-hidden">
             <AmbientGlow
@@ -84,32 +96,31 @@ export const Hero = () => {
                 </div>
                 
                 <div className="lg:col-span-4 flex flex-col gap-6 lg:items-end">
-                    <motion.div variants={heroSoftReveal.item} className="w-full lg:w-72">
+                    {/* <motion.div variants={heroSoftReveal.item} className="w-full lg:w-72">
                         <StatusTerminal 
                             status="online" 
                             label="Experience: 6+ Years" 
                             metadata="Software Architecture // Frontend Engineering"
                             className="w-full"
                         />
-                    </motion.div>
-                    
+                    </motion.div> */}
                     <motion.div
                         className="w-full lg:w-72 p-6 bg-surface-container rounded-xl border border-outline-variant/10"
                         variants={heroSoftReveal.item}
                     >
-                        <div className="flex flex-col gap-4">
-                            <h3 className="font-technical text-[10px] uppercase font-black text-primary tracking-widest">Global Stats</h3>
+                        <div className="flex flex-col gap-1">
+                            <span className="font-bold text-foreground text-xl uppercase">Frontend Developer</span>
+                            <h3 className="font-technical text-[10px] uppercase font-black text-primary tracking-widest">Experience</h3>
                             <div className="grid grid-cols-[2fr_1fr] gap-4">
                                 <div className="flex flex-col">
-                                    <span className="font-display text-2xl font-black">2,059</span>
-                                    <span className="font-technical text-[8px] uppercase text-outline">contributions in the last year</span>
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="font-display text-2xl font-black">124+</span>
-                                    <span className="font-technical text-[8px] uppercase text-outline">Commits/Week</span>
+                                    <span className="font-display text-2xl font-black">6+ Years</span>
+                                    <span className="font-technical text-[8px] uppercase text-outline">Chiang mai, Thailand</span>
                                 </div>
                             </div>
                         </div>
+                    </motion.div>
+                    <motion.div className="w-full lg:w-72" variants={heroSoftReveal.item}>
+                        <StatsPanel title="Global Stats" items={stats} />
                     </motion.div>
                 </div>
             </motion.div>

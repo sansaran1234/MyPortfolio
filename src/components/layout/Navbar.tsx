@@ -46,9 +46,9 @@ export const Navbar = () => {
             className="hidden md:flex items-center gap-6 font-technical text-[10px] uppercase font-bold tracking-widest text-outline"
             variants={navbarSoftReveal.item}
           >
-            <a href="#stack" onClick={(event) => handleSectionNavigate(event, "stack")} className="hover:text-primary transition-colors">/Stack</a>
-            <a href="#projects" onClick={(event) => handleSectionNavigate(event, "projects")} className="hover:text-primary transition-colors">/Projects</a>
-            <a href="#contact" onClick={(event) => handleSectionNavigate(event, "contact")} className="hover:text-primary transition-colors">/Contact</a>
+            <Link href="#stack" onClick={(event) => handleSectionNavigate(event, "stack")} className="hover:text-primary transition-colors">/Stack</Link>
+            <Link href="#projects" onClick={(event) => handleSectionNavigate(event, "projects")} className="hover:text-primary transition-colors">/Projects</Link>
+            <Link href="#contact" onClick={(event) => handleSectionNavigate(event, "contact")} className="hover:text-primary transition-colors">/Contact</Link>
           </motion.div>
           
           <motion.div variants={navbarSoftReveal.item}>
