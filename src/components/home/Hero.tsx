@@ -64,8 +64,8 @@ export const Hero = () => {
                     <motion.div className="flex flex-col gap-2" variants={heroSoftReveal.item}>
                         <Badge variant="outline" className="w-fit">Architectural Ledger // 2026</Badge>
                         <h1 className="font-display text-6xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter">
-                            Architecting <br />
-                            <span className="text-primary italic">Digital Excellence.</span>
+                            SANSARAN <br />
+                            <span className="text-primary italic">PHANCHAN</span>
                         </h1>
                     </motion.div>
                     
@@ -77,7 +77,9 @@ export const Hero = () => {
                     
                     <motion.div className="flex flex-wrap gap-4 items-center" variants={heroSoftReveal.item}>
                         <Button variant="primary" size="lg">Review Work</Button>
-                        <Button variant="secondary" size="lg">Send Message</Button>
+                        <Button variant="secondary" size="lg" onClick={() => { window.location.href = "mailto:sansaran.p10@gmail.com"; }}>
+                            Send Message
+                        </Button>
                     </motion.div>
                 </div>
                 

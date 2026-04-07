@@ -6,9 +6,9 @@ import { Badge } from "../ui/Badge";
 import { Marquee } from "../ui/Marquee";
 
 const STACK = [
-    { category: "Frontend",duration: 22, tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion", "Material UI", "Ant Design", "Bootstrap"] },
-    { category: "Backend",duration: 8, tools: ["Node.js", "Express.js", "PostgreSQL"] },
-    { category: "Tools",duration: 12, tools: ["AI Assistant","Git", "GitHub", "VS Code", "Postman", "Figma", "Jira", "Trello"] },
+    { category: "Frontend",duration: 50, tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion", "Material UI", "Ant Design", "Bootstrap"] },
+    { category: "Backend",duration: 30, tools: ["Node.js", "Express.js", "PostgreSQL"] },
+    { category: "Tools",duration: 36, tools: ["AI Assistant","Git", "GitHub", "VS Code", "Postman", "Figma", "Jira", "Trello"] },
 ];
 
 export const TechStack = () => {
