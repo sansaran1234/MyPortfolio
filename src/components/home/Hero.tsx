@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import { heroLeadSlideReveal, heroSoftReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
 import { BubbleBackground } from "../ui/BubbleBackground";
+import { ProfileBackgroundStrip } from "../ui/ProfileBackgroundStrip";
 import { StatsPanel } from "../ui/StatsPanel";
 
 export const Hero = () => {
@@ -33,20 +33,10 @@ export const Hero = () => {
                     sixth: "86,198,255",
                 }}
             />
-            <div className="absolute inset-y-[-18%] left-[-8%] right-[52%] -z-10 overflow-hidden rounded-[3rem] border border-outline-variant/10 bg-surface-container-high/20 -rotate-[10deg] max-[1024px]:right-[42%]">
-                <div className="absolute inset-[8%] rotate-[10deg] top-[-35rem] scale-110 w-[62rem] max-[1501px]:w-[55rem] max-[1251px]:w-[45rem]">
-                    <Image
-                        src="/images/img-bg-profile-x3.webp"
-                        alt="Profile background"
-                        fill
-                        priority
-                        className="object-cover object-center opacity-45"
-                    />
-                </div>
-                <div className="absolute inset-0 bg-linear-to-r from-background/20 via-background/55 to-background" />
-                <div className="absolute inset-0 bg-linear-to-t from-background via-background/35 to-transparent" />
-                <div className="absolute inset-0 bg-linear-to-l from-primary/8 via-transparent to-[#7aa2ff]/10" />
-            </div>
+            <ProfileBackgroundStrip
+                src="/images/img-bg-profile-x3.webp"
+                alt="Profile background"
+            />
             
             <motion.div
                 className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
