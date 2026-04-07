@@ -6,6 +6,7 @@ import { Button } from "../ui/Button";
 import { StatusTerminal } from "../ui/StatusTerminal";
 import { Badge } from "../ui/Badge";
 import { AmbientGlow } from "../ui/AmbientGlow";
+import { AmbientDetail } from "../ui/AmbientDetail";
 
 export const Hero = () => {
     return (
@@ -21,6 +22,36 @@ export const Hero = () => {
                 initial={{ opacity: 0.28, x: -20, y: 18, scale: 0.94 }}
                 animate={{ opacity: [0.3, 0.48, 0.34], x: [-20, 10, -12], y: [18, -16, 10], scale: [0.94, 1.03, 0.97] }}
                 transition={{ duration: 18, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY, repeatType: "mirror", delay: 1.2 }}
+            />
+            <AmbientDetail
+                containerClassName="top-24 right-[18%] -z-10 translate-x-0 -translate-y-0"
+                shapeClassName="w-24 h-24 rounded-full bg-primary/8 blur-xl"
+                driftX={10}
+                driftY={-12}
+                scaleTo={1.12}
+                duration={5.4}
+            />
+            <AmbientDetail
+                containerClassName="top-auto bottom-24 left-[12%] -z-10 translate-x-0 translate-y-0"
+                shapeClassName="w-32 h-32 rounded-full bg-[#7aa2ff]/10 blur-2xl"
+                driftX={-12}
+                driftY={8}
+                scaleTo={1.08}
+                duration={6.2}
+            />
+            <AmbientDetail
+                containerClassName="top-1/3 left-1/2 -z-10 -translate-x-1/2 -translate-y-0"
+                shapeClassName="w-16 h-16 rounded-full bg-white/6 blur-lg"
+                driftX={6}
+                driftY={-10}
+                scaleTo={1.18}
+                duration={4.4}
+            />
+            <AmbientGlow
+                className="absolute top-1/4 left-1/3 -z-10 h-56 w-56 rounded-full bg-linear-to-br from-white/6 via-primary/4 to-transparent opacity-40 blur-3xl"
+                initial={{ opacity: 0.16, x: -10, y: 8, scale: 0.92 }}
+                animate={{ opacity: [0.18, 0.26, 0.2], x: [-10, 8, -4], y: [8, -10, 4], scale: [0.92, 1.05, 0.97] }}
+                transition={{ duration: 14, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY, repeatType: "mirror", delay: 0.8 }}
             />
             
             <motion.div
