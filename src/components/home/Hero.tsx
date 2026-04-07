@@ -35,21 +35,21 @@ export const Hero = () => {
                     <StatusTerminal 
                         status="online" 
                         label="System Status: Operational" 
-                        metadata="Current Node: Bangkok, TH"
+                        metadata="Current Node:  Chiang Mai, TH"
                         className="w-full lg:w-72"
                     />
                     
                     <div className="w-full lg:w-72 p-6 bg-surface-container rounded-xl border border-outline-variant/10">
                         <div className="flex flex-col gap-4">
                             <h3 className="font-technical text-[10px] uppercase font-black text-primary tracking-widest">Global Stats</h3>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-[2fr_1fr] gap-4">
+                                <div className="flex flex-col">
+                                    <span className="font-display text-2xl font-black">2,059</span>
+                                    <span className="font-technical text-[8px] uppercase text-outline">contributions in the last year</span>
+                                </div>
                                 <div className="flex flex-col">
                                     <span className="font-display text-2xl font-black">124+</span>
                                     <span className="font-technical text-[8px] uppercase text-outline">Commits/Week</span>
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="font-display text-2xl font-black">99.9%</span>
-                                    <span className="font-technical text-[8px] uppercase text-outline">System Uptime</span>
                                 </div>
                             </div>
                         </div>

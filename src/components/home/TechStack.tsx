@@ -2,9 +2,9 @@ import { Badge } from "../ui/Badge";
 import { Card } from "../ui/Card";
 
 const STACK = [
-    { category: "Frontend", tools: ["React 19", "Next.js 15", "Tailwind 4.0", "TypeScript", "Framer Motion"] },
-    { category: "Backend", tools: ["Node.js", "Go", "PostgreSQL", "Redis", "gRPC", "GraphQL"] },
-    { category: "Infrastructure", tools: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD", "Nginx"] },
+    { category: "Frontend", tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion"] },
+    { category: "Backend", tools: ["Node.js", "Express.js", "PostgreSQL"] },
+    { category: "Tools", tools: ["AI Assistant","Git", "GitHub", "VS Code", "Postman", "Figma", "Jira", "Trello"] },
 ];
 
 export const TechStack = () => {

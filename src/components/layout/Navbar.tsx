@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "../ui/Button";
-import { Badge } from "../ui/Badge";
 
 export const Navbar = () => {
   return (
@@ -8,11 +7,8 @@ export const Navbar = () => {
       <nav className="glass w-full max-w-7xl px-6 py-2 rounded-2xl flex items-center justify-between border border-outline-variant/10">
         <div className="flex items-center gap-4">
           <Link href="/" className="font-display font-black text-xl tracking-tighter text-primary">
-            AL.
+            MyPortfolio
           </Link>
-          <Badge variant="outline" className="hidden sm:inline-flex">
-            v1.0.4-β
-          </Badge>
         </div>
         
         <div className="flex items-center gap-8">
