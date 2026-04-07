@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { contactAmbientReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
+import { CopyButton } from "../ui/CopyButton";
 import { GradientBackground } from "../ui/GradientBackground";
 
 const CONTACT_DETAILS = [
@@ -58,7 +59,20 @@ export const Contact = () => {
                                             <span className="font-technical text-[10px] uppercase font-black tracking-[0.24em] text-primary">
                                                 {item.label}
                                             </span>
-                                            {item.href ? (
+                                            {item.label === "Email" ? (
+                                                <div className="flex items-center justify-between gap-3 text-left">
+                                                    <span className="font-display text-lg font-bold text-foreground transition-colors hover:text-primary">
+                                                        {item.value}
+                                                    </span>
+                                                    <CopyButton
+                                                        content={item.value}
+                                                        variant="secondary"
+                                                        size="sm"
+                                                        delay={2000}
+                                                        className="text-outline"
+                                                    />
+                                                </div>
+                                            ) : item.href ? (
                                                 <Link href={item.href} className="font-display text-lg font-bold text-foreground transition-colors hover:text-primary">
                                                     {item.value}
                                                 </Link>
