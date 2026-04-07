@@ -1,5 +1,22 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## AI Workflow
+
+This repo includes a lightweight AI operating layer for UI work.
+
+Core files:
+- `CLAUDE.md` for project operating rules
+- `skills/` for repeatable review workflows
+- `agents/` for role definitions
+- `mcp.json` for planned external integration points
+
+Command concepts:
+- `/review-ui` for UI-facing changes
+- `/check-motion` for animation ownership and pacing review
+- `/ship-check` for final lint and build verification
+
+UI work should flow through implementation, design review, motion review, and release verification rather than one-off prompting.
+
 ## Getting Started
 
 First, run the development server:

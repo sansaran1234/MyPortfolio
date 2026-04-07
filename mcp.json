@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "purpose": "Document intended MCP integration points for the MyPortfolio AI operating layer.",
+  "integrations": [
+    {
+      "name": "browser-validation",
+      "status": "planned",
+      "purpose": "Validate responsive UI behavior and interaction quality in a real browser."
+    },
+    {
+      "name": "github-review",
+      "status": "planned",
+      "purpose": "Support PR-aware UI review and release checks."
+    },
+    {
+      "name": "design-reference",
+      "status": "planned",
+      "purpose": "Connect future design references or asset review inputs."
+    }
+  ],
+  "rules": [
+    "Do not store secrets in this file.",
+    "Use environment variables or secure external configuration for credentials.",
+    "Treat this file as a public integration manifest, not a secret store."
+  ]
+}
