@@ -34,6 +34,15 @@
   --foreground: #dae2fd;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+[id] {
+  scroll-margin-top: 6rem;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);

@@ -1,11 +1,29 @@
 "use client";
 
+import type { MouseEvent } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { navbarSoftReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
 
 export const Navbar = () => {
+  const handleSectionNavigate = (event: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    event.preventDefault();
+
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+      return;
+    }
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(null, "", `#${sectionId}`);
+  };
+
   return (
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-6 py-4"
@@ -28,9 +46,9 @@ export const Navbar = () => {
             className="hidden md:flex items-center gap-6 font-technical text-[10px] uppercase font-bold tracking-widest text-outline"
             variants={navbarSoftReveal.item}
           >
-            <Link href="#projects" className="hover:text-primary transition-colors">/Projects</Link>
-            <Link href="#stack" className="hover:text-primary transition-colors">/Stack</Link>
-            <Link href="#contact" className="hover:text-primary transition-colors">/Contact</Link>
+            <a href="#stack" onClick={(event) => handleSectionNavigate(event, "stack")} className="hover:text-primary transition-colors">/Stack</a>
+            <a href="#projects" onClick={(event) => handleSectionNavigate(event, "projects")} className="hover:text-primary transition-colors">/Projects</a>
+            <a href="#contact" onClick={(event) => handleSectionNavigate(event, "contact")} className="hover:text-primary transition-colors">/Contact</a>
           </motion.div>
           
           <motion.div variants={navbarSoftReveal.item}>
