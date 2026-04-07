@@ -62,7 +62,7 @@ export const Hero = () => {
             >
                 <div className="lg:col-span-8 flex flex-col gap-8">
                     <motion.div className="flex flex-col gap-2" variants={heroSoftReveal.item}>
-                        <Badge variant="outline" className="w-fit">Architectural Ledger // 2026</Badge>
+                        <Badge variant="outline" className="w-fit">Welcome to My Portfolio // 2026</Badge>
                         <h1 className="font-display text-6xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter">
                             SANSARAN <br />
                             <span className="text-primary italic">PHANCHAN</span>
@@ -87,8 +87,8 @@ export const Hero = () => {
                     <motion.div variants={heroSoftReveal.item} className="w-full lg:w-72">
                         <StatusTerminal 
                             status="online" 
-                            label="System Status: Operational" 
-                            metadata="Current Node:  Chiang Mai, TH"
+                            label="Experience: 6+ Years" 
+                            metadata="Software Architecture // Frontend Engineering"
                             className="w-full"
                         />
                     </motion.div>
@@ -101,7 +101,7 @@ export const Hero = () => {
                             <h3 className="font-technical text-[10px] uppercase font-black text-primary tracking-widest">Global Stats</h3>
                             <div className="grid grid-cols-[2fr_1fr] gap-4">
                                 <div className="flex flex-col">
-                                    <span className="font-display text-2xl font-black">2,059</span>
+                                    <span className="font-display text-xl font-black">2,059</span>
                                     <span className="font-technical text-[8px] uppercase text-outline">contributions in the last year</span>
                                 </div>
                                 <div className="flex flex-col">

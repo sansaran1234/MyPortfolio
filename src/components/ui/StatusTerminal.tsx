@@ -29,7 +29,7 @@ export const StatusTerminal = ({
             status === "online" ? "bg-primary animate-pulse" : "bg-outline"
           )}
         />
-        <span className="font-bold text-foreground uppercase">{label}</span>
+        <span className="font-bold text-foreground text-xl uppercase">{label}</span>
       </div>
       <div className="text-outline-variant font-medium select-none truncate">
         {metadata}

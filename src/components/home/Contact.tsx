@@ -1,10 +1,27 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { contactAmbientReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { AmbientDetail } from "../ui/AmbientDetail";
+
+const CONTACT_DETAILS = [
+    {
+        label: "Email",
+        value: "sansaran.p10@gmail.com",
+        href: "mailto:sansaran.p10@gmail.com",
+    },
+    {
+        label: "Location",
+        value: "Chiang Mai, Thailand",
+    },
+    {
+        label: "Availability",
+        value: "Freelance / Contract / Full-time",
+    },
+];
 
 export const Contact = () => {
     return (
@@ -65,21 +82,44 @@ export const Contact = () => {
                                 Currently available for high-impact projects and architectural consulting. 
                                 If you have a vision that requires technical precision, let&apos;s talk.
                             </p>
-                            
-                            <div className="flex flex-wrap justify-center gap-6 mt-8">
-                                <Button variant="primary" size="lg" className="px-12">Get in Touch</Button>
-                                <Button variant="secondary" size="lg" className="px-12">View Resume</Button>
+
+                            <div className="grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-3">
+                                {CONTACT_DETAILS.map((item) => (
+                                    <Card key={item.label} variant="medium" className="border border-outline-variant/10 bg-surface-container/70 p-6 text-left">
+                                        <div className="flex flex-col gap-3">
+                                            <span className="font-technical text-[10px] uppercase font-black tracking-[0.24em] text-primary">
+                                                {item.label}
+                                            </span>
+                                            {item.href ? (
+                                                <Link href={item.href} className="font-display text-lg font-bold text-foreground transition-colors hover:text-primary">
+                                                    {item.value}
+                                                </Link>
+                                            ) : (
+                                                <p className="font-body text-base font-medium text-foreground">
+                                                    {item.value}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </Card>
+                                ))}
+                            </div>
+
+                            <div className="flex flex-wrap justify-center gap-4">
+                                <Link href="mailto:sansaran.p10@gmail.com">
+                                    <Button variant="primary" size="lg" className="px-12">
+                                        Get in Touch
+                                    </Button>
+                                </Link>
+                                <Link href="https://github.com/sansaran1234" target="_blank" rel="noreferrer">
+                                    <Button variant="secondary" size="lg" className="px-12">
+                                        View GitHub
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </Card>
                 </motion.div>
             </div>
-            
-            <motion.div className="w-full max-w-7xl mt-16 flex flex-col items-center gap-4" variants={contactAmbientReveal.footer}>
-                <div className="font-technical text-[9px] uppercase font-black text-outline-variant tracking-widest">
-                    Available for // Freelance | Contract | Full-time
-                </div>
-            </motion.div>
         </motion.section>
     );
 };
