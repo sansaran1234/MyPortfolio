@@ -27,6 +27,19 @@ export const heroSoftReveal = {
     } satisfies Variants,
 };
 
+export const heroLeadSlideReveal = {
+    hidden: { opacity: 0, x: -48, y: 10 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+            duration: 0.82,
+            ease: cinematicEase,
+        },
+    },
+} satisfies Variants;
+
 export const heroStaggeredCinematic = {
     container: {
         hidden: { opacity: 0 },

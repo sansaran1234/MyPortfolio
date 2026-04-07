@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { heroSoftReveal } from "../../animations/common.animations";
+import { heroLeadSlideReveal, heroSoftReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
-import { StatusTerminal } from "../ui/StatusTerminal";
 import { Badge } from "../ui/Badge";
 import { AmbientGlow } from "../ui/AmbientGlow";
 import { AmbientDetail } from "../ui/AmbientDetail";
@@ -73,7 +72,7 @@ export const Hero = () => {
                 animate="visible"
             >
                 <div className="lg:col-span-8 flex flex-col gap-8">
-                    <motion.div className="flex flex-col gap-2" variants={heroSoftReveal.item}>
+                    <motion.div className="flex flex-col gap-2" variants={heroLeadSlideReveal}>
                         <Badge variant="outline" className="w-fit">Welcome to My Portfolio // 2026</Badge>
                         <h1 className="font-display text-6xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter">
                             SANSARAN <br />
