@@ -5,18 +5,19 @@ import { heroSoftReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
 import { StatusTerminal } from "../ui/StatusTerminal";
 import { Badge } from "../ui/Badge";
+import { AmbientGlow } from "../ui/AmbientGlow";
 
 export const Hero = () => {
     return (
         <section className="relative w-full min-h-screen flex flex-col justify-center px-8 pt-32 pb-24 overflow-hidden">
-            <motion.div
+            <AmbientGlow
                 className="absolute top-0 right-0 -z-10 h-full w-1/2 bg-linear-to-bl from-primary/5 to-transparent opacity-50 blur-3xl"
                 initial={{ opacity: 0.35, x: 24, y: -20, scale: 0.96 }}
                 animate={{ opacity: [0.38, 0.54, 0.4], x: [24, 0, 20], y: [-20, 18, -12], scale: [0.96, 1.04, 0.98] }}
                 transition={{ duration: 16, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY, repeatType: "mirror" }}
             />
-            <motion.div
-                className="absolute bottom-0 left-0 -z-10 h-1/2 w-1/3 bg-linear-to-tr from-primary/5 to-transparent opacity-50 blur-3xl"
+            <AmbientGlow
+                className="absolute bottom-0 left-0 -z-10 h-1/2 w-1/3 bg-linear-to-tr from-[#7aa2ff]/14 via-[#4f7dff]/8 to-transparent opacity-50 blur-3xl"
                 initial={{ opacity: 0.28, x: -20, y: 18, scale: 0.94 }}
                 animate={{ opacity: [0.3, 0.48, 0.34], x: [-20, 10, -12], y: [18, -16, 10], scale: [0.94, 1.03, 0.97] }}
                 transition={{ duration: 18, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY, repeatType: "mirror", delay: 1.2 }}
