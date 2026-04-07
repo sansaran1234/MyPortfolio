@@ -3,12 +3,12 @@
 import { motion } from "motion/react";
 import { techStackGridCascade } from "../../animations/common.animations";
 import { Badge } from "../ui/Badge";
-import { Card } from "../ui/Card";
+import { Marquee } from "../ui/Marquee";
 
 const STACK = [
-    { category: "Frontend", tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion", "Material UI", "Ant Design", "Bootstrap"] },
-    { category: "Backend", tools: ["Node.js", "Express.js", "PostgreSQL"] },
-    { category: "Tools", tools: ["AI Assistant","Git", "GitHub", "VS Code", "Postman", "Figma", "Jira", "Trello"] },
+    { category: "Frontend",duration: 22, tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion", "Material UI", "Ant Design", "Bootstrap"] },
+    { category: "Backend",duration: 8, tools: ["Node.js", "Express.js", "PostgreSQL"] },
+    { category: "Tools",duration: 12, tools: ["AI Assistant","Git", "GitHub", "VS Code", "Postman", "Figma", "Jira", "Trello"] },
 ];
 
 export const TechStack = () => {
@@ -33,27 +33,35 @@ export const TechStack = () => {
                 </motion.div>
                 
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="flex flex-col gap-10"
                     variants={techStackGridCascade.grid}
                 >
-                    {STACK.map((item) => (
-                        <motion.div key={item.category} variants={techStackGridCascade.card}>
-                            <Card variant="medium" className="p-8 border border-outline-variant/10">
-                                <div className="flex flex-col gap-6">
-                                    <h3 className="font-technical text-[10px] uppercase font-black text-primary tracking-[0.2em]">
-                                        {item.category}
-                                    </h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {item.tools.map((tool) => (
-                                            <Badge key={tool} variant="soft" className="px-3 py-1 text-[9px]">
+                    <div className="flex flex-col gap-6">
+                        {STACK.map((group, index) => (
+                            <motion.div key={group.category} variants={techStackGridCascade.card}>
+                                <div className="relative flex flex-col gap-4 rounded-2xl border border-outline-variant/10 bg-surface-container/60 p-5">
+                                    <div className="flex items-center justify-start gap-4">
+                                        <span className="ml-4 font-technical text-[10px] uppercase font-black text-primary tracking-[0.24em]">
+                                            {group.category}
+                                        </span>
+                                    </div>
+                                    <Marquee reverse={index % 2 === 1} pauseOnHover duration={group.duration} className="py-1 w-full">
+                                        {group.tools.map((tool) => (
+                                            <Badge
+                                                key={`${group.category}-${tool}`}
+                                                variant="soft"
+                                                className="shrink-0 px-4 py-2 text-[10px] border border-outline-variant/10 bg-surface-container-high"
+                                            >
                                                 {tool}
                                             </Badge>
                                         ))}
-                                    </div>
+                                    </Marquee>
+                                    <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-surface-container to-transparent" />
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-surface-container to-transparent" />
                                 </div>
-                            </Card>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
             
