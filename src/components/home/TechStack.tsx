@@ -2,7 +2,7 @@ import { Badge } from "../ui/Badge";
 import { Card } from "../ui/Card";
 
 const STACK = [
-    { category: "Frontend", tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion"] },
+    { category: "Frontend", tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion", "Material UI", "Ant Design", "Bootstrap"] },
     { category: "Backend", tools: ["Node.js", "Express.js", "PostgreSQL"] },
     { category: "Tools", tools: ["AI Assistant","Git", "GitHub", "VS Code", "Postman", "Figma", "Jira", "Trello"] },
 ];

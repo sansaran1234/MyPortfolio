@@ -1,36 +1,56 @@
 import { Badge } from "../ui/Badge";
 import { Card } from "../ui/Card";
-import { Button } from "../ui/Button";
 import Image from "next/image";
 
 const PROJECTS = [
     {
-        title: "OmniLedger",
-        category: "Fintech // 2025",
-        description: "A distributed ledger system built for high-frequency trading with zero-latency synchronization.",
-        tools: ["Go", "gRPC", "Redis", "NATS"],
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000"
+        title: "ERP: Job Tracking System",
+        category: "ERP",
+        description: "Engineered a factory Job Tracking system for employee performance and a 3D/2D packaging design platform with real-time dieline and texture customization.",
+        tools: ["Next.js", "Shadcn UI", "Tailwind CSS"],
+        image: "/images/img-ERP.webp"
     },
     {
-        title: "ArchitectOne",
-        category: "Productivity // 2024",
-        description: "A real-time collaborative architectural design tool for large-scale engineering teams.",
-        tools: ["Next.js", "WebSockets", "Canvas API", "S3"],
-        image: "https://images.unsplash.com/photo-1503387762-592dee58c160?auto=format&fit=crop&q=80&w=2000"
+        title: "E-commerce: Ordering, Shipping, and Pickup Logistics",
+        category: "E-commerce",
+        description: "End-to-End Solutions: Developed comprehensive ordering, shipping, and pickup logistics alongside a robust Back-Office suite for complex product configurations.",
+        tools: ["Next","TypeScript","Shadcn UI","Tailwind CSS","Framer Motion", "WebSockets"],
+        image: "/images/img-Ecom.webp"
     },
     {
-        title: "CoreFlow",
-        category: "Internal Tool // 2024",
-        description: "Custom internal task management engine with visual workflow automation.",
-        tools: ["Node.js", "PostgreSQL", "React", "Docker"],
-        image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&q=80&w=2000"
+        title: "AI-Driven Development",
+        category: "Article Generation",
+        description: "AI-Driven Development: Built a Next.js platform for automated article generation and a \"one-click\" AI chat application to streamline content creation.",
+        tools: ["Next","TypeScript","Shadcn UI","Tailwind CSS","Framer Motion", "Material UI"],
+        image: "/images/img-AI.webp"
+    },
+    {
+        title: "Frontend Excellence",
+        category: "Landing Page",
+        description: "Frontend Excellence: Delivered pixel-perfect, responsive landing pages from Figma using Material UI and Tailwind CSS, ensuring seamless experiences across all devices.",
+        tools: ["Next","TypeScript","Shadcn UI","Tailwind CSS","Framer Motion", "Material UI"],
+        image: "/images/img-SEO.webp"
+    },
+    {
+        title: "Travel & Booking Systems",
+        category: "Travel & Booking Systems",
+        description: "Travel & Booking Systems: Developed a high-performance flight booking platform using React and TypeScript, featuring dynamic seat selection, passenger management, and real-time scheduling.",
+        tools: ["React","TypeScript", "Material UI"],
+        image: "/images/img-ARS.webp"
+    },
+    {
+        title: "Knowledge Transfer",
+        category: "Knowledge Transfer",
+        description: "I have experience in transferring knowledge to interns.",
+        tools: ["React","Next","TypeScript","Shadcn UI","Tailwind CSS","Framer Motion", "Material UI"],
+        image: "/images/img-intern.webp"
     }
 ];
 
 export const Projects = () => {
     return (
         <section id="projects" className="w-full bg-background py-32 px-8 flex flex-col items-center">
-            <div className="w-full max-w-7xl flex flex-col gap-16">
+            <div className={'w-full max-w-7xl flex flex-col gap-16'}>
                 <div className="max-w-2xl flex flex-col gap-4">
                     <h2 className="font-display text-4xl md:text-5xl font-black text-foreground tracking-tighter">
                         Engineering <span className="text-primary italic">Portfolio.</span>
@@ -74,10 +94,10 @@ export const Projects = () => {
                                     ))}
                                 </div>
                                 
-                                <div className="mt-4">
+                                {/* <div className="mt-4">
                                     <Button variant="secondary" size="md">Case Study</Button>
                                     <Button variant="ghost" size="md" className="ml-4">Live Preview</Button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     ))}

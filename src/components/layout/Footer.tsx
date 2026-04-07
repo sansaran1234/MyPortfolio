@@ -19,7 +19,7 @@ export const Footer = () => {
                 <div className="flex flex-col gap-8 md:text-right md:items-end">
                     <div className="flex flex-col gap-2">
                         <span className="font-technical text-[10px] uppercase text-outline-variant font-black tracking-[0.2em]">Email</span>
-                        <a href="mailto:hello@dev.portfolio" className="font-display text-xl md:text-2xl font-bold hover:text-primary transition-colors hover:underline underline-offset-8 decoration-primary">hello@dev.portfolio</a>
+                        <a href="mailto:sansaran.p10@gmail.com" className="font-display text-xl md:text-2xl font-bold hover:text-primary transition-colors hover:underline underline-offset-8 decoration-primary">sansaran.p10@gmail.com</a>
                     </div>
                     <div className="flex gap-4">
                         <a href="#" className="font-technical text-[10px] uppercase text-outline-variant hover:text-primary transition-colors">GitHub</a>
