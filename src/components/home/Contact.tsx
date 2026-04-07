@@ -60,7 +60,7 @@ export const Contact = () => {
                                                 {item.label}
                                             </span>
                                             {item.label === "Email" ? (
-                                                <div className="flex items-center justify-between gap-3 text-left">
+                                                <div className="flex items-center justify-between gap-2 text-left">
                                                     <span className="font-display text-lg font-bold text-foreground transition-colors hover:text-primary">
                                                         {item.value}
                                                     </span>
