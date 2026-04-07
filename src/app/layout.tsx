@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Senior Developer Portfolio | Architectural Ledger",
+  title: "Developer Portfolio | Sansaran",
   description: "A professional showcase of engineering precision and technical elegance.",
 };
 

@@ -39,7 +39,7 @@ export const Hero = () => {
                     </motion.div>
                     
                     <motion.p className="font-body text-lg md:text-xl text-outline max-w-2xl leading-relaxed" variants={heroSoftReveal.item}>
-                        I am a <span className="text-foreground font-bold">Senior Software Architect</span> specializing in 
+                        I am a <span className="text-foreground font-bold">Software Architect</span> specializing in 
                         high-performance distributed systems and premium front-end experiences. 
                         Building technical solutions that scale with zero compromise on elegance.
                     </motion.p>

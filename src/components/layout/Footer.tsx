@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Badge } from "../ui/Badge";
 
 export const Footer = () => {
@@ -22,9 +23,9 @@ export const Footer = () => {
                         <a href="mailto:sansaran.p10@gmail.com" className="font-display text-xl md:text-2xl font-bold hover:text-primary transition-colors hover:underline underline-offset-8 decoration-primary">sansaran.p10@gmail.com</a>
                     </div>
                     <div className="flex gap-4">
-                        <a href="#" className="font-technical text-[10px] uppercase text-outline-variant hover:text-primary transition-colors">GitHub</a>
-                        <a href="#" className="font-technical text-[10px] uppercase text-outline-variant hover:text-primary transition-colors">LinkedIn</a>
-                        <a href="#" className="font-technical text-[10px] uppercase text-outline-variant hover:text-primary transition-colors">X / Twitter</a>
+                        <Link href="https://github.com/sansaran1234" target="_blank" rel="noreferrer" className="font-technical text-[10px] uppercase text-outline-variant hover:text-primary transition-colors">GitHub</Link>
+                        <Link href="#" target="_blank" rel="noreferrer" className="font-technical text-[10px] uppercase text-outline-variant hover:text-primary transition-colors">LinkedIn</Link>
+                        <Link href="#" target="_blank" rel="noreferrer" className="font-technical text-[10px] uppercase text-outline-variant hover:text-primary transition-colors">X / Twitter</Link>
                     </div>
                 </div>
             </div>
