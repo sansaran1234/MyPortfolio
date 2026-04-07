@@ -101,7 +101,7 @@ export const Hero = () => {
                             <h3 className="font-technical text-[10px] uppercase font-black text-primary tracking-widest">Global Stats</h3>
                             <div className="grid grid-cols-[2fr_1fr] gap-4">
                                 <div className="flex flex-col">
-                                    <span className="font-display text-xl font-black">2,059</span>
+                                    <span className="font-display text-2xl font-black">2,059</span>
                                     <span className="font-technical text-[8px] uppercase text-outline">contributions in the last year</span>
                                 </div>
                                 <div className="flex flex-col">
