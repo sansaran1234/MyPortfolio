@@ -2,6 +2,7 @@
 
 import type { MouseEvent } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { navbarSoftReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
@@ -36,8 +37,8 @@ export const Navbar = () => {
         variants={navbarSoftReveal.item}
       >
         <motion.div className="flex items-center gap-4" variants={navbarSoftReveal.item}>
-          <Link href="/" className="font-display font-black text-xl tracking-tighter text-primary">
-            SANSARAN
+          <Link href="/" className="inline-flex items-center">
+            <Image src="/images/logo.webp" alt="Sansaran logo" width={120} height={34} className="h-8 w-auto" />
           </Link>
         </motion.div>
         
