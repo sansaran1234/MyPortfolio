@@ -33,7 +33,7 @@ export const Navbar = () => {
       animate="visible"
     >
       <motion.nav
-        className="glass flex w-full max-w-7xl items-center justify-between rounded-2xl border border-outline-variant/10 px-6 py-2"
+        className="glass flex w-full max-w-7xl items-center justify-between rounded-2xl border border-outline-variant/10 p-2 px-4"
         variants={navbarSoftReveal.item}
       >
         <motion.div className="flex items-center gap-4" variants={navbarSoftReveal.item}>
