@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { techStackGridCascade } from "../../animations/common.animations";
 import { Card } from "../ui/Card";
+import { SectionIntro } from "../ui/SectionIntro";
 
 const DATE_OF_BIRTH = new Date("1997-07-28");
 
@@ -46,13 +47,10 @@ export const PersonalInformation = () => {
     >
       <div className="w-full max-w-7xl">
         <motion.div variants={techStackGridCascade.heading}>
-          <div className="flex flex-col gap-4">
-            <div className="inline-flex bg-foreground px-6 py-3 text-background">
-              <span className="font-technical text-xs uppercase font-black tracking-[0.2em]">
-                Personal Information
-              </span>
-            </div>
-          </div>
+          <SectionIntro
+            title={<>Personal <span className="text-primary italic">Information.</span></>}
+            description="A quick profile dossier covering identity, physical profile, and personal status details in one compact board."
+          />
         </motion.div>
 
         <motion.div
