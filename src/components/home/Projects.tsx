@@ -5,6 +5,7 @@ import { projectShowcaseCascade } from "../../animations/common.animations";
 import { Badge } from "../ui/Badge";
 import { Card } from "../ui/Card";
 import Image from "next/image";
+import { SectionIntro } from "../ui/SectionIntro";
 
 const PROJECTS = [
     {
@@ -62,13 +63,11 @@ export const Projects = () => {
             viewport={{ once: true, amount: 0.08 }}
         >
             <div className={'w-full max-w-7xl flex flex-col gap-16'}>
-                <motion.div className="max-w-2xl flex flex-col gap-4" variants={projectShowcaseCascade.heading}>
-                    <h2 className="font-display text-4xl md:text-5xl font-black text-foreground tracking-tighter">
-                        Engineering <span className="text-primary italic">Portfolio.</span>
-                    </h2>
-                    <p className="font-body text-base text-outline leading-relaxed max-w-lg">
-                        Selected works focused on technical precision, high performance, and minimal design.
-                    </p>
+                <motion.div variants={projectShowcaseCascade.heading}>
+                    <SectionIntro
+                        title={<>Engineering <span className="text-primary italic">Portfolio.</span></>}
+                        description="Selected works focused on technical precision, high performance, and minimal design."
+                    />
                 </motion.div>
                 
                 <div className="flex flex-col gap-32">

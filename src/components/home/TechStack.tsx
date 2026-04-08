@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { techStackGridCascade } from "../../animations/common.animations";
 import { Badge } from "../ui/Badge";
 import { Marquee } from "../ui/Marquee";
+import { SectionIntro } from "../ui/SectionIntro";
 
 const STACK = [
     { category: "Frontend",duration: 50, tools: ["React", "Next", "Typescript", "HTML", "CSS", "Tailwind CSS", "Shadcn ui component", "Framer Motion", "Material UI", "Ant Design", "Bootstrap"] },
@@ -22,14 +23,16 @@ export const TechStack = () => {
             viewport={{ once: true, amount: 0.2 }}
         >
             <div className="w-full max-w-7xl flex flex-col gap-16">
-                <motion.div className="max-w-2xl flex flex-col gap-4" variants={techStackGridCascade.heading}>
-                    <h2 className="font-display text-4xl md:text-5xl font-black text-foreground tracking-tighter">
-                        Technical <span className="text-primary italic">Foundation.</span>
-                    </h2>
-                    <p className="font-body text-base text-outline leading-relaxed max-w-lg">
-                        Our engineering logic is built on a stack of precision-engineered tools 
-                        for speed, reliability, and technical elegance.
-                    </p>
+                <motion.div variants={techStackGridCascade.heading}>
+                    <SectionIntro
+                        title={<>Technical <span className="text-primary italic">Foundation.</span></>}
+                        description={
+                            <>
+                                Our engineering logic is built on a stack of precision-engineered tools
+                                {" "}for speed, reliability, and technical elegance.
+                            </>
+                        }
+                    />
                 </motion.div>
                 
                 <motion.div
