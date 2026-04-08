@@ -2,8 +2,7 @@
 
 import { motion } from "motion/react";
 import { techStackGridCascade } from "../../animations/common.animations";
-import { Badge } from "../ui/Badge";
-import { Marquee } from "../ui/Marquee";
+import { TechStackMarqueeCard } from "./TechStackMarqueeCard";
 import { SectionIntro } from "../ui/SectionIntro";
 
 const STACK = [
@@ -42,26 +41,12 @@ export const TechStack = () => {
                     <div className="flex flex-col gap-6">
                         {STACK.map((group, index) => (
                             <motion.div key={group.category} variants={techStackGridCascade.card}>
-                                <div className="relative flex flex-col gap-4 rounded-2xl border border-outline-variant/10 bg-surface-container/60 p-5">
-                                    <div className="flex items-center justify-start gap-4">
-                                        <span className="ml-4 font-technical text-[10px] uppercase font-black text-primary tracking-[0.24em]">
-                                            {group.category}
-                                        </span>
-                                    </div>
-                                    <Marquee reverse={index % 2 === 1} pauseOnHover duration={group.duration} className="py-1 w-full">
-                                        {group.tools.map((tool) => (
-                                            <Badge
-                                                key={`${group.category}-${tool}`}
-                                                variant="soft"
-                                                className="shrink-0 px-4 py-2 text-[10px] border border-outline-variant/10 bg-surface-container-high"
-                                            >
-                                                {tool}
-                                            </Badge>
-                                        ))}
-                                    </Marquee>
-                                    <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-surface-container to-transparent" />
-                                    <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-surface-container to-transparent" />
-                                </div>
+                                <TechStackMarqueeCard
+                                    category={group.category}
+                                    tools={group.tools}
+                                    duration={group.duration}
+                                    reverse={index % 2 === 1}
+                                />
                             </motion.div>
                         ))}
                     </div>

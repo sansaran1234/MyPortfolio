@@ -36,7 +36,7 @@ export const Footer = () => {
                     <Badge variant="outline">System Stable</Badge>
                 </div>
                 <div className="font-technical text-[10px] uppercase text-outline-variant tracking-widest">
-                    Rendered in <span className="text-foreground">Next.js 16</span> | Styling via <span className="text-foreground">Tailwind 4.0</span>
+                    Rendered in <span className="text-foreground">Next.js 15</span> | Styling via <span className="text-foreground">Tailwind 4.0</span>
                 </div>
             </div>
         </footer>
