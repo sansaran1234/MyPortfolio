@@ -37,7 +37,7 @@ export const Navbar = () => {
       >
         <motion.div className="flex items-center gap-4" variants={navbarSoftReveal.item}>
           <Link href="/" className="font-display font-black text-xl tracking-tighter text-primary">
-            My portfolio
+            SANSARAN
           </Link>
         </motion.div>
         

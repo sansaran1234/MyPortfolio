@@ -60,7 +60,7 @@ export const Hero = () => {
                     </motion.p>
                     
                     <motion.div className="flex flex-wrap gap-4 items-center" variants={heroSoftReveal.item}>
-                        <Button variant="primary" size="lg">Review Work</Button>
+                        <Button variant="primary" size="lg" onClick={() => { window.location.href = "#projects"; }}>Experience</Button>
                         <Button variant="secondary" size="lg" onClick={() => { window.location.href = "mailto:sansaran.p10@gmail.com"; }}>
                             Send Message
                         </Button>
