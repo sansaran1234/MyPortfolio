@@ -39,6 +39,7 @@ export const Education = () => {
       <div className="pointer-events-none absolute inset-0 opacity-70">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(60,74,63,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(60,74,63,0.08)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(69,249,156,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(122,162,255,0.08),transparent_26%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-surface-container-low to-transparent" />
       </div>
       <div className="w-full max-w-7xl">
         <motion.div variants={techStackGridCascade.heading}>
