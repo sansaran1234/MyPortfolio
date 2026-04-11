@@ -15,7 +15,7 @@ export const TechStack = () => {
     return (
         <motion.section
             id="stack"
-            className="w-full bg-surface-container-low py-32 px-8 flex flex-col items-center overflow-hidden"
+            className="w-full bg-surface-container-low py-32 md:px-8 px-4 flex flex-col items-center overflow-hidden"
             variants={techStackGridCascade.section}
             initial="hidden"
             whileInView="visible"

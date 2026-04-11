@@ -21,7 +21,7 @@ export const Hero = () => {
     ];
 
     return (
-        <section className="relative w-full min-h-screen flex flex-col justify-center px-8 pt-32 pb-24 overflow-hidden">
+        <section className="relative w-full min-h-screen flex flex-col justify-center md:px-8 px-4 pt-32 pb-24 overflow-hidden">
             <BubbleBackground
                 interactive
                 colors={{
@@ -73,11 +73,11 @@ export const Hero = () => {
                     variants={heroSoftReveal.item}
                 >
                     <motion.div
-                        className="w-full lg:w-72 p-6 bg-surface-container/85 backdrop-blur-xs rounded-xl border border-outline-variant/10"
+                        className="w-full lg:w-90 p-6 bg-surface-container/85 backdrop-blur-xs rounded-xl border border-outline-variant/10"
                         variants={heroSoftReveal.item}
                     >
                         <div className="flex flex-col gap-1">
-                            <span className="font-bold text-foreground text-xl uppercase">Frontend Developer</span>
+                            <span className="font-bold text-foreground text-xl uppercase">React Frontend Developer</span>
                             <h3 className="font-technical text-[10px] uppercase font-black text-primary tracking-widest">Experience</h3>
                             <div className="grid grid-cols-[2fr_1fr] gap-4">
                                 <div className="flex flex-col">
@@ -87,7 +87,7 @@ export const Hero = () => {
                             </div>
                         </div>
                     </motion.div>
-                    <motion.div className="w-full lg:w-72" variants={heroSoftReveal.item}>
+                    <motion.div className="w-full lg:w-90" variants={heroSoftReveal.item}>
                         <StatsPanel title="Global Stats" items={stats} className="bg-surface-container/85 backdrop-blur-xs" />
                     </motion.div>
                 </motion.div>

@@ -56,7 +56,7 @@ export const Projects = () => {
     return (
         <motion.section
             id="projects"
-            className="w-full bg-background py-32 px-8 flex flex-col items-center overflow-hidden"
+            className="w-full bg-background py-32 md:px-8 px-4 flex flex-col items-center overflow-hidden"
             variants={projectShowcaseCascade.section}
             initial="hidden"
             whileInView="visible"

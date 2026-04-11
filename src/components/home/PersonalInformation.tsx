@@ -39,7 +39,7 @@ export const PersonalInformation = () => {
   return (
     <motion.section
       id="personal-information"
-      className="w-full bg-background px-8 py-20 flex flex-col items-center"
+      className="w-full bg-background md:px-8 px-4 py-20 flex flex-col items-center"
       variants={techStackGridCascade.section}
       initial="hidden"
       whileInView="visible"

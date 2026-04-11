@@ -30,7 +30,7 @@ export const Education = () => {
   return (
     <motion.section
       id="education"
-      className="relative w-full bg-surface-container-low px-8 py-20 flex flex-col items-center overflow-hidden"
+      className="relative w-full bg-surface-container-low md:px-8 px-4 py-20 flex flex-col items-center overflow-hidden"
       variants={techStackGridCascade.section}
       initial="hidden"
       whileInView="visible"
