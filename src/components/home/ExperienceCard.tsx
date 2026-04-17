@@ -19,7 +19,13 @@ export const ExperienceCard = ({
   className,
 }: ExperienceCardProps) => {
   return (
-    <motion.div className={className} variants={heroSoftReveal.item}>
+    <motion.div
+      className={`${
+        className ||
+        "w-full lg:w-90 p-6 bg-surface-container/85 backdrop-blur-xs rounded-xl border border-outline-variant/10"
+      }`}
+      variants={heroSoftReveal.item}
+    >
       <div className="flex flex-col gap-1">
         <span className="font-bold text-foreground text-xl uppercase">
           {jobTitle}
