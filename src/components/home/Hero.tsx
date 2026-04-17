@@ -38,7 +38,7 @@ export const Hero = () => {
                 </div>
                 
                 {/* Right */}
-                <HeroInfoCards className="relative lg:col-span-4 flex flex-col gap-6 lg:items-end" jobTitle="React / Next Frontend Developer" />
+                <HeroInfoCards className="relative lg:col-span-4 flex flex-col gap-6 lg:items-end" />
             </motion.div>
             
              <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-background to-transparent pointer-events-none" />
