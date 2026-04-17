@@ -18,7 +18,7 @@ export const StatusTerminal = ({
     <div
       className={cn(
         "inline-flex flex-col gap-1 p-3 bg-surface-container-highest rounded-lg font-technical text-xs tracking-tight shadow-lg",
-        className
+        className,
       )}
       {...props}
     >
@@ -26,10 +26,12 @@ export const StatusTerminal = ({
         <span
           className={cn(
             "w-2 h-2 rounded-full",
-            status === "online" ? "bg-primary animate-pulse" : "bg-outline"
+            status === "online" ? "bg-primary animate-pulse" : "bg-outline",
           )}
         />
-        <span className="font-bold text-foreground text-xl uppercase">{label}</span>
+        <span className="font-bold text-foreground text-xl uppercase">
+          {label}
+        </span>
       </div>
       <div className="text-outline-variant font-medium select-none truncate">
         {metadata}

@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { heroLeadSlideReveal, heroSoftReveal } from "../../animations/common.animations";
+import {
+  heroLeadSlideReveal,
+  heroSoftReveal,
+} from "../../animations/common.animations";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
 
@@ -32,13 +35,18 @@ export const HeroIntro = ({
 }: HeroIntroProps) => {
   const highlightDescription = description.replace(
     descriptionHighlight,
-    `<span className="text-foreground font-bold">${descriptionHighlight}</span>`
+    `<span className="text-foreground font-bold">${descriptionHighlight}</span>`,
   );
 
   return (
     <div className={className}>
-      <motion.div className="relative flex flex-col gap-2 pt-6 md:pt-10" variants={heroLeadSlideReveal}>
-        <Badge variant="outline" className="w-fit">{badgeText}</Badge>
+      <motion.div
+        className="relative flex flex-col gap-2 pt-6 md:pt-10"
+        variants={heroLeadSlideReveal}
+      >
+        <Badge variant="outline" className="w-fit">
+          {badgeText}
+        </Badge>
         <h1 className="font-display text-6xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter">
           {name} <br />
           <span className="text-primary italic">{highlightName}</span>
@@ -51,9 +59,26 @@ export const HeroIntro = ({
         dangerouslySetInnerHTML={{ __html: highlightDescription }}
       />
 
-      <motion.div className="flex flex-wrap gap-4 items-center" variants={heroSoftReveal.item}>
-        <Button variant="primary" size="lg" onClick={() => { window.location.href = ctaHref; }}>{ctaText}</Button>
-        <Button variant="secondary" size="lg" onClick={() => { window.location.href = secondaryHref; }}>
+      <motion.div
+        className="flex flex-wrap gap-4 items-center"
+        variants={heroSoftReveal.item}
+      >
+        <Button
+          variant="primary"
+          size="lg"
+          onClick={() => {
+            window.location.href = ctaHref;
+          }}
+        >
+          {ctaText}
+        </Button>
+        <Button
+          variant="secondary"
+          size="lg"
+          onClick={() => {
+            window.location.href = secondaryHref;
+          }}
+        >
           {secondaryText}
         </Button>
       </motion.div>

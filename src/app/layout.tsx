@@ -19,7 +19,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Portfolio | Sansaran",
-  description: "A professional showcase of engineering precision and technical elegance.",
+  description:
+    "A professional showcase of engineering precision and technical elegance.",
 };
 
 export default function RootLayout({

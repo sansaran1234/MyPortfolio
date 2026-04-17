@@ -21,17 +21,18 @@ export const GradientBackground = ({
   ...props
 }: GradientBackgroundProps) => {
   return (
-    <div className={cn("absolute inset-0 z-0 overflow-hidden pointer-events-none", className)} {...props}>
+    <div
+      className={cn(
+        "absolute inset-0 z-0 overflow-hidden pointer-events-none",
+        className,
+      )}
+      {...props}
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(69,249,156,0.1),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(79,125,255,0.1),_transparent_36%),linear-gradient(135deg,_rgba(34,42,61,0.78),_rgba(23,31,51,0.88)_42%,_rgba(11,19,38,0.96))]" />
       <motion.div
         className="absolute inset-[-24%] opacity-80 blur-3xl"
         animate={{
-          backgroundPosition: [
-            "0% 50%",
-            "100% 50%",
-            "50% 100%",
-            "0% 50%",
-          ],
+          backgroundPosition: ["0% 50%", "100% 50%", "50% 100%", "0% 50%"],
           scale: [1, 1.08, 1.02, 1],
           rotate: [0, 6, -4, 0],
         }}

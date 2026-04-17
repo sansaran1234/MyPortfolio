@@ -24,7 +24,7 @@ export const Card = ({
         "rounded-xl transition-all duration-300 overflow-hidden",
         variants[variant],
         interactive && "hover:bg-surface-container-high cursor-pointer group",
-        className
+        className,
       )}
       {...props}
     />

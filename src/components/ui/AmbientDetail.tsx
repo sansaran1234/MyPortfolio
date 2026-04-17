@@ -24,11 +24,17 @@ export const AmbientDetail = ({
 }: AmbientDetailProps) => {
   return (
     <motion.div
-      className={cn("absolute top-0 right-0 translate-x-12 -translate-y-12", containerClassName)}
+      className={cn(
+        "absolute top-0 right-0 translate-x-12 -translate-y-12",
+        containerClassName,
+      )}
       variants={variants}
     >
       <motion.div
-        className={cn("w-32 h-32 rounded-bl-full bg-primary/10", shapeClassName)}
+        className={cn(
+          "w-32 h-32 rounded-bl-full bg-primary/10",
+          shapeClassName,
+        )}
         animate={{
           x: [0, driftX, 0],
           y: [0, driftY, 0],

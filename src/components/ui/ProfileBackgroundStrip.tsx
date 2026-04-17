@@ -20,13 +20,13 @@ export const ProfileBackgroundStrip = ({
     <div
       className={cn(
         "absolute inset-y-[-18%] right-[-8%] left-[52%] -z-10 overflow-hidden rounded-[3rem] border border-outline-variant/10 bg-surface-container-high/20 rotate-[10deg] lg:left-[-8%] lg:right-[52%] lg:-rotate-[10deg] max-[1024px]:left-[40%] max-[601px]:left-[45%] max-[426px]:top-[-23rem] max-[426px]:left-[35%]",
-        className
+        className,
       )}
     >
       <div
         className={cn(
           "absolute inset-[8%] top-[-35rem] w-[62rem] -rotate-[10deg] scale-110 max-[1501px]:w-[55rem] max-[1251px]:w-[45rem] max-[1024px]:w-[35rem] max-[1024px]:left-[-3rem] max-[769px]:left-[-2rem] max-[601px]:left-[-6rem] lg:rotate-[10deg]",
-          imageClassName
+          imageClassName,
         )}
       >
         <Image

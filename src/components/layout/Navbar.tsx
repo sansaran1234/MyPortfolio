@@ -8,7 +8,10 @@ import { navbarSoftReveal } from "../../animations/common.animations";
 import { Button } from "../ui/Button";
 
 export const Navbar = () => {
-  const handleSectionNavigate = (event: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+  const handleSectionNavigate = (
+    event: MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
     event.preventDefault();
 
     const section = document.getElementById(sectionId);
@@ -36,24 +39,65 @@ export const Navbar = () => {
         className="glass flex w-full max-w-7xl items-center justify-between rounded-2xl border border-outline-variant/10 p-2 px-4"
         variants={navbarSoftReveal.item}
       >
-        <motion.div className="flex items-center gap-4" variants={navbarSoftReveal.item}>
+        <motion.div
+          className="flex items-center gap-4"
+          variants={navbarSoftReveal.item}
+        >
           <Link href="/" className="inline-flex items-center">
-            <Image src="/images/logo.webp" alt="Sansaran logo" width={120} height={34} className="h-8 w-auto" />
+            <Image
+              src="/images/logo.webp"
+              alt="Sansaran logo"
+              width={120}
+              height={34}
+              className="h-8 w-auto"
+            />
           </Link>
         </motion.div>
-        
+
         <div className="flex items-center gap-8">
           <motion.div
             className="hidden md:flex items-center gap-6 font-technical text-[10px] uppercase font-bold tracking-widest text-outline"
             variants={navbarSoftReveal.item}
           >
-            <Link href="#personal-information" onClick={(event) => handleSectionNavigate(event, "personal-information")} className="hover:text-primary transition-colors">/Personal</Link>
-            <Link href="#education" onClick={(event) => handleSectionNavigate(event, "education")} className="hover:text-primary transition-colors">/Education</Link>
-            <Link href="#stack" onClick={(event) => handleSectionNavigate(event, "stack")} className="hover:text-primary transition-colors">/Stack</Link>
-            <Link href="#projects" onClick={(event) => handleSectionNavigate(event, "projects")} className="hover:text-primary transition-colors">/Projects</Link>
-            <Link href="#contact" onClick={(event) => handleSectionNavigate(event, "contact")} className="hover:text-primary transition-colors">/Contact</Link>
+            <Link
+              href="#personal-information"
+              onClick={(event) =>
+                handleSectionNavigate(event, "personal-information")
+              }
+              className="hover:text-primary transition-colors"
+            >
+              /Personal
+            </Link>
+            <Link
+              href="#education"
+              onClick={(event) => handleSectionNavigate(event, "education")}
+              className="hover:text-primary transition-colors"
+            >
+              /Education
+            </Link>
+            <Link
+              href="#stack"
+              onClick={(event) => handleSectionNavigate(event, "stack")}
+              className="hover:text-primary transition-colors"
+            >
+              /Stack
+            </Link>
+            <Link
+              href="#projects"
+              onClick={(event) => handleSectionNavigate(event, "projects")}
+              className="hover:text-primary transition-colors"
+            >
+              /Projects
+            </Link>
+            <Link
+              href="#contact"
+              onClick={(event) => handleSectionNavigate(event, "contact")}
+              className="hover:text-primary transition-colors"
+            >
+              /Contact
+            </Link>
           </motion.div>
-          
+
           <motion.div variants={navbarSoftReveal.item}>
             <Button variant="primary" size="sm" className="hidden sm:flex">
               Initiate Project

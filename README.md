@@ -5,12 +5,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 This repo includes a lightweight AI operating layer for UI work.
 
 Core files:
+
 - `CLAUDE.md` for project operating rules
 - `skills/` for repeatable review workflows
 - `agents/` for role definitions
 - `mcp.json` for planned external integration points
 
 Command concepts:
+
 - `/review-ui` for UI-facing changes
 - `/check-motion` for animation ownership and pacing review
 - `/ship-check` for final lint and build verification
@@ -32,6 +34,19 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## VS Code: Format on Save (ESLint)
+
+This repo includes `.vscode/settings.json` to run Prettier formatting and ESLint fixes on save. Install the VS Code ESLint and Prettier extensions (`dbaeumer.vscode-eslint`, `esbenp.prettier-vscode`) and reload the editor.
+
+Manual commands:
+
+```bash
+npm run lint
+npm run lint:fix
+npm run format
+npm run format:check
+```
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

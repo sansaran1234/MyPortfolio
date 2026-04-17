@@ -1,7 +1,14 @@
 "use client";
 
 import type { CSSProperties, ReactNode } from "react";
-import { Children, Fragment, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Children,
+  Fragment,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -48,9 +55,14 @@ export const Marquee = ({
         return;
       }
 
-      const requiredCopies = Math.max(2, Math.ceil((containerWidth * 2) / singleGroupWidth) + 1);
+      const requiredCopies = Math.max(
+        2,
+        Math.ceil((containerWidth * 2) / singleGroupWidth) + 1,
+      );
 
-      setRepeatCount((current) => (current === requiredCopies ? current : requiredCopies));
+      setRepeatCount((current) =>
+        current === requiredCopies ? current : requiredCopies,
+      );
       setCycleDistance(secondGroup.offsetLeft - firstGroup.offsetLeft);
     };
 
@@ -129,7 +141,13 @@ export const Marquee = ({
         {Array.from({ length: repeatCount }).map((_, index) => (
           <div
             key={index}
-            ref={index === 0 ? firstGroupRef : index === 1 ? secondGroupRef : undefined}
+            ref={
+              index === 0
+                ? firstGroupRef
+                : index === 1
+                  ? secondGroupRef
+                  : undefined
+            }
             aria-hidden={index > 0 ? "true" : undefined}
             style={contentStyle}
             className="flex min-w-max shrink-0 items-stretch"

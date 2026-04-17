@@ -19,7 +19,12 @@ export const SectionIntro = ({
       <h2 className="font-display text-4xl md:text-5xl font-black text-foreground tracking-tighter">
         {title}
       </h2>
-      <p className={cn("font-body text-base text-outline leading-relaxed max-w-lg", descriptionClassName)}>
+      <p
+        className={cn(
+          "font-body text-base text-outline leading-relaxed max-w-lg",
+          descriptionClassName,
+        )}
+      >
         {description}
       </p>
     </div>

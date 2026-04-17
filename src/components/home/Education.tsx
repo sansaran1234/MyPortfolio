@@ -44,7 +44,12 @@ export const Education = () => {
       <div className="w-full max-w-7xl">
         <motion.div variants={techStackGridCascade.heading}>
           <SectionIntro
-            title={<>Academic <span className="text-primary italic">Background.</span></>}
+            title={
+              <>
+                Academic{" "}
+                <span className="text-primary italic">Background.</span>
+              </>
+            }
             description="A concise record of educational milestones, academic focus, and GPA from secondary education through university."
           />
         </motion.div>
@@ -55,7 +60,10 @@ export const Education = () => {
         >
           {EDUCATION.map((item) => (
             <motion.div key={item.degree} variants={techStackGridCascade.card}>
-              <Card variant="medium" className="h-full border border-outline-variant/10 bg-surface-container p-7">
+              <Card
+                variant="medium"
+                className="h-full border border-outline-variant/10 bg-surface-container p-7"
+              >
                 <div className="flex h-full flex-col gap-8">
                   <div className="flex items-start justify-between gap-4 border-b border-outline-variant/10 pb-5">
                     <div className="flex flex-col gap-2">
@@ -73,7 +81,10 @@ export const Education = () => {
 
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                     {item.details.map((detail) => (
-                      <div key={detail.label} className="rounded-xl border border-outline-variant/10 bg-surface-container-high/50 p-4">
+                      <div
+                        key={detail.label}
+                        className="rounded-xl border border-outline-variant/10 bg-surface-container-high/50 p-4"
+                      >
                         <div className="flex flex-col gap-2">
                           <span className="font-technical text-[9px] uppercase tracking-[0.18em] text-outline">
                             {detail.label}

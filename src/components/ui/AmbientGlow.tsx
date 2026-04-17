@@ -4,7 +4,10 @@ import type { ComponentProps } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-interface AmbientGlowProps extends Pick<ComponentProps<typeof motion.div>, "initial" | "animate" | "transition"> {
+interface AmbientGlowProps extends Pick<
+  ComponentProps<typeof motion.div>,
+  "initial" | "animate" | "transition"
+> {
   className?: string;
 }
 

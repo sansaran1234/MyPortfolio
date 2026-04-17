@@ -2,7 +2,13 @@
 
 import type { ComponentProps } from "react";
 import { useState } from "react";
-import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "motion/react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface BubbleColors {
@@ -33,12 +39,66 @@ const defaultColors: Required<BubbleColors> = {
 };
 
 const bubbles = [
-  { size: "h-[24rem] w-[24rem]", left: "left-[-8%]", top: "top-[-8%]", duration: 22, delay: 0, x: [0, 36, -18, 0], y: [0, 28, -22, 0], scale: [1, 1.08, 0.96, 1] },
-  { size: "h-[20rem] w-[20rem]", left: "right-[8%]", top: "top-[10%]", duration: 19, delay: 0.6, x: [0, -26, 18, 0], y: [0, -20, 12, 0], scale: [0.96, 1.06, 1, 0.96] },
-  { size: "h-[18rem] w-[18rem]", left: "left-[18%]", top: "bottom-[2%]", duration: 18, delay: 1.1, x: [0, 24, -14, 0], y: [0, -26, 16, 0], scale: [1, 1.04, 0.94, 1] },
-  { size: "h-[16rem] w-[16rem]", left: "right-[18%]", top: "bottom-[-4%]", duration: 20, delay: 0.3, x: [0, -22, 16, 0], y: [0, 20, -14, 0], scale: [0.94, 1.08, 1, 0.94] },
-  { size: "h-[12rem] w-[12rem]", left: "left-[40%]", top: "top-[18%]", duration: 16, delay: 0.8, x: [0, 18, -10, 0], y: [0, -16, 12, 0], scale: [1, 1.12, 0.98, 1] },
-  { size: "h-[14rem] w-[14rem]", left: "right-[34%]", top: "top-[52%]", duration: 17, delay: 1.4, x: [0, -16, 14, 0], y: [0, 18, -12, 0], scale: [1, 1.1, 0.97, 1] },
+  {
+    size: "h-[24rem] w-[24rem]",
+    left: "left-[-8%]",
+    top: "top-[-8%]",
+    duration: 22,
+    delay: 0,
+    x: [0, 36, -18, 0],
+    y: [0, 28, -22, 0],
+    scale: [1, 1.08, 0.96, 1],
+  },
+  {
+    size: "h-[20rem] w-[20rem]",
+    left: "right-[8%]",
+    top: "top-[10%]",
+    duration: 19,
+    delay: 0.6,
+    x: [0, -26, 18, 0],
+    y: [0, -20, 12, 0],
+    scale: [0.96, 1.06, 1, 0.96],
+  },
+  {
+    size: "h-[18rem] w-[18rem]",
+    left: "left-[18%]",
+    top: "bottom-[2%]",
+    duration: 18,
+    delay: 1.1,
+    x: [0, 24, -14, 0],
+    y: [0, -26, 16, 0],
+    scale: [1, 1.04, 0.94, 1],
+  },
+  {
+    size: "h-[16rem] w-[16rem]",
+    left: "right-[18%]",
+    top: "bottom-[-4%]",
+    duration: 20,
+    delay: 0.3,
+    x: [0, -22, 16, 0],
+    y: [0, 20, -14, 0],
+    scale: [0.94, 1.08, 1, 0.94],
+  },
+  {
+    size: "h-[12rem] w-[12rem]",
+    left: "left-[40%]",
+    top: "top-[18%]",
+    duration: 16,
+    delay: 0.8,
+    x: [0, 18, -10, 0],
+    y: [0, -16, 12, 0],
+    scale: [1, 1.12, 0.98, 1],
+  },
+  {
+    size: "h-[14rem] w-[14rem]",
+    left: "right-[34%]",
+    top: "top-[52%]",
+    duration: 17,
+    delay: 1.4,
+    x: [0, -16, 14, 0],
+    y: [0, 18, -12, 0],
+    scale: [1, 1.1, 0.97, 1],
+  },
 ] as const;
 
 export const BubbleBackground = ({
@@ -61,7 +121,14 @@ export const BubbleBackground = ({
   const overlayX = useTransform(smoothX, [-0.5, 0.5], ["42%", "58%"]);
   const overlayY = useTransform(smoothY, [-0.5, 0.5], ["38%", "62%"]);
   const overlayBackground = useMotionTemplate`radial-gradient(circle at ${overlayX} ${overlayY}, rgba(${palette.fourth}, 0.18), transparent 34%)`;
-  const bubbleColors = [palette.first, palette.second, palette.third, palette.fourth, palette.fifth, palette.sixth];
+  const bubbleColors = [
+    palette.first,
+    palette.second,
+    palette.third,
+    palette.fourth,
+    palette.fifth,
+    palette.sixth,
+  ];
 
   const handlePointerMove: ComponentProps<"div">["onPointerMove"] = (event) => {
     if (!interactive) {
@@ -79,7 +146,9 @@ export const BubbleBackground = ({
     onPointerMove?.(event);
   };
 
-  const handlePointerLeave: ComponentProps<"div">["onPointerLeave"] = (event) => {
+  const handlePointerLeave: ComponentProps<"div">["onPointerLeave"] = (
+    event,
+  ) => {
     if (interactive) {
       pointerX.set(0);
       pointerY.set(0);
@@ -91,7 +160,11 @@ export const BubbleBackground = ({
 
   return (
     <div
-      className={cn("absolute inset-0 -z-10 overflow-hidden", !interactive && "pointer-events-none", className)}
+      className={cn(
+        "absolute inset-0 -z-10 overflow-hidden",
+        !interactive && "pointer-events-none",
+        className,
+      )}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       {...props}
@@ -110,7 +183,12 @@ export const BubbleBackground = ({
         {bubbles.map((bubble, index) => (
           <motion.div
             key={`${bubble.left}-${bubble.top}`}
-            className={cn("absolute rounded-full opacity-70 mix-blend-screen", bubble.size, bubble.left, bubble.top)}
+            className={cn(
+              "absolute rounded-full opacity-70 mix-blend-screen",
+              bubble.size,
+              bubble.left,
+              bubble.top,
+            )}
             style={{
               background: `radial-gradient(circle at 30% 30%, rgba(${bubbleColors[index]}, 0.55), rgba(${bubbleColors[index]}, 0.16) 45%, transparent 72%)`,
               x: interactive ? driftX : 0,

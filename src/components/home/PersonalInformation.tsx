@@ -24,7 +24,8 @@ export const PersonalInformation = () => {
   let age = today.getFullYear() - DATE_OF_BIRTH.getFullYear();
   const hasHadBirthdayThisYear =
     today.getMonth() > DATE_OF_BIRTH.getMonth() ||
-    (today.getMonth() === DATE_OF_BIRTH.getMonth() && today.getDate() >= DATE_OF_BIRTH.getDate());
+    (today.getMonth() === DATE_OF_BIRTH.getMonth() &&
+      today.getDate() >= DATE_OF_BIRTH.getDate());
 
   if (!hasHadBirthdayThisYear) {
     age -= 1;
@@ -48,7 +49,12 @@ export const PersonalInformation = () => {
       <div className="w-full max-w-7xl">
         <motion.div variants={techStackGridCascade.heading}>
           <SectionIntro
-            title={<>Personal <span className="text-primary italic">Information.</span></>}
+            title={
+              <>
+                Personal{" "}
+                <span className="text-primary italic">Information.</span>
+              </>
+            }
             description="A quick profile dossier covering identity, physical profile, and personal status details in one compact board."
           />
         </motion.div>
@@ -58,7 +64,10 @@ export const PersonalInformation = () => {
           variants={techStackGridCascade.grid}
         >
           <motion.div variants={techStackGridCascade.card}>
-            <Card variant="high" className="h-full border border-outline-variant/10 bg-linear-to-br from-surface-container-high to-surface-container p-7">
+            <Card
+              variant="high"
+              className="h-full border border-outline-variant/10 bg-linear-to-br from-surface-container-high to-surface-container p-7"
+            >
               <div className="flex h-full flex-col justify-between gap-10">
                 <div className="flex flex-col gap-4">
                   <span className="font-technical text-[10px] uppercase font-black tracking-[0.24em] text-primary">
@@ -67,16 +76,23 @@ export const PersonalInformation = () => {
                   <div className="flex flex-col gap-3">
                     <h3 className="font-display text-4xl font-black tracking-tighter text-foreground md:text-5xl">
                       Sansaran
-                      <span className="block text-primary italic">Phanchan</span>
+                      <span className="block text-primary italic">
+                        Phanchan
+                      </span>
                     </h3>
                     <p className="font-body text-base leading-relaxed text-outline">
-                      Born on 28 July 1997, with a grounded personal profile and a professional mindset shaped by discipline, consistency, and long-term growth.
+                      Born on 28 July 1997, with a grounded personal profile and
+                      a professional mindset shaped by discipline, consistency,
+                      and long-term growth.
                     </p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                   {IDENTITY_DETAILS.map((item) => (
-                    <div key={item.label} className="flex flex-col gap-2 border-t border-outline-variant/10 pt-4">
+                    <div
+                      key={item.label}
+                      className="flex flex-col gap-2 border-t border-outline-variant/10 pt-4"
+                    >
                       <span className="font-technical text-[9px] uppercase font-black tracking-[0.18em] text-outline">
                         {item.label}
                       </span>
@@ -90,15 +106,24 @@ export const PersonalInformation = () => {
             </Card>
           </motion.div>
 
-          <motion.div className="grid grid-cols-1 gap-5" variants={techStackGridCascade.card}>
-            <Card variant="medium" className="border border-outline-variant/10 bg-surface-container p-6">
+          <motion.div
+            className="grid grid-cols-1 gap-5"
+            variants={techStackGridCascade.card}
+          >
+            <Card
+              variant="medium"
+              className="border border-outline-variant/10 bg-surface-container p-6"
+            >
               <div className="flex flex-col gap-5">
                 <span className="font-technical text-[10px] uppercase font-black tracking-[0.24em] text-primary">
                   Profile Metrics
                 </span>
                 <div className="grid grid-cols-1 gap-4">
                   {profileMetrics.map((item) => (
-                    <div key={item.label} className="flex items-end justify-between gap-4 border-b border-outline-variant/10 pb-3 last:border-b-0 last:pb-0">
+                    <div
+                      key={item.label}
+                      className="flex items-end justify-between gap-4 border-b border-outline-variant/10 pb-3 last:border-b-0 last:pb-0"
+                    >
                       <span className="font-technical text-[9px] uppercase tracking-[0.18em] text-outline">
                         {item.label}
                       </span>
@@ -111,7 +136,10 @@ export const PersonalInformation = () => {
               </div>
             </Card>
 
-            <Card variant="medium" className="border border-outline-variant/10 bg-surface-container p-6">
+            <Card
+              variant="medium"
+              className="border border-outline-variant/10 bg-surface-container p-6"
+            >
               <div className="flex flex-col gap-3">
                 <span className="font-technical text-[10px] uppercase font-black tracking-[0.24em] text-primary">
                   Date of Birth
@@ -124,14 +152,20 @@ export const PersonalInformation = () => {
           </motion.div>
 
           <motion.div variants={techStackGridCascade.card}>
-            <Card variant="medium" className="h-full border border-outline-variant/10 bg-surface-container p-6">
+            <Card
+              variant="medium"
+              className="h-full border border-outline-variant/10 bg-surface-container p-6"
+            >
               <div className="flex h-full flex-col gap-5">
                 <span className="font-technical text-[10px] uppercase font-black tracking-[0.24em] text-primary">
                   Personal Status
                 </span>
                 <div className="flex flex-col gap-4">
                   {PERSONAL_STATUS.map((item) => (
-                    <div key={item.label} className="rounded-xl border border-outline-variant/10 bg-surface-container-high/60 p-4">
+                    <div
+                      key={item.label}
+                      className="rounded-xl border border-outline-variant/10 bg-surface-container-high/60 p-4"
+                    >
                       <div className="flex flex-col gap-1">
                         <span className="font-technical text-[9px] uppercase tracking-[0.18em] text-outline">
                           {item.label}

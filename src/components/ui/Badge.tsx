@@ -22,7 +22,7 @@ export const Badge = ({
       className={cn(
         "px-2 py-0.5 rounded-xs text-[10px] font-technical font-bold uppercase tracking-widest",
         variants[variant],
-        className
+        className,
       )}
       {...props}
     >

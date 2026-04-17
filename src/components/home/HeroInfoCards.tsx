@@ -40,7 +40,11 @@ export const HeroInfoCards = ({
         location={location}
       />
       <motion.div className="w-full lg:w-90" variants={heroSoftReveal.item}>
-        <StatsPanel title="Global Stats" items={stats} className="bg-surface-container/85 backdrop-blur-xs" />
+        <StatsPanel
+          title="Global Stats"
+          items={stats}
+          className="bg-surface-container/85 backdrop-blur-xs"
+        />
       </motion.div>
     </motion.div>
   );
