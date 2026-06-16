@@ -20,7 +20,7 @@ export const HeroInfoCards = ({ className }: HeroInfoCardsProps) => {
       <ExperienceCard
         jobTitle={"React / Next Frontend Developer"}
         experienceLabel={"Experience"}
-        experienceValue={"6+ Years"}
+        experienceValue={"7 Years"}
         location={"Chiang mai, Thailand"}
       />
       <motion.div className="w-full lg:w-90" variants={heroSoftReveal.item}>
