@@ -96,7 +96,7 @@ export const HeroSection = () => {
           </p>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           style={{ opacity: statsOpacity, y: statsY }}
           className="pointer-events-none absolute bottom-12 flex w-full max-w-5xl items-end justify-between px-2"
         >
@@ -113,7 +113,7 @@ export const HeroSection = () => {
               </div>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           initial={{ opacity: 0 }}
