@@ -49,9 +49,9 @@ export const PhilosophySection = () => {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.06),transparent_55%)]"
       />
 
-      <span className="absolute left-6 top-40 font-gallery-body text-[10px] uppercase tracking-[0.3em] text-white/40 [writing-mode:vertical-rl] md:left-12">
+      {/* <span className="absolute left-6 top-40 font-gallery-body text-[10px] uppercase tracking-[0.3em] text-white/40 [writing-mode:vertical-rl] md:left-12">
         Philosophy
-      </span>
+      </span> */}
 
       <div className="relative mx-auto max-w-5xl">
         <motion.span
@@ -61,7 +61,7 @@ export const PhilosophySection = () => {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 block font-gallery-body text-[11px] uppercase tracking-[0.35em] text-white/35"
         >
-          On Dedication
+          Philosophy
         </motion.span>
 
         <p

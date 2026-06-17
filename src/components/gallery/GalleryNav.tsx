@@ -46,7 +46,7 @@ export const GalleryNav = () => {
           SP — Studio
         </button>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}

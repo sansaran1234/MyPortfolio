@@ -23,10 +23,10 @@ export const GalleryExperience = () => {
       <main className="gallery-root relative w-full overflow-x-clip">
         <HeroSection />
         <AboutSection />
+        <EducationSection />
         <CraftSection />
         <ExhibitionsSection />
         <MetricsSection />
-        <EducationSection />
         <PhilosophySection />
         <ContactSection />
       </main>
