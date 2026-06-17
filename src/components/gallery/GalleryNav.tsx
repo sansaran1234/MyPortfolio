@@ -4,14 +4,13 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { GALLERY_IDENTITY } from "./content";
 
-const ROOMS = [
-  { id: "manifesto", label: "Manifesto" },
-  { id: "about", label: "About" },
-  { id: "craft", label: "Craft" },
-  { id: "exhibitions", label: "Works" },
+const NAV_ITEMS = [
+  { id: "personal-information", label: "Personal" },
   { id: "education", label: "Education" },
+  { id: "stack", label: "Stack" },
+  { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
-];
+] as const;
 
 export const GalleryNav = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,6 +26,7 @@ export const GalleryNav = () => {
     document
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${id}`);
   };
 
   return (
@@ -47,15 +47,15 @@ export const GalleryNav = () => {
         </button>
 
         <div className="hidden items-center gap-8 md:flex">
-          {ROOMS.map((room) => (
+          {NAV_ITEMS.map((item) => (
             <button
-              key={room.id}
+              key={item.id}
               type="button"
-              onClick={() => handleNavigate(room.id)}
+              onClick={() => handleNavigate(item.id)}
               data-cursor="hover"
               className="font-gallery-body text-xs uppercase tracking-[0.2em] opacity-70 transition-opacity duration-300 hover:opacity-100"
             >
-              {room.label}
+              /{item.label}
             </button>
           ))}
         </div>

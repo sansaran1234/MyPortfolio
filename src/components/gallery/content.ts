@@ -48,7 +48,7 @@ export interface CraftPanel {
 export const CRAFT_PANELS: CraftPanel[] = [
   {
     index: "01",
-    title: "Frontend Excellence",
+    title: "Frontend",
     tools: [
       "React",
       "Next.js",
@@ -61,12 +61,12 @@ export const CRAFT_PANELS: CraftPanel[] = [
   },
   {
     index: "02",
-    title: "Backend Foundations",
+    title: "Backend",
     tools: ["Node.js", "Express.js", "PostgreSQL"],
   },
   {
     index: "03",
-    title: "Creative Workflow",
+    title: "Tools",
     tools: ["Git", "GitHub", "Figma", "Jira", "Postman", "AI Assistants"],
   },
 ];
@@ -159,8 +159,5 @@ export const EDUCATION_ENTRIES: EducationEntry[] = [
   },
 ];
 
-export const PHILOSOPHY_QUOTES = [
-  "Performance is invisible.",
-  "Design is remembered.",
-  "Great products require both.",
-];
+export const PHILOSOPHY_STATEMENT =
+  "True dedication is not merely the act of working hard for a moment, but the commitment to consistently show up and refine your craft even when the initial excitement fades and the path ahead becomes arduous. It is in the quiet, persistent pursuit of excellence that one discovers the true measure of their character and the eventual realization of their highest ambitions.";

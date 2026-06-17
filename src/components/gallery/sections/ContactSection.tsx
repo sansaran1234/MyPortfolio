@@ -30,7 +30,7 @@ export const ContactSection = () => {
     >
       <div className="mx-auto w-full max-w-[1600px]">
         <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)]">
-          Section 09 — Gallery Exit
+          Contact
         </span>
 
         <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-3">

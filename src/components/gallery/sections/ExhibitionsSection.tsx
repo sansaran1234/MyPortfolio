@@ -74,17 +74,17 @@ const ExhibitionItem = ({ project }: { project: Exhibition }) => {
 export const ExhibitionsSection = () => {
   return (
     <section
-      id="exhibitions"
-      aria-label="Featured exhibitions"
+      id="projects"
+      aria-label="Projects"
       className="relative border-t border-[var(--gallery-line)] px-6 py-32 md:px-12 md:py-44"
     >
       <div className="mx-auto max-w-[1600px]">
         <div className="flex items-end justify-between">
           <h2 className="font-gallery-display text-[clamp(2.5rem,7vw,6rem)] font-medium leading-[0.92] tracking-tight text-[var(--gallery-text)]">
-            <LinesReveal lines={["Featured", "Exhibitions"]} />
+            <LinesReveal lines={["Projects"]} />
           </h2>
           <span className="hidden font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)] md:block">
-            06 Installations
+            06 Works
           </span>
         </div>
 

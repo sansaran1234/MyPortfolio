@@ -10,17 +10,17 @@ import { FadeIn, LinesReveal, WordReveal } from "../Reveal";
 export const AboutSection = () => {
   return (
     <section
-      id="about"
-      aria-label="About the artist"
+      id="personal-information"
+      aria-label="Personal information"
       className="relative border-t border-[var(--gallery-line)] px-6 py-32 md:px-12 md:py-44"
     >
       <div className="mx-auto max-w-[1600px]">
         <div className="flex items-baseline justify-between">
           <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)]">
-            About the Artist
+            Personal
           </span>
           <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)]">
-            Exhibition Profile
+            Profile
           </span>
         </div>
 

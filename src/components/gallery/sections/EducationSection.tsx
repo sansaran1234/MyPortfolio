@@ -14,7 +14,7 @@ export const EducationSection = () => {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)]">
-              Section 07
+              Education
             </span>
             <h2 className="mt-6 font-gallery-display text-[clamp(2.5rem,6vw,5rem)] font-medium leading-[0.95] tracking-tight text-[var(--gallery-text)]">
               <LinesReveal lines={["Education"]} />

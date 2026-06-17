@@ -47,9 +47,9 @@ export const CraftSection = () => {
 
   return (
     <section
-      id="craft"
+      id="stack"
       ref={sectionRef}
-      aria-label="Technical craft"
+      aria-label="Technical stack"
       className="relative overflow-hidden bg-[var(--gallery-dark)] text-[var(--gallery-bg)]"
     >
       <div
@@ -58,12 +58,12 @@ export const CraftSection = () => {
       >
         <div className="flex w-screen shrink-0 flex-col justify-center px-6 py-24 md:h-screen md:w-[60vw] md:px-12">
           <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-bg)]/50">
-            Section 04 — Technical Craft
+            Stack
           </span>
           <h2 className="mt-8 font-gallery-display text-[clamp(2.5rem,8vw,7rem)] font-medium leading-[0.92] tracking-tight">
-            The tools
+            Technical
             <br />
-            of the trade.
+            Foundation.
           </h2>
           <p className="mt-8 max-w-sm font-gallery-body text-sm leading-relaxed text-[var(--gallery-bg)]/60">
             A curated collection of technologies, refined across six years of
