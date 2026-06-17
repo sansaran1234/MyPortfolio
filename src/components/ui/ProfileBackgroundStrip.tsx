@@ -39,7 +39,7 @@ export const ProfileBackgroundStrip = ({
       </div>
       <div className="absolute inset-0 bg-linear-to-l from-background/20 via-background/55 to-background lg:bg-linear-to-r" />
       <div className="absolute inset-0 bg-linear-to-t from-background via-background/35 to-transparent" />
-      <div className="absolute inset-0 bg-linear-to-r from-primary/8 via-transparent to-[#7aa2ff]/10 lg:bg-linear-to-l" />
+      <div className="absolute inset-0 theme-profile-accent-wash" />
     </div>
   );
 };

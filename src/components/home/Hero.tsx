@@ -10,17 +10,7 @@ import { HeroIntro } from "./HeroIntro";
 export const Hero = () => {
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-center md:px-8 px-4 pt-32 pb-24 overflow-hidden">
-      <BubbleBackground
-        interactive
-        colors={{
-          first: "69,249,156",
-          second: "122,162,255",
-          third: "79,125,255",
-          fourth: "218,226,253",
-          fifth: "0,220,130",
-          sixth: "86,198,255",
-        }}
-      />
+      <BubbleBackground interactive />
       <ProfileBackgroundStrip
         src="/images/img-bg-profile-x3.webp"
         alt="Profile 

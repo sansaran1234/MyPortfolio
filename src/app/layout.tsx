@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Space_Grotesk } from "next/font/google";
+import { ThemeStyles } from "@/components/theme/ThemeStyles";
+import { resolveSiteThemeId } from "@/themes";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,12 +30,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeId = resolveSiteThemeId();
+
   return (
     <html
       lang="en"
+      data-theme={themeId}
       className={`${inter.variable} ${manrope.variable} ${spaceGrotesk.variable} h-full dark`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-on-primary">
+        <ThemeStyles />
         {children}
       </body>
     </html>

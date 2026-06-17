@@ -10,6 +10,7 @@ import {
   useTransform,
 } from "motion/react";
 import { cn } from "@/lib/utils";
+import { getActiveBubblePalette } from "@/lib/site-theme";
 
 interface BubbleColors {
   first?: string;
@@ -29,14 +30,7 @@ interface BubbleBackgroundProps extends ComponentProps<"div"> {
   colors?: BubbleColors;
 }
 
-const defaultColors: Required<BubbleColors> = {
-  first: "69,249,156",
-  second: "122,162,255",
-  third: "79,125,255",
-  fourth: "218,226,253",
-  fifth: "0,220,130",
-  sixth: "86,198,255",
-};
+const defaultColors: Required<BubbleColors> = getActiveBubblePalette();
 
 const bubbles = [
   {
@@ -169,7 +163,7 @@ export const BubbleBackground = ({
       onPointerLeave={handlePointerLeave}
       {...props}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(69,249,156,0.12),_transparent_42%),radial-gradient(circle_at_bottom_left,_rgba(79,125,255,0.18),_transparent_34%)]" />
+      <div className="absolute inset-0 theme-bubble-ambient-base" />
       <motion.div
         className="absolute inset-0"
         style={{
