@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Manrope, Space_Grotesk } from "next/font/google";
+import {
+  Geist,
+  Inter,
+  Inter_Tight,
+  Manrope,
+  Space_Grotesk,
+} from "next/font/google";
 import { ThemeStyles } from "@/components/theme/ThemeStyles";
 import { resolveSiteThemeId } from "@/themes";
 import "./globals.css";
@@ -19,11 +25,29 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
+
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Portfolio | Sansaran",
   description:
     "A professional showcase of engineering precision and technical elegance.",
 };
+
+const fontVariables = [
+  inter.variable,
+  manrope.variable,
+  spaceGrotesk.variable,
+  geist.variable,
+  interTight.variable,
+].join(" ");
 
 export default function RootLayout({
   children,
@@ -31,12 +55,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const themeId = resolveSiteThemeId();
+  const isGallery = themeId === "gallery";
 
   return (
     <html
       lang="en"
       data-theme={themeId}
-      className={`${inter.variable} ${manrope.variable} ${spaceGrotesk.variable} h-full dark`}
+      className={`${fontVariables} h-full ${isGallery ? "" : "dark"}`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-on-primary">
         <ThemeStyles />

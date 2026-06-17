@@ -1,4 +1,4 @@
-export type ThemeId = "ledger" | "ember";
+export type ThemeId = "ledger" | "ember" | "gallery";
 
 export interface ThemeBubblePalette {
   first: string;

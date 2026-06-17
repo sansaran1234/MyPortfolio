@@ -6,8 +6,16 @@ import { Education } from "@/components/home/Education";
 import { TechStack } from "@/components/home/TechStack";
 import { Projects } from "@/components/home/Projects";
 import { Contact } from "@/components/home/Contact";
+import { GalleryExperience } from "@/components/gallery/GalleryExperience";
+import { resolveSiteThemeId } from "@/themes";
 
 export default function Home() {
+  const themeId = resolveSiteThemeId();
+
+  if (themeId === "gallery") {
+    return <GalleryExperience />;
+  }
+
   return (
     <main className="relative flex flex-col items-center">
       <Navbar />

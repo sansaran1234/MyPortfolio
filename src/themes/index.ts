@@ -1,5 +1,6 @@
 import { generateAllThemesCss } from "./css";
 import { emberTheme } from "./ember";
+import { galleryTheme } from "./gallery";
 import { ledgerTheme } from "./ledger";
 import type { SiteTheme, ThemeId } from "./types";
 
@@ -8,6 +9,7 @@ export const DEFAULT_THEME_ID: ThemeId = "ledger";
 export const SITE_THEMES: Record<ThemeId, SiteTheme> = {
   ledger: ledgerTheme,
   ember: emberTheme,
+  gallery: galleryTheme,
 };
 
 const THEME_IDS = Object.keys(SITE_THEMES) as ThemeId[];

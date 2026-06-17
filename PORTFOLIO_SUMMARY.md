@@ -32,7 +32,7 @@
 |--------|------------|
 | ตำแหน่งหลัก | React / Next Frontend Developer |
 | ความเชี่ยวชาญ | React / Next Frontend Developer |
-| ประสบการณ์ | 6+ ปี |
+| ประสบการณ์ | 7 ปี |
 | ที่ตั้ง | เชียงใหม่, ประเทศไทย |
 | สถานะการรับงาน | Freelance / Contract / Full-time |
 

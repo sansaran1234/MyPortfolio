@@ -174,3 +174,105 @@ body {
     transform: translateX(calc(-100% - var(--gap)));
   }
 }
+
+/* ============================================================
+   Contemporary Gallery theme
+   ============================================================ */
+
+[data-theme="gallery"] {
+  --gallery-bg: #faf8f2;
+  --gallery-text: #151515;
+  --gallery-subtext: #666666;
+  --gallery-primary: #fff9d2;
+  --gallery-secondary: #ffebcc;
+  --gallery-tertiary: #bfddf0;
+  --gallery-quaternary: #8cc0eb;
+  --gallery-dark: #151515;
+  --gallery-line: rgba(21, 21, 21, 0.12);
+
+  --font-gallery-display: var(--font-geist), "Inter Tight", sans-serif;
+  --font-gallery-body: var(--font-inter-tight), "Inter", sans-serif;
+}
+
+[data-theme="gallery"] body {
+  cursor: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  [data-theme="gallery"] body {
+    cursor: auto;
+  }
+}
+
+.gallery-root {
+  font-family: var(--font-gallery-body);
+  color: var(--gallery-text);
+  background-color: var(--gallery-bg);
+}
+
+.font-gallery-display {
+  font-family: var(--font-gallery-display);
+}
+
+.font-gallery-body {
+  font-family: var(--font-gallery-body);
+}
+
+/* Grain texture overlay */
+.gallery-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* Custom cursor */
+.gallery-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  border-radius: 9999px;
+  mix-blend-mode: difference;
+  background: #ffffff;
+  will-change: transform;
+}
+
+.gallery-cursor-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.gallery-cursor-ring {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ffffff;
+  background: transparent;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .gallery-cursor {
+    display: none;
+  }
+}
+
+/* Reveal helpers */
+.gallery-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.gallery-marquee-track {
+  animation: marquee var(--gallery-marquee-duration, 40s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-marquee-track {
+    animation: none;
+  }
+}

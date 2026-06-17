@@ -14,7 +14,7 @@ export interface ExperienceCardProps {
 export const ExperienceCard = ({
   jobTitle = "React / Next Frontend Developer",
   experienceLabel = "Experience",
-  experienceValue = "6+ Years",
+  experienceValue = "7 Years",
   location = "Chiang mai, Thailand",
   className,
 }: ExperienceCardProps) => {
