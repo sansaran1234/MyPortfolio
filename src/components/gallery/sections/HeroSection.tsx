@@ -96,25 +96,6 @@ export const HeroSection = () => {
           </p>
         </motion.div>
 
-        {/* <motion.div
-          style={{ opacity: statsOpacity, y: statsY }}
-          className="pointer-events-none absolute bottom-12 flex w-full max-w-5xl items-end justify-between px-2"
-        >
-          {GALLERY_HERO_STATS.map((stat, index) => (
-            <div
-              key={stat.label}
-              className={index === 1 ? "text-right" : "text-left"}
-            >
-              <div className="font-gallery-display text-3xl font-medium text-[var(--gallery-text)] md:text-5xl">
-                {stat.value}
-              </div>
-              <div className="mt-1 font-gallery-body text-[10px] uppercase tracking-[0.25em] text-[var(--gallery-subtext)] md:text-xs">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div> */}
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
