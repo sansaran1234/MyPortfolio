@@ -36,7 +36,7 @@ export const GalleryNav = () => {
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
       className="fixed inset-x-0 top-0 z-[80] mix-blend-difference"
     >
-      <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-6 md:px-12 text-white">
+      <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-6 md:px-12 text-white max-[577px]:hidden">
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
