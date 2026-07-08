@@ -27,7 +27,7 @@ export const ARTIST_PROFILE: { label: string; value: string }[] = [
   { label: "Nickname", value: "Ball" },
   { label: "Born", value: "28 July 1997" },
   { label: "Nationality", value: "Thai" },
-  { label: "Location", value: "Chiang Mai, Thailand" },
+  { label: "Location", value: "Bangkok, Chiang Mai, Thailand" },
   { label: "Experience", value: "7 Years" },
 ];
 
