@@ -4,7 +4,7 @@ export const GALLERY_IDENTITY = {
   lastName: "PHANCHAN",
   role: "React / Next Frontend Developer",
   tagline: "Crafting premium digital experiences through code and design.",
-  location: "Chiang Mai, Thailand",
+  location: "Bangkok, Chiang Mai, Thailand",
   email: "sansaran.p10@gmail.com",
   github: "github.com/sansaran1234",
   githubUrl: "https://github.com/sansaran1234",
