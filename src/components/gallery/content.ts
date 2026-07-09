@@ -28,7 +28,7 @@ export const ARTIST_PROFILE: { label: string; value: string }[] = [
   { label: "Born", value: "28 July 1997" },
   { label: "Nationality", value: "Thai" },
   { label: "Location", value: "Bangkok, Chiang Mai" },
-  { label: "Experience", value: "7 Years" },
+  { label: "Experience", value: "6+ Years" },
 ];
 
 export const ARTIST_AVAILABILITY = ["Freelance", "Contract", "Full-Time"];
