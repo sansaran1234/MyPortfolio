@@ -59,7 +59,7 @@ export const HeroSection = () => {
 
         <motion.h1
           style={{ scale: nameScale, letterSpacing, opacity: nameOpacity }}
-          className="text-center font-gallery-display font-medium leading-[0.86] tracking-tight text-[var(--gallery-text)]"
+          className="text-center font-gallery-hero font-normal leading-[0.86] tracking-tight text-[var(--gallery-text)]"
         >
           <span className="block overflow-hidden">
             <motion.span

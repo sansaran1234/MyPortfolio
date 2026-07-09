@@ -192,6 +192,8 @@ body {
 
   --font-gallery-display: var(--font-geist), "Inter Tight", sans-serif;
   --font-gallery-body: var(--font-inter-tight), "Inter", sans-serif;
+  --font-gallery-hero: var(--font-instrument-serif), "Instrument Serif", serif;
+  --font-gallery-script: var(--font-monte-carlo), "MonteCarlo", cursive;
 }
 
 [data-theme="gallery"] body {
@@ -216,6 +218,14 @@ body {
 
 .font-gallery-body {
   font-family: var(--font-gallery-body);
+}
+
+.font-gallery-hero {
+  font-family: var(--font-gallery-hero);
+}
+
+.font-gallery-script {
+  font-family: var(--font-gallery-script);
 }
 
 /* Grain texture overlay */

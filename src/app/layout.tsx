@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import {
   Geist,
+  Instrument_Serif,
   Inter,
   Inter_Tight,
   Manrope,
+  MonteCarlo,
   Space_Grotesk,
 } from "next/font/google";
 import { ThemeStyles } from "@/components/theme/ThemeStyles";
@@ -35,6 +37,18 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const monteCarlo = MonteCarlo({
+  variable: "--font-monte-carlo",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Portfolio | Sansaran",
   description:
@@ -47,6 +61,8 @@ const fontVariables = [
   spaceGrotesk.variable,
   geist.variable,
   interTight.variable,
+  instrumentSerif.variable,
+  monteCarlo.variable,
 ].join(" ");
 
 export default function RootLayout({

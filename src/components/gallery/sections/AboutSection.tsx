@@ -26,7 +26,7 @@ export const AboutSection = () => {
 
         <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <h2 className="font-gallery-display text-[clamp(2.5rem,7vw,6rem)] font-medium leading-[0.95] tracking-tight text-[var(--gallery-text)]">
+            <h2 className="font-gallery-script text-[clamp(2.5rem,7vw,6rem)] font-normal leading-[0.95] tracking-tight text-[var(--gallery-text)]">
               <LinesReveal lines={["The maker", "behind the", "interface."]} />
             </h2>
 
