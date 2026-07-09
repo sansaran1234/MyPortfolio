@@ -2,10 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import {
-  GALLERY_HERO_STATS,
-  GALLERY_IDENTITY,
-} from "../content";
+import { GALLERY_IDENTITY } from "../content";
+import { TopographicRingsBackground } from "../TopographicRingsBackground";
 
 export const HeroSection = () => {
   const ref = useRef<HTMLElement | null>(null);
@@ -17,14 +15,6 @@ export const HeroSection = () => {
   const nameScale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
   const letterSpacing = useTransform(scrollYProgress, [0, 1], ["0em", "0.12em"]);
   const nameOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
-  const artworkScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.3]);
-  const artworkOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.5]);
-  const statsOpacity = useTransform(
-    scrollYProgress,
-    [0.05, 0.2, 0.7, 0.9],
-    [0, 1, 1, 0],
-  );
-  const statsY = useTransform(scrollYProgress, [0.05, 0.25], [40, 0]);
 
   return (
     <section
@@ -33,14 +23,29 @@ export const HeroSection = () => {
       aria-label="Introduction"
     >
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden px-6">
+        {/* Topographic rings — interactive layer */}
         <motion.div
           aria-hidden
-          style={{ scale: artworkScale, opacity: artworkOpacity }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, ease: "easeOut", delay: 0.8 }}
           className="pointer-events-none absolute inset-0 -z-10"
         >
-          <div className="absolute left-1/2 top-1/2 h-[70vh] w-[70vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--gallery-tertiary)] blur-[120px]" />
-          <div className="absolute left-[20%] top-[30%] h-[40vh] w-[40vh] rounded-full bg-[var(--gallery-secondary)] blur-[120px]" />
-          <div className="absolute right-[15%] bottom-[20%] h-[45vh] w-[45vh] rounded-full bg-[var(--gallery-quaternary)] opacity-60 blur-[130px]" />
+          <TopographicRingsBackground
+            accentColor="rgba(69, 249, 156, 0.5)"
+            midColor="rgba(99, 102, 241, 0.25)"
+            baseColor="rgba(188, 199, 222, 0.08)"
+            accentStroke={1.5}
+            midStroke={1}
+            baseStroke={0.5}
+            ringCount={16}
+            ringSpacing={42}
+            speed={0.8}
+            amplitude={14}
+            verticalSquash={0.75}
+            mouseInteraction={true}
+            mouseStrength={0.35}
+          />
         </motion.div>
 
         <motion.div
