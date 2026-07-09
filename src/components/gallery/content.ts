@@ -4,7 +4,7 @@ export const GALLERY_IDENTITY = {
   lastName: "PHANCHAN",
   role: "React / Next Frontend Developer",
   tagline: "Crafting premium digital experiences through code and design.",
-  location: "Bangkok, Chiang Mai, Thailand",
+  location: "Bangkok, Chiang Mai",
   email: "sansaran.p10@gmail.com",
   github: "github.com/sansaran1234",
   githubUrl: "https://github.com/sansaran1234",
@@ -27,7 +27,7 @@ export const ARTIST_PROFILE: { label: string; value: string }[] = [
   { label: "Nickname", value: "Ball" },
   { label: "Born", value: "28 July 1997" },
   { label: "Nationality", value: "Thai" },
-  { label: "Location", value: "Bangkok, Chiang Mai, Thailand" },
+  { label: "Location", value: "Bangkok, Chiang Mai" },
   { label: "Experience", value: "7 Years" },
 ];
 
@@ -77,48 +77,60 @@ export interface Exhibition {
   description: string;
   tech: string[];
   image: string;
+  company: string;
+  experience: string;
 }
 
 export const EXHIBITIONS: Exhibition[] = [
   {
     index: "01",
-    title: "ERP Job Tracking System",
-    description:
-      "Factory performance tracking platform with real-time packaging design capabilities including dieline and texture customization.",
-    tech: ["Next.js", "Shadcn UI", "Tailwind CSS"],
-    image: "/images/img-ERP.webp",
-  },
-  {
-    index: "02",
     title: "E-Commerce Logistics Platform",
     description:
       "End-to-end ordering, shipping, and pickup logistics ecosystem with complex product management workflows.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "WebSockets"],
     image: "/images/img-Ecom.webp",
+    company: "NEVER SLEEP",
+    experience: "2020 - 2023",
   },
   {
-    index: "03",
-    title: "AI-Driven Development",
-    description:
-      "AI article generation platform and one-click AI chat applications designed to accelerate content production.",
-    tech: ["Next.js", "TypeScript", "Framer Motion", "Material UI"],
-    image: "/images/img-AI.webp",
-  },
-  {
-    index: "04",
-    title: "Frontend Excellence",
-    description:
-      "Pixel-perfect responsive landing pages transformed from Figma into production-ready experiences.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
-    image: "/images/img-SEO.webp",
-  },
-  {
-    index: "05",
+    index: "02",
     title: "Travel & Booking Systems",
     description:
       "High-performance flight booking platform supporting seat selection, passenger management, and real-time schedules.",
     tech: ["React", "TypeScript", "Material UI"],
     image: "/images/img-ARS.webp",
+    company: "T.I.K. SYSTEMS, Gother",
+    experience: "2023 - 2024, March - July 2026",
+  },
+  {
+    index: "03",
+    title: "ERP Job Tracking System",
+    description:
+      "Factory performance tracking platform with real-time packaging design capabilities including dieline and texture customization.",
+    tech: ["Next.js", "Shadcn UI", "Tailwind CSS"],
+    image: "/images/img-ERP.webp",
+    company: "LUCA BLOCK",
+    experience: "2026 - 2024",
+  },
+  {
+    index: "04",
+    title: "AI-Driven Development",
+    description:
+      "AI article generation platform and one-click AI chat applications designed to accelerate content production.",
+    tech: ["Next.js", "TypeScript", "Framer Motion", "Material UI"],
+    image: "/images/img-AI.webp",
+    company: "LUCA BLOCK",
+    experience: "2026 - 2024",
+  },
+  {
+    index: "05",
+    title: "Frontend Excellence",
+    description:
+      "Pixel-perfect responsive landing pages transformed from Figma into production-ready experiences.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
+    image: "/images/img-SEO.webp",
+    company: "LUCA BLOCK",
+    experience: "2026 - 2024",
   },
   {
     index: "06",
@@ -127,6 +139,8 @@ export const EXHIBITIONS: Exhibition[] = [
       "Mentoring and knowledge sharing experience for interns and junior developers.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion"],
     image: "/images/img-intern.webp",
+    company: "LUCA BLOCK",
+    experience: "2026 - 2024",
   },
 ];
 

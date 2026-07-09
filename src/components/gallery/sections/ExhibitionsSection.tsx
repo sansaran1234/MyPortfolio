@@ -97,6 +97,20 @@ const BentoCard = ({
           {project.title}
         </h3>
 
+        {/* Company & experience — always visible */}
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span className="font-gallery-body text-[10px] uppercase tracking-[0.22em] text-white/55">
+            {project.company}
+          </span>
+          <span
+            aria-hidden
+            className="hidden h-1 w-1 rounded-full bg-white/25 sm:block"
+          />
+          <span className="font-gallery-body text-[10px] uppercase tracking-[0.22em] text-white/40">
+            {project.experience}
+          </span>
+        </div>
+
         {/* Expandable content — revealed on hover */}
         <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
           <div className="overflow-hidden">
