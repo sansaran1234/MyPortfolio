@@ -35,21 +35,6 @@ export const AboutSection = () => {
                 <WordReveal text="A frontend engineer shaped by discipline, consistency, and a long-term commitment to craft — building digital experiences where design and performance are inseparable." />
               </p>
             </FadeIn>
-
-            <div className="mt-14">
-              <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)]">
-                Personal Philosophy
-              </span>
-              <div className="mt-5 flex flex-wrap gap-x-8 gap-y-2">
-                {ARTIST_PHILOSOPHY.map((word, index) => (
-                  <FadeIn key={word} delay={0.1 * index}>
-                    <span className="font-gallery-display text-2xl font-medium text-[var(--gallery-text)] md:text-3xl">
-                      {word}
-                    </span>
-                  </FadeIn>
-                ))}
-              </div>
-            </div>
           </div>
 
           <div className="lg:pt-4">
