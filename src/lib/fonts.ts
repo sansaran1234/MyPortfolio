@@ -1,7 +1,7 @@
+import localFont from "next/font/local";
 import {
   Geist,
-  Bodoni_Moda,
-  Instrument_Serif,
+  Bodoni_Moda,  Instrument_Serif,
   Inter,
   Inter_Tight,
   Lobster_Two,
@@ -65,6 +65,13 @@ const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
 });
 
+const playwriteIE = localFont({
+  src: "../assets/fonts/playwrite-ie.woff2",
+  variable: "--font-playwrite-ie",
+  display: "swap",
+  weight: "100 400",
+});
+
 export const fontVariables = [
   inter.variable,
   manrope.variable,
@@ -76,4 +83,5 @@ export const fontVariables = [
   lobsterTwo.variable,
   pacifico.variable,
   bodoniModa.variable,
+  playwriteIE.variable,
 ].join(" ");

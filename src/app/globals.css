@@ -197,6 +197,7 @@ body {
   --font-gallery-lobster: var(--font-lobster-two), "Lobster Two", cursive;
   --font-gallery-pacifico: var(--font-pacifico), "Pacifico", cursive;
   --font-gallery-bodoni: var(--font-bodoni-moda), "Bodoni Moda", serif;
+  --font-gallery-playwrite: var(--font-playwrite-ie), "Playwrite IE", cursive;
 }
 
 [data-theme="gallery"] body {
@@ -241,6 +242,10 @@ body {
 
 .font-gallery-bodoni {
   font-family: var(--font-gallery-bodoni);
+}
+
+.font-gallery-playwrite {
+  font-family: var(--font-gallery-playwrite);
 }
 
 /* Grain texture overlay */

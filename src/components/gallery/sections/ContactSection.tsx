@@ -63,8 +63,9 @@ export const ContactSection = () => {
       </div>
 
       <div className="mx-auto mt-24 w-full max-w-[1600px]">
-        <h2 className="font-gallery-display text-[clamp(2.5rem,11vw,11rem)] font-medium leading-[0.9] tracking-tight text-[var(--gallery-text)]">
-          <LinesReveal lines={["Thank you", "for visiting."]} />
+        <h2 className="font-gallery-playwrite text-[clamp(2.5rem,11vw,7rem)] font-medium tracking-tight text-[var(--gallery-text)]">
+          <LinesReveal lines={["Thank you"]} className="leading-[2]" />
+          <LinesReveal lines={["for visiting."]} className="leading-[2] -mt-[80px]" lineClassName="pl-8" />
         </h2>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-10 border-t border-[var(--gallery-line)] pt-10 md:flex-row md:items-center">
