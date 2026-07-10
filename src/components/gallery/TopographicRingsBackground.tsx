@@ -94,6 +94,8 @@ export const TopographicRingsBackground = ({
     window.addEventListener("mousemove", handleMouseMove);
 
     let time = 0;
+    let smoothX = 0.5;
+    let smoothY = 0.5;
 
     const getRingStyle = (
       index: number,
@@ -116,10 +118,26 @@ export const TopographicRingsBackground = ({
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, width, height);
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
 
       const mouse = mouseRef.current;
-      const freqShift = mouseInteraction ? (mouse.x - 0.5) * mouseStrength * 4 : 0;
-      const ampShift = mouseInteraction ? (mouse.y - 0.5) * mouseStrength * 20 : 0;
+      // Ease the pointer follow so the reaction stays fluid.
+      smoothX += (mouse.x - smoothX) * 0.06;
+      smoothY += (mouse.y - smoothY) * 0.06;
+
+      // Horizontal pointer drives a phase shift (not a frequency change).
+      // Keeping the frequency integer means every closed ring wraps exactly
+      // at angle 0 / 2π, so no seam appears while following the cursor.
+      const phaseShift = mouseInteraction
+        ? (smoothX - 0.5) * mouseStrength * Math.PI * 2
+        : 0;
+      const ampShift = mouseInteraction ? (smoothY - 0.5) * mouseStrength * 20 : 0;
+
+      // Round harmonics to integers to guarantee a seamless wrap.
+      const f1 = Math.round(frequency1);
+      const f2 = Math.round(frequency2);
+      const f3 = Math.round(frequency3);
 
       const timeSpeed = speed * 0.012;
 
@@ -134,15 +152,19 @@ export const TopographicRingsBackground = ({
           const angle = (p / points) * Math.PI * 2;
 
           const wave1 =
-            Math.sin(angle * (frequency1 + freqShift) + time * timeSpeed) *
+            Math.sin(angle * f1 + time * timeSpeed + phaseShift) *
             (amplitude + ampShift) *
             (1 + i * 0.08);
           const wave2 =
-            Math.sin(angle * (frequency2 + freqShift * 0.6) + time * timeSpeed * 1.3 + i * 0.4) *
+            Math.sin(
+              angle * f2 + time * timeSpeed * 1.3 + i * 0.4 + phaseShift * 0.6,
+            ) *
             (amplitude * 0.6 + ampShift * 0.4) *
             (1 + i * 0.05);
           const wave3 =
-            Math.sin(angle * (frequency3 + freqShift * 0.3) + time * timeSpeed * 0.7 + i * 0.8) *
+            Math.sin(
+              angle * f3 + time * timeSpeed * 0.7 + i * 0.8 + phaseShift * 0.3,
+            ) *
             (amplitude * 0.3) *
             (1 + i * 0.03);
 
