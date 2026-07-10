@@ -99,8 +99,8 @@ export const EXHIBITIONS: Exhibition[] = [
       "High-performance flight booking platform supporting seat selection, passenger management, and real-time schedules.",
     tech: ["React", "TypeScript", "Material UI"],
     image: "/images/img-ARS.webp",
-    company: "T.I.K. SYSTEMS, Gother",
-    experience: "2023 - 2024, March - July 2026",
+    company: "T.I.K. SYSTEMS",
+    experience: "2023 - 2024",
   },
   {
     index: "03",
@@ -141,6 +141,16 @@ export const EXHIBITIONS: Exhibition[] = [
     image: "/images/img-intern.webp",
     company: "LUCA BLOCK",
     experience: "2026 - 2024",
+  },
+  {
+    index: "07",
+    title: "Gother Flight Platform",
+    description:
+      "React and Next.js flight booking experience - responsive across web and mobile, with flight detail flows, campaign carousels, pre-booking validation, and measurable LCP gains through bundle optimization.",
+    tech: ["React", "Next.js", "TypeScript"],
+    image: "/images/img-ARS.webp",
+    company: "Search Engine Optimization (Gother)",
+    experience: "March - July 2026 (Contract)",
   },
 ];
 
