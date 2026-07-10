@@ -194,6 +194,7 @@ body {
   --font-gallery-body: var(--font-inter-tight), "Inter", sans-serif;
   --font-gallery-hero: var(--font-instrument-serif), "Instrument Serif", serif;
   --font-gallery-script: var(--font-monte-carlo), "MonteCarlo", cursive;
+  --font-gallery-lobster: var(--font-lobster-two), "Lobster Two", cursive;
 }
 
 [data-theme="gallery"] body {
@@ -226,6 +227,10 @@ body {
 
 .font-gallery-script {
   font-family: var(--font-gallery-script);
+}
+
+.font-gallery-lobster {
+  font-family: var(--font-gallery-lobster);
 }
 
 /* Grain texture overlay */
