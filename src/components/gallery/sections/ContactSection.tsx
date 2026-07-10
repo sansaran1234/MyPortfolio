@@ -1,5 +1,6 @@
 "use client";
 
+import { CURRENT_YEAR } from "@/lib/site";
 import { GALLERY_IDENTITY } from "../content";
 import { FadeIn, LinesReveal } from "../Reveal";
 import { MagneticButton } from "../MagneticButton";
@@ -71,7 +72,7 @@ export const ContactSection = () => {
             Start a conversation
           </MagneticButton>
           <p className="font-gallery-body text-[11px] uppercase tracking-[0.25em] text-[var(--gallery-subtext)]">
-            © {new Date().getFullYear()} {GALLERY_IDENTITY.name}
+            © {CURRENT_YEAR} {GALLERY_IDENTITY.name}
           </p>
         </div>
       </div>

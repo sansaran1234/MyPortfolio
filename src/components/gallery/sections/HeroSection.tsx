@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { CURRENT_YEAR } from "@/lib/site";
 import { GALLERY_IDENTITY } from "../content";
 import { TopographicRingsBackground } from "../TopographicRingsBackground";
 
@@ -54,7 +55,7 @@ export const HeroSection = () => {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
           className="mb-8 font-gallery-body text-[11px] uppercase tracking-[0.45em] text-[var(--gallery-subtext)]"
         >
-          Portfolio · 2026
+          Portfolio · {CURRENT_YEAR}
         </motion.div>
 
         <motion.h1
