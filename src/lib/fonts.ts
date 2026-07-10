@@ -8,6 +8,7 @@ import {
   Manrope,
   MonteCarlo,
   Pacifico,
+  Short_Stack,
   Space_Grotesk,
 } from "next/font/google";
 
@@ -60,6 +61,12 @@ const pacifico = Pacifico({
   weight: "400",
 });
 
+const shortStack = Short_Stack({
+  variable: "--font-short-stack",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const bodoniModa = Bodoni_Moda({
   variable: "--font-bodoni-moda",
   subsets: ["latin"],
@@ -82,6 +89,7 @@ export const fontVariables = [
   monteCarlo.variable,
   lobsterTwo.variable,
   pacifico.variable,
+  shortStack.variable,
   bodoniModa.variable,
   playwriteIE.variable,
 ].join(" ");

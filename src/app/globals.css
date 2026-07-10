@@ -196,6 +196,7 @@ body {
   --font-gallery-script: var(--font-monte-carlo), "MonteCarlo", cursive;
   --font-gallery-lobster: var(--font-lobster-two), "Lobster Two", cursive;
   --font-gallery-pacifico: var(--font-pacifico), "Pacifico", cursive;
+  --font-gallery-short-stack: var(--font-short-stack), "Short Stack", cursive;
   --font-gallery-bodoni: var(--font-bodoni-moda), "Bodoni Moda", serif;
   --font-gallery-playwrite: var(--font-playwrite-ie), "Playwrite IE", cursive;
 }
@@ -238,6 +239,10 @@ body {
 
 .font-gallery-pacifico {
   font-family: var(--font-gallery-pacifico);
+}
+
+.font-gallery-short-stack {
+  font-family: var(--font-gallery-short-stack);
 }
 
 .font-gallery-bodoni {

@@ -1,158 +1,262 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
 import type { Exhibition } from "../content";
 import { EXHIBITIONS } from "../content";
 import { LinesReveal } from "../Reveal";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
 
-const GRID_PLACEMENTS = [
-  { col: "md:col-span-2 md:row-span-2", featured: true },
-  { col: "", featured: false },
-  { col: "", featured: false },
-  { col: "", featured: false },
-  { col: "md:col-span-2 md:row-span-2", featured: true },
-  { col: "", featured: false },
-] as const;
+/* ------------------------------------------------------------------ */
+/* Left rail — sticky exhibition index with scroll progress + active   */
+/* ------------------------------------------------------------------ */
 
-const BentoCard = ({
-  project,
-  index,
-  featured,
-  colClass,
+const ExhibitionRail = ({
+  active,
+  progress,
+  onSelect,
 }: {
-  project: Exhibition;
-  index: number;
-  featured: boolean;
-  colClass: string;
+  active: number;
+  progress: MotionValue<number>;
+  onSelect: (index: number) => void;
 }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40, scale: 0.97 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{
-        duration: 0.8,
-        ease: EASE,
-        delay: index * 0.08,
-      }}
-      className={`group relative overflow-hidden rounded-sm ${colClass} ${
-        featured ? "min-h-[420px] md:min-h-0" : "min-h-[340px] md:min-h-0"
-      }`}
-    >
-      {/* Image */}
-      <div className="absolute inset-0">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          sizes={featured ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-      </div>
-
-      {/* Base overlay — always visible */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--gallery-dark)] via-[var(--gallery-dark)]/40 to-[var(--gallery-dark)]/10 transition-opacity duration-500 group-hover:opacity-90" />
-
-      {/* Hover overlay — darkens on hover for readability */}
-      <div className="absolute inset-0 bg-[var(--gallery-dark)]/0 transition-all duration-500 group-hover:bg-[var(--gallery-dark)]/50" />
-
-      {/* Watermark index */}
-      <div aria-hidden className="pointer-events-none absolute right-4 top-4 md:right-6 md:top-6">
-        <span
-          className={`block font-gallery-display font-medium leading-none text-white/[0.06] transition-all duration-500 group-hover:text-white/[0.1] ${
-            featured
-              ? "text-[clamp(5rem,10vw,9rem)]"
-              : "text-[clamp(4rem,6vw,6rem)]"
-          }`}
-        >
-          {project.index}
-        </span>
-      </div>
-
-      {/* Content — positioned at bottom */}
-      <div className="relative flex h-full flex-col justify-end p-6 md:p-8">
-        {/* Index label + line — always visible */}
-        <div className="flex items-center gap-3">
-          <span className="font-gallery-display text-xs font-medium text-[var(--gallery-quaternary)]">
-            {project.index}
-          </span>
-          <span className="h-px flex-1 bg-white/15 transition-all duration-500 group-hover:bg-white/25" />
-        </div>
-
-        {/* Title — always visible */}
-        <h3
-          className={`mt-4 font-gallery-display font-medium leading-[0.98] tracking-tight text-white ${
-            featured
-              ? "text-[clamp(1.5rem,3vw,2.5rem)]"
-              : "text-[clamp(1.25rem,2vw,1.75rem)]"
-          }`}
-        >
-          {project.title}
-        </h3>
-
-        {/* Company & experience — always visible */}
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="font-gallery-body text-[10px] uppercase tracking-[0.22em] text-white/55">
-            {project.company}
-          </span>
+    <div className="hidden lg:block lg:col-span-4">
+      <div className="lg:sticky lg:top-32">
+        <div className="relative mt-10 pl-9">
+          {/* Static track */}
           <span
             aria-hidden
-            className="hidden h-1 w-1 rounded-full bg-white/25 sm:block"
+            className="absolute left-[3px] top-2 bottom-2 w-px bg-[var(--gallery-line)]"
           />
-          <span className="font-gallery-body text-[10px] uppercase tracking-[0.22em] text-white/40">
-            {project.experience}
-          </span>
-        </div>
+          {/* Progress fill */}
+          <motion.span
+            aria-hidden
+            style={{ scaleY: progress }}
+            className="absolute left-[3px] top-2 bottom-2 w-px origin-top bg-[var(--gallery-quaternary)]"
+          />
 
-        {/* Expandable content — revealed on hover */}
-        <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
-          <div className="overflow-hidden">
-            <p className="pt-4 font-gallery-body text-sm leading-relaxed text-white/60">
-              {project.description}
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 pt-4">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full bg-white/[0.08] px-2.5 py-1 font-gallery-body text-[10px] uppercase tracking-[0.18em] text-white/65 backdrop-blur-sm"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+          <ul className="flex flex-col gap-7">
+            {EXHIBITIONS.map((project, i) => {
+              const isActive = i === active;
+              return (
+                <li key={project.index} className="relative">
+                  {/* Node marker */}
+                  <span
+                    aria-hidden
+                    className={`absolute -left-9 top-[7px] h-[9px] w-[9px] -translate-x-px rounded-full border transition-all duration-500 ${
+                      isActive
+                        ? "scale-125 border-[var(--gallery-quaternary)] bg-[var(--gallery-quaternary)]"
+                        : "border-[var(--gallery-line)] bg-[var(--gallery-bg)]"
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    data-cursor="hover"
+                    onClick={() => onSelect(i)}
+                    className="group block w-full text-left"
+                  >
+                    <span
+                      className={`block font-gallery-body text-[10px] uppercase tracking-[0.28em] transition-colors duration-500 ${
+                        isActive
+                          ? "text-[var(--gallery-quaternary)]"
+                          : "text-[var(--gallery-subtext)]"
+                      }`}
+                    >
+                      {project.experience}
+                    </span>
+                    <span
+                      className={`mt-1 block font-gallery-display text-lg leading-tight tracking-tight transition-all duration-500 ${
+                        isActive
+                          ? "translate-x-1 text-[var(--gallery-text)]"
+                          : "text-[var(--gallery-subtext)]/70 group-hover:text-[var(--gallery-text)]"
+                      }`}
+                    >
+                      {project.title}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
-
-      {/* Edge glow on hover */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-sm opacity-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] transition-opacity duration-500 group-hover:opacity-100"
-      />
-    </motion.div>
+    </div>
   );
 };
 
+/* ------------------------------------------------------------------ */
+/* Right panel — parallax artwork + museum-plaque caption              */
+/* ------------------------------------------------------------------ */
+
+const ExhibitionPanel = ({
+  project,
+  index,
+  total,
+  onActivate,
+  registerRef,
+}: {
+  project: Exhibition;
+  index: number;
+  total: number;
+  onActivate: (index: number) => void;
+  registerRef: (index: number, node: HTMLElement | null) => void;
+}) => {
+  const ref = useRef<HTMLElement | null>(null);
+  const inView = useInView(ref, { margin: "-45% 0px -45% 0px" });
+
+  useEffect(() => {
+    if (inView) onActivate(index);
+  }, [inView, index, onActivate]);
+
+  const setRef = useCallback(
+    (node: HTMLElement | null) => {
+      ref.current = node;
+      registerRef(index, node);
+    },
+    [index, registerRef],
+  );
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  // Alternate tilt + alignment for a scattered gallery-wall feel.
+  const tilt = index % 2 === 0 ? -1.6 : 1.6;
+  const align = index % 2 === 0 ? "lg:mr-auto" : "lg:ml-auto";
+
+  return (
+    <article ref={setRef} className={`scroll-mt-32 ${index % 2 === 0 ? "max-[992px]:mr-auto" : "max-[992px]:ml-auto"}`}>
+      {/* Polaroid frame */}
+      <motion.div
+        initial={{ opacity: 0, y: 48, rotate: tilt * 2.2 }}
+        whileInView={{ opacity: 1, y: 0, rotate: tilt }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.9, ease: EASE }}
+        whileHover={{ rotate: 0, y: -8 }}
+        className={`group/polaroid relative w-full max-w-xl origin-center rounded-[3px] bg-[#fdfcf6] p-3 pb-16 shadow-[0_22px_50px_-16px_rgba(21,21,21,0.32)] md:p-4 md:pb-20 ${align}`}
+      >
+        {/* Washi tape accent */}
+        <span
+          aria-hidden
+          className="absolute -top-3 left-1/2 h-7 w-24 -translate-x-1/2 -rotate-2 bg-[var(--gallery-quaternary)]/25 backdrop-blur-[1px]"
+        />
+
+        {/* Photo window */}
+        <div className="relative aspect-[4/3] overflow-hidden bg-[var(--gallery-dark)]/[0.06]">
+          <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover/polaroid:scale-[1.03]"
+            />
+          </motion.div>
+
+          {/* Developing sheen */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--gallery-dark)]/12 via-transparent to-white/12"
+          />
+        </div>
+
+        {/* Handwritten caption on the bottom strip */}
+        <div className="absolute inset-x-5 bottom-4 flex max-[601px]:flex-col items-end justify-between max-[601px]:gap-2 gap-4 md:inset-x-6 md:bottom-6">
+          <span className="font-gallery-short-stack text-sm leading-none text-[var(--gallery-dark)] md:text-xl max-[426px]:text-[12px] max-[376px]:text-[10px]">
+            {project.company}
+          </span>
+          <span className="shrink-0 font-gallery-short-stack text-[10px] uppercase tracking-[0.28em] text-[var(--gallery-subtext)] max-[426px]:text-[10px] max-[376px]:text-[8px]">
+            {project.experience}
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Museum plaque caption */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8, ease: EASE, delay: 0.12 }}
+        className="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-[auto_1fr]"
+      >
+        {/* Catalogue number */}
+        <div className="flex items-baseline gap-3 md:flex-col md:items-start md:gap-1">
+          <span className="font-gallery-display text-3xl font-medium tracking-tight text-[var(--gallery-text)]">
+            {project.index}
+          </span>
+        </div>
+
+        <div>
+          <h3 className="font-gallery-display text-[clamp(1.6rem,3vw,2.75rem)] font-medium leading-[1.02] tracking-tight text-[var(--gallery-text)]">
+            {project.title}
+          </h3>
+          <p className="mt-6 max-w-xl font-gallery-body text-sm leading-relaxed text-[var(--gallery-subtext)] md:text-base">
+            {project.description}
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-1.5">
+            {project.tech.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-[var(--gallery-line)] px-3 py-1 font-gallery-body text-[10px] uppercase tracking-[0.18em] text-[var(--gallery-subtext)]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </article>
+  );
+};
+
+/* ------------------------------------------------------------------ */
+/* Section                                                             */
+/* ------------------------------------------------------------------ */
+
 export const ExhibitionsSection = () => {
+  const [active, setActive] = useState(0);
+  const panelRefs = useRef<Array<HTMLElement | null>>([]);
+  const timelineRef = useRef<HTMLDivElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start center", "end center"],
+  });
+
+  const registerRef = useCallback((index: number, node: HTMLElement | null) => {
+    panelRefs.current[index] = node;
+  }, []);
+
+  const handleSelect = useCallback((index: number) => {
+    panelRefs.current[index]?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, []);
+
   return (
     <section
-      id="projects"
-      aria-label="Projects"
+      id="experiences"
+      aria-label="experiences"
       className="relative px-6 py-32 md:px-12 md:py-44"
     >
       <div className="mx-auto max-w-[1600px]">
         {/* Section header */}
         <div className="flex items-end justify-between">
           <h2 className="font-gallery-display text-[clamp(2.5rem,7vw,6rem)] font-medium leading-[0.92] tracking-tight text-[var(--gallery-text)]">
-            <LinesReveal lines={["Projects"]} />
+            <LinesReveal lines={["Work Experiences"]} />
           </h2>
           <motion.span
             initial={{ opacity: 0, x: 20 }}
@@ -172,28 +276,33 @@ export const ExhibitionsSection = () => {
           transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
           className="mt-6 max-w-lg font-gallery-body text-sm leading-relaxed text-[var(--gallery-subtext)] md:text-base"
         >
-          A curated collection of production experiences — each shaped by
-          real-world constraints, performance demands, and user-centered
-          design.
+          A curated walk through production experiences — each shaped by
+          real-world constraints, performance demands, and user-centered design.
         </motion.p>
 
-        {/* Bento Grid */}
-        <div className="mt-16 grid auto-rows-[minmax(280px,1fr)] grid-cols-1 gap-3 md:mt-24 md:grid-cols-3 md:gap-4">
-          {EXHIBITIONS.map((project, i) => {
-            const placement = GRID_PLACEMENTS[i] ?? {
-              col: "",
-              featured: false,
-            };
-            return (
-              <BentoCard
+        {/* Timeline gallery walk */}
+        <div
+          ref={timelineRef}
+          className="mt-16 grid grid-cols-1 gap-y-24 md:mt-24 lg:grid-cols-12 lg:gap-x-16"
+        >
+          <ExhibitionRail
+            active={active}
+            progress={scrollYProgress}
+            onSelect={handleSelect}
+          />
+
+          <div className="flex flex-col gap-28 md:gap-40 lg:col-span-8">
+            {EXHIBITIONS.map((project, i) => (
+              <ExhibitionPanel
                 key={project.index}
                 project={project}
                 index={i}
-                featured={placement.featured}
-                colClass={placement.col}
+                total={EXHIBITIONS.length}
+                onActivate={setActive}
+                registerRef={registerRef}
               />
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

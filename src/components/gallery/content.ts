@@ -148,7 +148,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "React and Next.js flight booking experience - responsive across web and mobile, with flight detail flows, campaign carousels, pre-booking validation, and measurable LCP gains through bundle optimization.",
     tech: ["React", "Next.js", "TypeScript"],
-    image: "/images/img-ARS.webp",
+    image: "/images/img-flight-gother.webp",
     company: "Search Engine Optimization (Gother)",
     experience: "March - July 2026 (Contract)",
   },
