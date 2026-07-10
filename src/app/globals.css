@@ -195,6 +195,8 @@ body {
   --font-gallery-hero: var(--font-instrument-serif), "Instrument Serif", serif;
   --font-gallery-script: var(--font-monte-carlo), "MonteCarlo", cursive;
   --font-gallery-lobster: var(--font-lobster-two), "Lobster Two", cursive;
+  --font-gallery-pacifico: var(--font-pacifico), "Pacifico", cursive;
+  --font-gallery-bodoni: var(--font-bodoni-moda), "Bodoni Moda", serif;
 }
 
 [data-theme="gallery"] body {
@@ -231,6 +233,14 @@ body {
 
 .font-gallery-lobster {
   font-family: var(--font-gallery-lobster);
+}
+
+.font-gallery-pacifico {
+  font-family: var(--font-gallery-pacifico);
+}
+
+.font-gallery-bodoni {
+  font-family: var(--font-gallery-bodoni);
 }
 
 /* Grain texture overlay */

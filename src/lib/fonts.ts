@@ -1,11 +1,13 @@
 import {
   Geist,
+  Bodoni_Moda,
   Instrument_Serif,
   Inter,
   Inter_Tight,
   Lobster_Two,
   Manrope,
   MonteCarlo,
+  Pacifico,
   Space_Grotesk,
 } from "next/font/google";
 
@@ -52,6 +54,17 @@ const lobsterTwo = Lobster_Two({
   weight: "400",
 });
 
+const pacifico = Pacifico({
+  variable: "--font-pacifico",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const bodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni-moda",
+  subsets: ["latin"],
+});
+
 export const fontVariables = [
   inter.variable,
   manrope.variable,
@@ -61,4 +74,6 @@ export const fontVariables = [
   instrumentSerif.variable,
   monteCarlo.variable,
   lobsterTwo.variable,
+  pacifico.variable,
+  bodoniModa.variable,
 ].join(" ");

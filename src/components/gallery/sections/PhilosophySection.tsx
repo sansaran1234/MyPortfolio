@@ -66,7 +66,7 @@ export const PhilosophySection = () => {
 
         <p
           ref={ref}
-          className="flex flex-wrap font-gallery-display text-[clamp(1.5rem,3.6vw,3rem)] font-medium leading-[1.3] tracking-tight text-white"
+          className="flex flex-wrap font-gallery-pacifico text-[clamp(1.5rem,3.6vw,3rem)] font-normal leading-[1.3] tracking-tight text-white"
         >
           {words.map((word, index) => {
             const start = index / words.length;
