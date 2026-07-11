@@ -11,6 +11,7 @@ import {
 } from "motion/react";
 import type { Exhibition } from "../content";
 import { EXHIBITIONS } from "../content";
+import { cn } from "@/lib/utils";
 import { LinesReveal } from "../Reveal";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
@@ -132,11 +133,12 @@ const ExhibitionPanel = ({
   const imageY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   // Alternate tilt + alignment for a scattered gallery-wall feel.
-  const tilt = index % 2 === 0 ? -1.6 : 1.6;
-  const align = index % 2 === 0 ? "lg:mr-auto" : "lg:ml-auto";
+  const isLeftAligned = index % 2 === 0;
+  const tilt = isLeftAligned ? -1.6 : 1.6;
+  const align = isLeftAligned ? "lg:mr-auto" : "lg:ml-auto";
 
   return (
-    <article ref={setRef} className={`scroll-mt-32 ${index % 2 === 0 ? "max-[992px]:mr-auto" : "max-[992px]:ml-auto"}`}>
+    <article ref={setRef} className={cn("scroll-mt-32", isLeftAligned ? "max-[992px]:mr-auto" : "max-[992px]:ml-auto")}>
       {/* Polaroid frame */}
       <motion.div
         initial={{ opacity: 0, y: 48, rotate: tilt * 2.2 }}
@@ -188,24 +190,45 @@ const ExhibitionPanel = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.12 }}
-        className="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-[auto_1fr]"
+        className={cn(
+          "mt-8 grid w-full max-w-xl grid-cols-1 gap-x-10 gap-y-6",
+          isLeftAligned ? "max-[992px]:mr-auto lg:mr-auto" : "max-[992px]:ml-auto lg:ml-auto",
+          isLeftAligned
+            ? "md:grid-cols-[auto_1fr] md:text-left"
+            : "md:grid-cols-[1fr_auto] md:text-right",
+        )}
       >
         {/* Catalogue number */}
-        <div className="flex items-baseline gap-3 md:flex-col md:items-start md:gap-1">
+        <div
+          className={cn(
+            "flex items-baseline gap-3 md:flex-col md:gap-1",
+            isLeftAligned ? "md:items-start" : "md:order-2 md:items-end",
+          )}
+        >
           <span className="font-gallery-display text-3xl font-medium tracking-tight text-[var(--gallery-text)]">
             {project.index}
           </span>
         </div>
 
-        <div>
+        <div className={cn(!isLeftAligned && "md:order-1")}>
           <h3 className="font-gallery-display text-[clamp(1.6rem,3vw,2.75rem)] font-medium leading-[1.02] tracking-tight text-[var(--gallery-text)]">
             {project.title}
           </h3>
-          <p className="mt-6 max-w-xl font-gallery-body text-sm leading-relaxed text-[var(--gallery-subtext)] md:text-base">
+          <p
+            className={cn(
+              "mt-6 max-w-xl font-gallery-body text-sm leading-relaxed text-[var(--gallery-subtext)] md:text-base",
+              !isLeftAligned && "md:ml-auto",
+            )}
+          >
             {project.description}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-1.5">
+          <div
+            className={cn(
+              "mt-6 flex flex-wrap gap-1.5",
+              !isLeftAligned && "md:justify-end",
+            )}
+          >
             {project.tech.map((tech) => (
               <span
                 key={tech}

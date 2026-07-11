@@ -97,7 +97,7 @@ export const EXHIBITIONS: Exhibition[] = [
     title: "Travel & Booking Systems",
     description:
       "High-performance flight booking platform supporting seat selection, passenger management, and real-time schedules.",
-    tech: ["React", "TypeScript", "Material UI"],
+    tech: ["React", "Next.js", "TypeScript", "Framer Motion", "Material UI"],
     image: "/images/img-ARS.webp",
     company: "T.I.K. SYSTEMS",
     experience: "2023 - 2024",
@@ -107,7 +107,7 @@ export const EXHIBITIONS: Exhibition[] = [
     title: "ERP Job Tracking System",
     description:
       "Factory performance tracking platform with real-time packaging design capabilities including dieline and texture customization.",
-    tech: ["Next.js", "Shadcn UI", "Tailwind CSS"],
+    tech: ["Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
     image: "/images/img-ERP.webp",
     company: "LUCA BLOCK",
     experience: "2026 - 2024",
@@ -147,7 +147,7 @@ export const EXHIBITIONS: Exhibition[] = [
     title: "Gother Flight Platform",
     description:
       "React and Next.js flight booking experience - responsive across web and mobile, with flight detail flows, campaign carousels, pre-booking validation, and measurable LCP gains through bundle optimization.",
-    tech: ["React", "Next.js", "TypeScript"],
+    tech: ["React", "Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
     image: "/images/img-flight-gother.webp",
     company: "Search Engine Optimization (Gother)",
     experience: "March - July 2026 (Contract)",
