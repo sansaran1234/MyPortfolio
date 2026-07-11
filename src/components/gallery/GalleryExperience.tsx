@@ -1,7 +1,8 @@
 "use client";
 
 import { SmoothScrollProvider } from "./SmoothScrollProvider";
-import { CustomCursor } from "./CustomCursor";
+// import { CustomCursor } from "./CustomCursor";
+import { FluidCursor } from "./FluidCursor";
 import { GrainOverlay } from "./GrainOverlay";
 import { GalleryNav } from "./GalleryNav";
 import { HeroSection } from "./sections/HeroSection";
@@ -17,7 +18,8 @@ export const GalleryExperience = () => {
   return (
     <SmoothScrollProvider>
       <GrainOverlay />
-      <CustomCursor />
+      <FluidCursor />
+      {/* <CustomCursor /> */}
       <GalleryNav />
 
       <main className="gallery-root relative w-full overflow-x-clip">

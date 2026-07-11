@@ -47,7 +47,7 @@ export const ContactSection = () => {
                     target={detail.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
                     data-cursor="hover"
-                    className="mt-3 block font-gallery-display text-xl text-[var(--gallery-text)] transition-opacity duration-300 hover:opacity-60 md:text-2xl"
+                    className="hover:underline mt-3 block font-gallery-display text-xl text-[var(--gallery-text)] transition-opacity duration-300 hover:opacity-60 md:text-2xl"
                   >
                     {detail.value}
                   </a>
