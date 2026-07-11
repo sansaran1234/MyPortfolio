@@ -16,6 +16,13 @@ import { LinesReveal } from "../Reveal";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
 
+const SHOW_COMPANY_IN_RAIL = EXHIBITIONS.map((project, index) => {
+  const firstIndex = EXHIBITIONS.findIndex(
+    (entry) => entry.company === project.company,
+  );
+  return index === firstIndex;
+});
+
 /* ------------------------------------------------------------------ */
 /* Left rail — sticky exhibition index with scroll progress + active   */
 /* ------------------------------------------------------------------ */
@@ -65,6 +72,17 @@ const ExhibitionRail = ({
                     onClick={() => onSelect(i)}
                     className="group block w-full text-left"
                   >
+                    {SHOW_COMPANY_IN_RAIL[i] && (
+                      <span
+                        className={`mb-1.5 block font-gallery-body text-[10px] uppercase tracking-[0.24em] transition-colors duration-500 ${
+                          isActive
+                            ? "text-[var(--gallery-text)]/75"
+                            : "text-[var(--gallery-subtext)]/55 group-hover:text-[var(--gallery-subtext)]"
+                        }`}
+                      >
+                        {project.company}
+                      </span>
+                    )}
                     <span
                       className={`block font-gallery-body text-[10px] uppercase tracking-[0.28em] transition-colors duration-500 ${
                         isActive

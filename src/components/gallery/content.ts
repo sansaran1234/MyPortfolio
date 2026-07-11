@@ -71,13 +71,20 @@ export const CRAFT_PANELS: CraftPanel[] = [
   },
 ];
 
+export enum Company {
+  NEVER_SLEEP = "NEVER SLEEP",
+  TIK_SYSTEMS = "T.I.K. SYSTEMS",
+  LUCA_BLOCK = "LUCA BLOCK",
+  GOTHER_SEO = "Search Engine Optimization (Gother)",
+}
+
 export interface Exhibition {
   index: string;
   title: string;
   description: string;
   tech: string[];
   image: string;
-  company: string;
+  company: Company;
   experience: string;
 }
 
@@ -89,7 +96,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "End-to-end ordering, shipping, and pickup logistics ecosystem with complex product management workflows.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "WebSockets"],
     image: "/images/img-Ecom.webp",
-    company: "NEVER SLEEP",
+    company: Company.NEVER_SLEEP,
     experience: "2020 - 2023",
   },
   {
@@ -99,7 +106,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "High-performance flight booking platform supporting seat selection, passenger management, and real-time schedules.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion", "Material UI"],
     image: "/images/img-ARS.webp",
-    company: "T.I.K. SYSTEMS",
+    company: Company.TIK_SYSTEMS,
     experience: "2023 - 2024",
   },
   {
@@ -109,7 +116,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "Factory performance tracking platform with real-time packaging design capabilities including dieline and texture customization.",
     tech: ["Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
     image: "/images/img-ERP.webp",
-    company: "LUCA BLOCK",
+    company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
   {
@@ -119,7 +126,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "AI article generation platform and one-click AI chat applications designed to accelerate content production.",
     tech: ["Next.js", "TypeScript", "Framer Motion", "Material UI"],
     image: "/images/img-AI.webp",
-    company: "LUCA BLOCK",
+    company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
   {
@@ -129,7 +136,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "Pixel-perfect responsive landing pages transformed from Figma into production-ready experiences.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
     image: "/images/img-SEO.webp",
-    company: "LUCA BLOCK",
+    company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
   {
@@ -139,7 +146,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "E-commerce platform for selling and designing custom packaging boxes with interactive 3D previews, order status tracking, and flexible delivery or self-pickup options.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
     image: "/images/img-packaging.webp",
-    company: "LUCA BLOCK",
+    company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
   {
@@ -149,7 +156,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "Mentoring and knowledge sharing experience for interns and junior developers.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion"],
     image: "/images/img-intern.webp",
-    company: "LUCA BLOCK",
+    company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
   {
@@ -159,7 +166,7 @@ export const EXHIBITIONS: Exhibition[] = [
       "React and Next.js flight booking experience - responsive across web and mobile, with flight detail flows, campaign carousels, pre-booking validation, and measurable LCP gains through bundle optimization.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
     image: "/images/img-flight-gother.webp",
-    company: "Search Engine Optimization (Gother)",
+    company: Company.GOTHER_SEO,
     experience: "March - July 2026 (Contract)",
   },
 ];
