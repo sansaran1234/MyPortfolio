@@ -155,7 +155,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "Mentoring and knowledge sharing experience for interns and junior developers.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion"],
-    image: "/images/img-intern.webp",
+    image: "/images/img-knowledge.webp",
     company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
