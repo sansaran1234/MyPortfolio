@@ -199,6 +199,7 @@ body {
   --font-gallery-short-stack: var(--font-short-stack), "Short Stack", cursive;
   --font-gallery-bodoni: var(--font-bodoni-moda), "Bodoni Moda", serif;
   --font-gallery-playwrite: var(--font-playwrite-ie), "Playwrite IE", cursive;
+  --font-gallery-gveret-levin: var(--font-gveret-levin), "Gveret Levin", cursive;
 }
 
 [data-theme="gallery"] body {
@@ -251,6 +252,10 @@ body {
 
 .font-gallery-playwrite {
   font-family: var(--font-gallery-playwrite);
+}
+
+.font-gallery-gveret-levin {
+  font-family: var(--font-gveret-levin), "Gveret Levin", cursive;
 }
 
 /* Grain texture overlay */

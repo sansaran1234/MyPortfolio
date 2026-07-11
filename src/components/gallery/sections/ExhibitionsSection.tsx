@@ -255,7 +255,7 @@ export const ExhibitionsSection = () => {
       <div className="mx-auto max-w-[1600px]">
         {/* Section header */}
         <div className="flex items-end justify-between">
-          <h2 className="font-gallery-display text-[clamp(2.5rem,7vw,6rem)] font-medium leading-[0.92] tracking-tight text-[var(--gallery-text)]">
+          <h2 className="font-gallery-gveret-levin text-[clamp(2.5rem,7vw,6rem)] font-normal leading-[0.92] tracking-tight text-[var(--gallery-text)]">
             <LinesReveal lines={["Work Experiences"]} />
           </h2>
           <motion.span

@@ -19,9 +19,6 @@ export const AboutSection = () => {
           <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)]">
             Personal
           </span>
-          <span className="font-gallery-body text-[11px] uppercase tracking-[0.3em] text-[var(--gallery-subtext)]">
-            Profile
-          </span>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_0.9fr]">

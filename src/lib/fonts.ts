@@ -79,6 +79,13 @@ const playwriteIE = localFont({
   weight: "100 400",
 });
 
+const gveretLevin = localFont({
+  src: "../assets/fonts/gveret-levin.woff2",
+  variable: "--font-gveret-levin",
+  display: "swap",
+  weight: "400",
+});
+
 export const fontVariables = [
   inter.variable,
   manrope.variable,
@@ -92,4 +99,5 @@ export const fontVariables = [
   shortStack.variable,
   bodoniModa.variable,
   playwriteIE.variable,
+  gveretLevin.variable,
 ].join(" ");
