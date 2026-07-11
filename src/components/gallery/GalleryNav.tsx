@@ -41,7 +41,7 @@ export const GalleryNav = () => {
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           data-cursor="hover"
-          className="font-gallery-display text-sm uppercase tracking-[0.3em]"
+          className="font-gallery-display text-sm uppercase tracking-[0.3em] focus:outline-none focus:ring-0"
         >
           SP — Studio
         </button>
