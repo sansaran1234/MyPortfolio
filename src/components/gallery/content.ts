@@ -110,7 +110,7 @@ export const EXHIBITIONS: Exhibition[] = [
     tech: ["Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
     image: "/images/img-ERP.webp",
     company: "LUCA BLOCK",
-    experience: "2026 - 2024",
+    experience: "2024 - 2026",
   },
   {
     index: "04",
@@ -120,7 +120,7 @@ export const EXHIBITIONS: Exhibition[] = [
     tech: ["Next.js", "TypeScript", "Framer Motion", "Material UI"],
     image: "/images/img-AI.webp",
     company: "LUCA BLOCK",
-    experience: "2026 - 2024",
+    experience: "2024 - 2026",
   },
   {
     index: "05",
@@ -130,20 +130,30 @@ export const EXHIBITIONS: Exhibition[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
     image: "/images/img-SEO.webp",
     company: "LUCA BLOCK",
-    experience: "2026 - 2024",
+    experience: "2024 - 2026",
   },
   {
     index: "06",
+    title: "Custom 3D Packaging \nE-Commerce",
+    description:
+      "E-commerce platform for selling and designing custom packaging boxes with interactive 3D previews, order status tracking, and flexible delivery or self-pickup options.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
+    image: "/images/img-packaging.webp",
+    company: "LUCA BLOCK",
+    experience: "2024 - 2026",
+  },
+  {
+    index: "07",
     title: "Knowledge Transfer",
     description:
       "Mentoring and knowledge sharing experience for interns and junior developers.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion"],
     image: "/images/img-intern.webp",
     company: "LUCA BLOCK",
-    experience: "2026 - 2024",
+    experience: "2024 - 2026",
   },
   {
-    index: "07",
+    index: "08",
     title: "Gother Flight Platform",
     description:
       "React and Next.js flight booking experience - responsive across web and mobile, with flight detail flows, campaign carousels, pre-booking validation, and measurable LCP gains through bundle optimization.",

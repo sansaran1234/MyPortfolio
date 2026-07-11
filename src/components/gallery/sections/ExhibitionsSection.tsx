@@ -75,7 +75,7 @@ const ExhibitionRail = ({
                       {project.experience}
                     </span>
                     <span
-                      className={`mt-1 block font-gallery-display text-lg leading-tight tracking-tight transition-all duration-500 ${
+                      className={`mt-1 block whitespace-pre-line font-gallery-display text-lg leading-tight tracking-tight transition-all duration-500 ${
                         isActive
                           ? "translate-x-1 text-[var(--gallery-text)]"
                           : "text-[var(--gallery-subtext)]/70 group-hover:text-[var(--gallery-text)]"
@@ -159,7 +159,7 @@ const ExhibitionPanel = ({
           <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
             <Image
               src={project.image}
-              alt={project.title}
+              alt={project.title.replace(/\n/g, " ")}
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover transition-transform duration-700 ease-out group-hover/polaroid:scale-[1.03]"
@@ -211,7 +211,7 @@ const ExhibitionPanel = ({
         </div>
 
         <div className={cn(!isLeftAligned && "md:order-1")}>
-          <h3 className="font-gallery-display text-[clamp(1.6rem,3vw,2.75rem)] font-medium leading-[1.02] tracking-tight text-[var(--gallery-text)]">
+          <h3 className="whitespace-pre-line font-gallery-display text-[clamp(1.6rem,3vw,2.75rem)] font-medium leading-[1.02] tracking-tight text-[var(--gallery-text)]">
             {project.title}
           </h3>
           <p
