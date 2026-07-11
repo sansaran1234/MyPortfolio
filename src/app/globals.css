@@ -270,13 +270,25 @@ body {
   background-size: 220px 220px;
 }
 
-/* Fluid cursor */
+/* Fluid cursor — gooey ink-drop trail */
 .fluid-cursor-root {
   position: fixed;
   inset: 0;
   z-index: 95;
   pointer-events: none;
   overflow: hidden;
+}
+
+.fluid-cursor-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.fluid-cursor-goo {
+  position: absolute;
+  inset: 0;
+  /* filter (goo) applied inline so overlapping drops fuse together */
 }
 
 .fluid-cursor-blob {
@@ -286,18 +298,11 @@ body {
   border-radius: 60% 40% 35% 65% / 55% 45% 60% 40%;
   pointer-events: none;
   will-change: transform;
-  filter: blur(0.35px);
-  box-shadow:
-    inset 0 1px 12px rgba(255, 255, 255, 0.45),
-    0 10px 28px rgba(140, 192, 235, 0.28);
-  animation: fluid-cursor-morph 9s ease-in-out infinite;
+  animation: fluid-cursor-morph 8s ease-in-out infinite;
 }
 
 .fluid-cursor-blob-lead {
-  filter: blur(0.2px);
-  box-shadow:
-    inset 0 2px 16px rgba(255, 255, 255, 0.55),
-    0 14px 36px rgba(140, 192, 235, 0.34);
+  animation-duration: 6.5s;
 }
 
 .fluid-cursor-blob:nth-child(2) {
@@ -310,6 +315,10 @@ body {
 
 .fluid-cursor-blob:nth-child(4) {
   animation-delay: -7.2s;
+}
+
+.fluid-cursor-blob:nth-child(5) {
+  animation-delay: -3.6s;
 }
 
 @keyframes fluid-cursor-morph {
