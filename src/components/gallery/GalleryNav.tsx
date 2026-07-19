@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { GALLERY_IDENTITY } from "./content";
 
@@ -41,9 +42,18 @@ export const GalleryNav = () => {
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           data-cursor="hover"
-          className="font-gallery-display text-sm uppercase tracking-[0.3em] focus:outline-none focus:ring-0"
+          className="inline-flex items-center focus:outline-none focus:ring-0 bg-transparent"
+          aria-label="Scroll to top"
         >
-          SP — Studio
+          <Image
+            src="/images/logo_dark.webp"
+            alt="SP — Studio"
+            width={120}
+            height={34}
+            className="h-6 w-auto md:h-7 bg-transparent"
+            priority
+            style={{ filter: "invert(1)" }}
+          />
         </button>
 
         <div className="hidden items-center gap-8 lg:flex">
