@@ -117,6 +117,8 @@ export type Exhibition = {
   | { artwork: "travel"; image?: never }
   | { artwork: "erp"; image?: never }
   | { artwork: "ai"; image?: never }
+  | { artwork: "frontend"; image?: never }
+  | { artwork: "packaging"; image?: never }
   | { artwork?: never; image: string }
 );
 
@@ -167,7 +169,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "Pixel-perfect responsive landing pages transformed from Figma into production-ready experiences.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
-    image: "/images/img-SEO.webp",
+    artwork: "frontend",
     company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
@@ -177,7 +179,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "E-commerce platform for selling and designing custom packaging boxes with interactive 3D previews, order status tracking, and flexible delivery or self-pickup options.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI"],
-    image: "/images/img-packaging.webp",
+    artwork: "packaging",
     company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
