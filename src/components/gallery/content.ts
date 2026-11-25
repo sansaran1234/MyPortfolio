@@ -22,13 +22,40 @@ export const MANIFESTO_LINES = [
   "Design and performance should coexist.",
 ];
 
+const BIRTH_DATE = {
+  year: 1997,
+  month: 6,
+  day: 28,
+} as const;
+
+const CAREER_START_YEAR = 2020;
+
+const calculateAge = (
+  birthDate: typeof BIRTH_DATE,
+  today = new Date(),
+) => {
+  const hasHadBirthdayThisYear =
+    today.getMonth() > birthDate.month ||
+    (today.getMonth() === birthDate.month && today.getDate() >= birthDate.day);
+
+  return today.getFullYear() - birthDate.year - (hasHadBirthdayThisYear ? 0 : 1);
+};
+
+const calculateYearsOfExperience = (
+  startYear: number,
+  today = new Date(),
+) => today.getFullYear() - startYear;
+
+const age = calculateAge(BIRTH_DATE);
+const yearsOfExperience = calculateYearsOfExperience(CAREER_START_YEAR);
+
 export const ARTIST_PROFILE: { label: string; value: string }[] = [
   { label: "Name", value: "Sansaran Phanchan" },
   { label: "Nickname", value: "Ball" },
-  { label: "Born", value: "28 July 1997" },
+  { label: "Born", value: `28 July 1997 (${age} Years Old)` },
   { label: "Nationality", value: "Thai" },
   { label: "Location", value: "Bangkok, Chiang Mai" },
-  { label: "Experience", value: "6+ Years" },
+  { label: "Experience", value: `${yearsOfExperience}+ Years` },
 ];
 
 export const ARTIST_AVAILABILITY = ["Freelance", "Contract", "Full-Time"];
