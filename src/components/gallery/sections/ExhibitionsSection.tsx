@@ -15,6 +15,8 @@ import { cn } from "@/lib/utils";
 import { LinesReveal } from "../Reveal";
 import { LogisticsArtwork } from "../LogisticsArtwork";
 import { TravelArtwork } from "../TravelArtwork";
+import { ErpArtwork } from "../ErpArtwork";
+import { AiArtwork } from "../AiArtwork";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
 
@@ -180,6 +182,10 @@ const ExhibitionPanel = ({
             <LogisticsArtwork />
           ) : project.artwork === "travel" ? (
             <TravelArtwork />
+          ) : project.artwork === "erp" ? (
+            <ErpArtwork />
+          ) : project.artwork === "ai" ? (
+            <AiArtwork />
           ) : (
             <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
             <Image

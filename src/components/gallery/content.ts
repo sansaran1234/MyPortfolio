@@ -115,6 +115,8 @@ export type Exhibition = {
 } & (
   | { artwork: "logistics"; image?: never }
   | { artwork: "travel"; image?: never }
+  | { artwork: "erp"; image?: never }
+  | { artwork: "ai"; image?: never }
   | { artwork?: never; image: string }
 );
 
@@ -145,7 +147,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "Factory performance tracking platform with real-time packaging design capabilities including dieline and texture customization.",
     tech: ["Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
-    image: "/images/img-ERP.webp",
+    artwork: "erp",
     company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
@@ -155,7 +157,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "AI article generation platform and one-click AI chat applications designed to accelerate content production.",
     tech: ["Next.js", "TypeScript", "Framer Motion", "Material UI"],
-    image: "/images/img-AI.webp",
+    artwork: "ai",
     company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
