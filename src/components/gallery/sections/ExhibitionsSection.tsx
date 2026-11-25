@@ -19,6 +19,8 @@ import { ErpArtwork } from "../ErpArtwork";
 import { AiArtwork } from "../AiArtwork";
 import { FrontendArtwork } from "../FrontendArtwork";
 import { PackagingArtwork } from "../PackagingArtwork";
+import { KnowledgeArtwork } from "../KnowledgeArtwork";
+import { GotherArtwork } from "../GotherArtwork";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
 
@@ -192,6 +194,10 @@ const ExhibitionPanel = ({
             <FrontendArtwork />
           ) : project.artwork === "packaging" ? (
             <PackagingArtwork />
+          ) : project.artwork === "knowledge" ? (
+            <KnowledgeArtwork />
+          ) : project.artwork === "gother" ? (
+            <GotherArtwork />
           ) : (
             <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
             <Image

@@ -119,6 +119,8 @@ export type Exhibition = {
   | { artwork: "ai"; image?: never }
   | { artwork: "frontend"; image?: never }
   | { artwork: "packaging"; image?: never }
+  | { artwork: "knowledge"; image?: never }
+  | { artwork: "gother"; image?: never }
   | { artwork?: never; image: string }
 );
 
@@ -189,7 +191,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "Mentoring and knowledge sharing experience for interns and junior developers.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion"],
-    image: "/images/img-knowledge.webp",
+    artwork: "knowledge",
     company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
   },
@@ -199,7 +201,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "React and Next.js flight booking experience - responsive across web and mobile, with flight detail flows, campaign carousels, pre-booking validation, and measurable LCP gains through bundle optimization.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
-    image: "/images/img-flight-gother.webp",
+    artwork: "gother",
     company: Company.GOTHER_SEO,
     experience: "March - July 2026 (Contract)",
   },
