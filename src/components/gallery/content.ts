@@ -105,15 +105,18 @@ export enum Company {
   GOTHER_SEO = "Search Engine Optimization (Gother)",
 }
 
-export interface Exhibition {
+export type Exhibition = {
   index: string;
   title: string;
   description: string;
   tech: string[];
-  image: string;
   company: Company;
   experience: string;
-}
+} & (
+  | { artwork: "logistics"; image?: never }
+  | { artwork: "travel"; image?: never }
+  | { artwork?: never; image: string }
+);
 
 export const EXHIBITIONS: Exhibition[] = [
   {
@@ -122,7 +125,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "End-to-end ordering, shipping, and pickup logistics ecosystem with complex product management workflows.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "WebSockets"],
-    image: "/images/img-Ecom.webp",
+    artwork: "logistics",
     company: Company.NEVER_SLEEP,
     experience: "2020 - 2023",
   },
@@ -132,7 +135,7 @@ export const EXHIBITIONS: Exhibition[] = [
     description:
       "High-performance flight booking platform supporting seat selection, passenger management, and real-time schedules.",
     tech: ["React", "Next.js", "TypeScript", "Framer Motion", "Material UI"],
-    image: "/images/img-ARS.webp",
+    artwork: "travel",
     company: Company.TIK_SYSTEMS,
     experience: "2023 - 2024",
   },

@@ -1,0 +1,352 @@
+.scene {
+  width: 100%;
+  height: 100%;
+  container-type: inline-size;
+  background: #f5f0e4;
+  overflow: hidden;
+}
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #465762;
+  background-image: radial-gradient(#b6a98c33 0.7px, transparent 0.7px);
+  background-size: 7px 7px;
+  font-family: var(--font-gallery-body), sans-serif;
+}
+.canvas *,
+.canvas *::before,
+.canvas *::after {
+  box-sizing: border-box;
+}
+.heading {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  z-index: 2;
+}
+.heading span {
+  display: block;
+  font-size: 1.6cqw;
+  letter-spacing: 0.2em;
+}
+.heading strong {
+  display: block;
+  margin-top: 1.5cqw;
+  font-family: var(--font-gallery-hero), Georgia, serif;
+  font-size: 4.8cqw;
+  font-weight: 400;
+}
+.sun {
+  position: absolute;
+  right: 12%;
+  top: 10%;
+  width: 12%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f2d590;
+}
+.cloud {
+  position: absolute;
+  right: 9%;
+  top: 27%;
+  width: 21%;
+  height: 4%;
+  background: #fffaf1;
+  border-radius: 80% 90% 30% 30%;
+}
+.hill {
+  position: absolute;
+  left: -10%;
+  bottom: 13%;
+  width: 120%;
+  height: 43%;
+  background: #dce4d4;
+  border-radius: 50% 60% 0 0;
+  transform: rotate(-5deg);
+}
+.route {
+  position: absolute;
+  left: 14%;
+  top: 60%;
+  width: 72%;
+  height: 23%;
+  border: 1.5cqw solid #eee7d7;
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  outline: 1px dashed #9f9b89;
+  outline-offset: -3px;
+}
+.shop {
+  position: absolute;
+  left: 9%;
+  top: 31%;
+  width: 29%;
+  height: 25%;
+  background: #fffdf7;
+  border: 1.5px solid #627984;
+  border-radius: 1cqw;
+  box-shadow: 1cqw 1.2cqw 0 #46576216;
+  transform: rotate(-5deg);
+}
+.browser {
+  height: 20%;
+  border-bottom: 1px solid #627984;
+  display: flex;
+  align-items: center;
+  gap: 1cqw;
+  padding-left: 1.8cqw;
+  background: #d4e5ec;
+  border-radius: 1cqw 1cqw 0 0;
+}
+.browser i {
+  width: 0.8cqw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #627984;
+}
+.products {
+  display: flex;
+  gap: 1.5cqw;
+  height: 48%;
+  padding: 2cqw;
+}
+.products b {
+  flex: 1;
+  background: #e8bc8e;
+  border: 1px solid #9e7d5f;
+  border-radius: 0.5cqw;
+}
+.products b:nth-child(2) {
+  background: #bdd2c0;
+  border-color: #829983;
+}
+.products b:nth-child(3) {
+  background: #c7deec;
+  border-color: #819caa;
+}
+.order {
+  margin: 0 2cqw;
+  font-size: 1.35cqw;
+  letter-spacing: 0.06em;
+  border-top: 1px solid #e3ddd0;
+  padding-top: 1cqw;
+}
+.order span {
+  float: right;
+  color: #5b8368;
+}
+.warehouse {
+  position: absolute;
+  left: 41%;
+  top: 38%;
+  width: 29%;
+  height: 30%;
+  background: #e7d4b2;
+  border: 1.5px solid #8d8069;
+  box-shadow: 1.5cqw 1cqw 0 #46576212;
+}
+.roof {
+  position: absolute;
+  top: -28%;
+  left: -9%;
+  width: 118%;
+  height: 30%;
+  background: #7e9ca9;
+  clip-path: polygon(50% 0, 100% 85%, 96% 100%, 50% 20%, 4% 100%, 0 85%);
+}
+.sign {
+  position: absolute;
+  top: 7%;
+  width: 100%;
+  text-align: center;
+  font-size: 1.4cqw;
+  letter-spacing: 0.15em;
+}
+.shelves {
+  position: absolute;
+  left: 8%;
+  bottom: 8%;
+  width: 48%;
+  height: 64%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1cqw 0.6cqw;
+  padding: 1cqw;
+  background: repeating-linear-gradient(to top, #817966 0 1px, #c6b794 1px 50%);
+  border: 1px solid #8d8069;
+}
+.shelves i,
+.parcel {
+  background: linear-gradient(90deg, #cfa671 42%, #f1d7a7 42% 57%, #cfa671 57%);
+  border: 1px solid #a38259;
+  border-radius: 1px;
+}
+.door {
+  position: absolute;
+  right: 8%;
+  bottom: 0;
+  width: 27%;
+  height: 65%;
+  background: #5b6c6b;
+  border: 1px solid #8d8069;
+}
+.door span {
+  display: block;
+  height: 28%;
+  background: repeating-linear-gradient(#a5b4ac 0 3px, #81928a 3px 4px);
+}
+.belt {
+  position: absolute;
+  left: 63%;
+  top: 70%;
+  width: 15%;
+  height: 3%;
+  border: 1px solid #6f7b77;
+  border-radius: 5px;
+  background: repeating-linear-gradient(90deg, #b8c0b3 0 5px, #7b8980 5px 6px);
+}
+.parcel {
+  position: absolute;
+  left: 64%;
+  top: 64%;
+  width: 5%;
+  height: 6%;
+}
+.house {
+  position: absolute;
+  right: 9%;
+  top: 53%;
+  width: 14%;
+  height: 15%;
+  background: #f4dfbb;
+  border: 1px solid #ac9472;
+}
+.house div {
+  position: absolute;
+  left: -12%;
+  top: -38%;
+  width: 124%;
+  height: 42%;
+  background: #b87c60;
+  clip-path: polygon(50% 0, 100% 90%, 95% 100%, 5% 100%, 0 90%);
+}
+.house span {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  width: 25%;
+  height: 55%;
+  background: #8d9f8c;
+}
+.house i {
+  position: absolute;
+  top: 20%;
+  left: 12%;
+  width: 20%;
+  height: 26%;
+  background: #bcd8e3;
+  border: 1px solid #ac9472;
+}
+.tree {
+  position: absolute;
+  left: 10%;
+  top: 58%;
+  width: 9%;
+  height: 18%;
+}
+.tree i {
+  position: absolute;
+  bottom: 0;
+  left: 48%;
+  width: 5%;
+  height: 70%;
+  background: #9c8667;
+}
+.tree b {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  border-radius: 45% 50% 40% 50%;
+  background: #a6b995;
+}
+.truck {
+  position: absolute;
+  left: 31%;
+  top: 72%;
+  width: 24%;
+  height: 12%;
+}
+.cargo {
+  position: absolute;
+  width: 66%;
+  height: 75%;
+  border: 1.5px solid #5f7f8f;
+  background: #b8d7e6;
+  border-radius: 1cqw 1cqw 0 0;
+}
+.cargo span {
+  position: absolute;
+  left: 35%;
+  top: -10%;
+  font-size: 5cqw;
+  color: #5f7f8f;
+}
+.cab {
+  position: absolute;
+  left: 65%;
+  bottom: 25%;
+  width: 35%;
+  height: 60%;
+  background: #8fb8cd;
+  border: 1.5px solid #5f7f8f;
+  border-radius: 0 2cqw 0 0;
+}
+.cab i {
+  position: absolute;
+  top: 13%;
+  left: 15%;
+  width: 60%;
+  height: 44%;
+  background: #f7f2df;
+  border-radius: 0 1cqw 0 0;
+}
+.wheelBack,
+.wheelFront {
+  position: absolute;
+  bottom: 0;
+  width: 18%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f0e7d4;
+  border: 1cqw solid #53636a;
+}
+.wheelBack {
+  left: 12%;
+}
+.wheelFront {
+  right: 7%;
+}
+.delivered {
+  position: absolute;
+  right: 8%;
+  top: 47%;
+  width: 5%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #829d7d;
+  color: #fffdf4;
+  font-size: 3cqw;
+}
+.footer {
+  position: absolute;
+  bottom: 5%;
+  left: 8%;
+  right: 8%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.35cqw;
+  letter-spacing: 0.08em;
+}

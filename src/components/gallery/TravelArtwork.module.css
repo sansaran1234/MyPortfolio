@@ -1,0 +1,364 @@
+.scene {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  container-type: inline-size;
+  background: #f5f0e4;
+}
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #465762;
+  font-family: var(--font-gallery-body), sans-serif;
+  background:
+    radial-gradient(ellipse at 75% 25%, #cce3ec88, transparent 60%),
+    radial-gradient(#b6a98c33 0.7px, transparent 0.7px);
+  background-size:
+    auto,
+    7px 7px;
+}
+.canvas *,
+.canvas *::before,
+.canvas *::after {
+  box-sizing: border-box;
+}
+.heading {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  z-index: 2;
+}
+.heading > span {
+  font-size: 1.6cqw;
+  letter-spacing: 0.2em;
+}
+.heading strong {
+  display: block;
+  margin-top: 1.5cqw;
+  font-family: var(--font-gallery-hero), Georgia, serif;
+  font-size: 4.8cqw;
+  font-weight: 400;
+}
+.sun {
+  position: absolute;
+  top: 25%;
+  right: 12%;
+  width: 12%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #edcf8e;
+}
+.cloud {
+  position: absolute;
+  top: 38%;
+  right: 7%;
+  width: 23%;
+  height: 5%;
+  background: #fffaf2;
+  border-radius: 60% 80% 20% 30%;
+}
+.cloud::before {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+  width: 40%;
+  height: 190%;
+  background: inherit;
+  border-radius: 50%;
+}
+.flightPath {
+  position: absolute;
+  left: 18%;
+  top: 29%;
+  width: 62%;
+  height: 28%;
+  border: 1px dashed #8aa6ad;
+  border-bottom: 0;
+  border-radius: 50% 60% 0 0;
+  transform: rotate(-14deg);
+}
+.origin,
+.destination {
+  position: absolute;
+  width: 1.7%;
+  aspect-ratio: 1;
+  border: 2px solid #8aa6ad;
+  border-radius: 50%;
+  background: #f5f0e4;
+}
+.origin {
+  left: 17%;
+  top: 59%;
+}
+.destination {
+  right: 20%;
+  top: 42%;
+}
+.plane {
+  position: absolute;
+  left: 43%;
+  top: 27%;
+  width: 29%;
+  height: 16%;
+  z-index: 2;
+}
+.fuselage {
+  position: absolute;
+  left: 0;
+  top: 38%;
+  width: 100%;
+  height: 25%;
+  border: 1px solid #6d8a99;
+  background: #fffdf5;
+  border-radius: 40% 70% 50% 30%;
+  box-shadow: 0 0.6cqw 0 #aecbd7;
+}
+.fuselage i {
+  position: absolute;
+  right: 12%;
+  top: 20%;
+  width: 9%;
+  height: 45%;
+  background: #7898a7;
+  border-radius: 0 80% 0 0;
+}
+.fuselage span {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  width: 48%;
+  height: 30%;
+  background: repeating-linear-gradient(
+    90deg,
+    #7898a7 0 2px,
+    transparent 2px 6px
+  );
+}
+.wings {
+  position: absolute;
+  left: 31%;
+  top: 0;
+  width: 39%;
+  height: 100%;
+  background: #8db6ca;
+  clip-path: polygon(0 0, 22% 0, 100% 50%, 22% 100%, 0 100%, 40% 50%);
+}
+.tail {
+  position: absolute;
+  left: 2%;
+  top: 18%;
+  width: 20%;
+  height: 65%;
+  background: #7399af;
+  clip-path: polygon(0 0, 25% 0, 100% 50%, 25% 100%, 0 100%, 25% 50%);
+}
+.booking {
+  position: absolute;
+  left: 9%;
+  top: 46%;
+  width: 49%;
+  height: 37%;
+  border: 1.5px solid #7d9299;
+  background: #fffdf7;
+  border-radius: 1cqw;
+  box-shadow: 1cqw 1.3cqw 0 #46576214;
+}
+.toolbar {
+  height: 15%;
+  display: flex;
+  align-items: center;
+  gap: 1cqw;
+  padding: 0 1.5cqw;
+  border-bottom: 1px solid #7d9299;
+  background: #d4e5ec;
+  border-radius: 1cqw 1cqw 0 0;
+}
+.toolbar i {
+  width: 0.8cqw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #7d9299;
+}
+.toolbar span {
+  margin-left: auto;
+  font-size: 1.2cqw;
+  letter-spacing: 0.12em;
+}
+.bookingBody {
+  display: flex;
+  height: 85%;
+  padding: 2cqw;
+  gap: 2cqw;
+}
+.seatPanel {
+  width: 48%;
+  border-right: 1px dashed #d1d7cb;
+  padding-right: 2cqw;
+}
+.seatPanel > span,
+.details > span {
+  display: block;
+  font-size: 1.2cqw;
+  letter-spacing: 0.08em;
+}
+.seats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr;
+  gap: 1cqw 0.7cqw;
+  padding: 1.6cqw 0 1cqw;
+}
+.seats i {
+  height: 2.8cqw;
+  border: 1px solid #a2b6be;
+  border-bottom-width: 3px;
+  border-radius: 0.6cqw 0.6cqw 0.2cqw 0.2cqw;
+  background: #e1ebee;
+  font-size: 1.5cqw;
+  font-style: normal;
+  text-align: center;
+}
+.seats i:nth-child(4n + 3) {
+  grid-column: 4;
+}
+.seats i:nth-child(4n) {
+  grid-column: 5;
+}
+.seats .selected {
+  background: #8da984;
+  border-color: #6e8c67;
+  color: white;
+}
+.seatPanel small {
+  font-size: 1.1cqw;
+  letter-spacing: 0.1em;
+  color: #6e8c67;
+}
+.details {
+  flex: 1;
+}
+.passenger {
+  height: 5.5cqw;
+  position: relative;
+  margin: 1cqw 0 2cqw;
+}
+.passenger i {
+  position: absolute;
+  width: 4cqw;
+  height: 4cqw;
+  border-radius: 50%;
+  background: #e5d3b4;
+}
+.passenger b {
+  position: absolute;
+  left: 5cqw;
+  top: 0.6cqw;
+  width: 9cqw;
+  height: 0.7cqw;
+  background: #bac9ca;
+  border-radius: 1cqw;
+}
+.passenger b:last-child {
+  top: 2.2cqw;
+  width: 6cqw;
+  background: #e2e7df;
+}
+.details p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1cqw 0;
+}
+.details p b {
+  font-size: 2.4cqw;
+  font-weight: 500;
+}
+.details p i {
+  font-size: 1cqw;
+  font-style: normal;
+  color: #729269;
+}
+.line {
+  height: 0.7cqw;
+  background: #e2e7df;
+  margin: 1cqw 0;
+  border-radius: 1cqw;
+}
+.line:last-child {
+  width: 65%;
+}
+.ticket {
+  position: absolute;
+  right: 8%;
+  top: 55%;
+  width: 35%;
+  height: 29%;
+  background: #f9e9c6;
+  border: 1px solid #c3ac7e;
+  border-radius: 1cqw;
+  padding: 2cqw;
+  box-shadow: 1cqw 1.2cqw 0 #46576214;
+}
+.ticketLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1cqw;
+  letter-spacing: 0.06em;
+}
+.ticketLabel b {
+  font-size: 1cqw;
+  font-weight: 400;
+  color: #66845f;
+}
+.airports {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5cqw 0;
+}
+.airports strong {
+  font-size: 4cqw;
+  font-weight: 500;
+}
+.airports span {
+  font-size: 3cqw;
+  color: #9b947d;
+}
+.ticketMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95cqw;
+  border-bottom: 1px dashed #c3ac7e;
+  padding-bottom: 1.3cqw;
+}
+.ticketMeta b {
+  display: block;
+  margin-top: 0.4cqw;
+  font-size: 1.6cqw;
+  font-weight: 500;
+}
+.barcode {
+  height: 2cqw;
+  margin-top: 1.5cqw;
+  opacity: 0.55;
+  background: repeating-linear-gradient(
+    90deg,
+    #65716c 0 1px,
+    transparent 1px 3px,
+    #65716c 3px 5px,
+    transparent 5px 6px,
+    #65716c 6px 7px,
+    transparent 7px 10px
+  );
+}
+.footer {
+  position: absolute;
+  bottom: 5%;
+  left: 8%;
+  right: 8%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.35cqw;
+  letter-spacing: 0.08em;
+}

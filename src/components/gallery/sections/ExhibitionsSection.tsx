@@ -13,6 +13,8 @@ import type { Exhibition } from "../content";
 import { EXHIBITIONS } from "../content";
 import { cn } from "@/lib/utils";
 import { LinesReveal } from "../Reveal";
+import { LogisticsArtwork } from "../LogisticsArtwork";
+import { TravelArtwork } from "../TravelArtwork";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
 
@@ -172,9 +174,14 @@ const ExhibitionPanel = ({
           className="absolute -top-3 left-1/2 h-7 w-24 -translate-x-1/2 -rotate-2 bg-[var(--gallery-quaternary)]/25 backdrop-blur-[1px]"
         />
 
-        {/* Photo window */}
+        {/* Artwork window */}
         <div className="relative aspect-[4/3] overflow-hidden bg-[var(--gallery-dark)]/[0.06]">
-          <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
+          {project.artwork === "logistics" ? (
+            <LogisticsArtwork />
+          ) : project.artwork === "travel" ? (
+            <TravelArtwork />
+          ) : (
+            <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
             <Image
               src={project.image}
               alt={project.title.replace(/\n/g, " ")}
@@ -182,7 +189,8 @@ const ExhibitionPanel = ({
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover transition-transform duration-700 ease-out group-hover/polaroid:scale-[1.03]"
             />
-          </motion.div>
+            </motion.div>
+          )}
 
           {/* Developing sheen */}
           <span
