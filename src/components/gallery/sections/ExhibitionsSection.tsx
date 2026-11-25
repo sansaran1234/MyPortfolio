@@ -24,11 +24,16 @@ import { GotherArtwork } from "../GotherArtwork";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
 
-const SHOW_COMPANY_IN_RAIL = EXHIBITIONS.map((project, index) => {
-  const firstIndex = EXHIBITIONS.findIndex(
-    (entry) => entry.company === project.company,
+const COMPANY_TIMELINE = Array.from(
+  new Set(EXHIBITIONS.map((project) => project.company)),
+).map((company) => {
+  const projects = EXHIBITIONS.flatMap((project, index) =>
+    project.company === company ? [{ project, index }] : [],
   );
-  return index === firstIndex;
+  const periods = Array.from(
+    new Set(projects.map(({ project }) => project.experience)),
+  );
+  return { company, period: periods.join(" / "), projects };
 });
 
 /* ------------------------------------------------------------------ */
@@ -45,8 +50,9 @@ const ExhibitionRail = ({
   onSelect: (index: number) => void;
 }) => {
   return (
-    <div className="hidden lg:block lg:col-span-4">
-      <div className="lg:sticky lg:top-32">
+    <nav aria-label="Work experience by company" className="lg:col-span-4">
+      {/* Keep scaled markers and keyboard focus outlines inside the scroll area. */}
+      <div className="px-2 pb-2 lg:sticky lg:top-24 lg:max-h-[calc(100svh-8rem)] lg:overflow-y-auto lg:pr-4">
         <div className="relative mt-10 pl-9">
           {/* Static track */}
           <span
@@ -60,11 +66,11 @@ const ExhibitionRail = ({
             className="absolute left-[3px] top-2 bottom-2 w-px origin-top bg-[var(--gallery-quaternary)]"
           />
 
-          <ul className="flex flex-col gap-7">
-            {EXHIBITIONS.map((project, i) => {
-              const isActive = i === active;
+          <ol className="flex flex-col gap-8">
+            {COMPANY_TIMELINE.map(({ company, period, projects }) => {
+              const isActive = projects.some(({ index }) => index === active);
               return (
-                <li key={project.index} className="relative">
+                <li key={company} className="relative">
                   {/* Node marker */}
                   <span
                     aria-hidden
@@ -74,49 +80,57 @@ const ExhibitionRail = ({
                         : "border-[var(--gallery-line)] bg-[var(--gallery-bg)]"
                     }`}
                   />
-                  <button
-                    type="button"
-                    data-cursor="hover"
-                    onClick={() => onSelect(i)}
-                    className="group block w-full text-left"
-                  >
-                    {SHOW_COMPANY_IN_RAIL[i] && (
-                      <span
-                        className={`mb-1.5 block font-gallery-body text-[10px] uppercase tracking-[0.24em] transition-colors duration-500 ${
-                          isActive
-                            ? "text-[var(--gallery-text)]/75"
-                            : "text-[var(--gallery-subtext)]/55 group-hover:text-[var(--gallery-subtext)]"
-                        }`}
-                      >
-                        {project.company}
-                      </span>
-                    )}
-                    <span
-                      className={`block font-gallery-body text-[10px] uppercase tracking-[0.28em] transition-colors duration-500 ${
-                        isActive
-                          ? "text-[var(--gallery-quaternary)]"
-                          : "text-[var(--gallery-subtext)]"
-                      }`}
-                    >
-                      {project.experience}
-                    </span>
-                    <span
-                      className={`mt-1 block whitespace-pre-line font-gallery-display text-lg leading-tight tracking-tight transition-all duration-500 ${
-                        isActive
-                          ? "translate-x-1 text-[var(--gallery-text)]"
-                          : "text-[var(--gallery-subtext)]/70 group-hover:text-[var(--gallery-text)]"
-                      }`}
-                    >
-                      {project.title}
-                    </span>
-                  </button>
+                  <h3 className="font-gallery-display text-base font-medium leading-snug text-[var(--gallery-text)]">
+                    {company}
+                  </h3>
+                  <p className="mt-1 font-gallery-body text-[11px] tracking-[0.08em] text-[var(--gallery-subtext)]">
+                    {period}
+                  </p>
+                  <ul className="mt-3">
+                    {projects.map(({ project, index }, branchIndex) => (
+                      <li key={project.index} className="relative pl-6">
+                        <span
+                          aria-hidden
+                          className={cn(
+                            "absolute left-0 top-0 w-px bg-[var(--gallery-line)]",
+                            branchIndex === projects.length - 1
+                              ? "h-5"
+                              : "h-full",
+                          )}
+                        />
+                        <span
+                          aria-hidden
+                          className="absolute left-0 top-5 h-px w-4 bg-[var(--gallery-line)]"
+                        />
+                        <button
+                          type="button"
+                          data-cursor="hover"
+                          onClick={() => onSelect(index)}
+                          aria-current={
+                            index === active ? "location" : undefined
+                          }
+                          className={cn(
+                            "flex min-h-10 w-full items-baseline gap-2 rounded-md px-2 py-2 text-left font-gallery-body text-sm leading-relaxed transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gallery-text)]",
+                            index === active
+                              ? "bg-[var(--gallery-tertiary)]/35 text-[var(--gallery-text)]"
+                              : "text-[var(--gallery-subtext)] hover:bg-[var(--gallery-tertiary)]/15 hover:text-[var(--gallery-text)]",
+                          )}
+                        >
+                          <span className="shrink-0 text-[10px] tabular-nums opacity-60">
+                            {project.index}
+                          </span>
+                          <span>{project.title.replace(/\n/g, " ")}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
               );
             })}
-          </ul>
+          </ol>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
@@ -164,7 +178,13 @@ const ExhibitionPanel = ({
   const align = isLeftAligned ? "lg:mr-auto" : "lg:ml-auto";
 
   return (
-    <article ref={setRef} className={cn("scroll-mt-32", isLeftAligned ? "max-[992px]:mr-auto" : "max-[992px]:ml-auto")}>
+    <article
+      ref={setRef}
+      className={cn(
+        "scroll-mt-32",
+        isLeftAligned ? "max-[992px]:mr-auto" : "max-[992px]:ml-auto",
+      )}
+    >
       {/* Polaroid frame */}
       <motion.div
         initial={{ opacity: 0, y: 48, rotate: tilt * 2.2 }}
@@ -200,13 +220,13 @@ const ExhibitionPanel = ({
             <GotherArtwork />
           ) : (
             <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
-            <Image
-              src={project.image}
-              alt={project.title.replace(/\n/g, " ")}
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover/polaroid:scale-[1.03]"
-            />
+              <Image
+                src={project.image}
+                alt={project.title.replace(/\n/g, " ")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover/polaroid:scale-[1.03]"
+              />
             </motion.div>
           )}
 
@@ -236,7 +256,9 @@ const ExhibitionPanel = ({
         transition={{ duration: 0.8, ease: EASE, delay: 0.12 }}
         className={cn(
           "mt-8 grid w-full max-w-xl grid-cols-1 gap-x-10 gap-y-6",
-          isLeftAligned ? "max-[992px]:mr-auto lg:mr-auto" : "max-[992px]:ml-auto lg:ml-auto",
+          isLeftAligned
+            ? "max-[992px]:mr-auto lg:mr-auto"
+            : "max-[992px]:ml-auto lg:ml-auto",
           isLeftAligned
             ? "md:grid-cols-[auto_1fr] md:text-left"
             : "md:grid-cols-[1fr_auto] md:text-right",
