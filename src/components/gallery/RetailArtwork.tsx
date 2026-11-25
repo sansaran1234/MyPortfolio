@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import styles from "./ProductionArtwork.module.css";
+import art from "./RetailScenes.module.css";
 
 const SCENES = {
   fulfillment: {
@@ -70,52 +71,180 @@ export const RetailArtwork = ({ scene }: { scene: keyof typeof SCENES }) => {
           <span>{content.eyebrow}</span>
           <strong>{content.title}</strong>
         </header>
-        <div className={styles.halo} />
-        <div className={styles.window}>
-          <div className={styles.toolbar}>
-            <i />
-            <i />
-            <i />
-            <span>{content.board}</span>
-          </div>
-          <div className={styles.board}>
-            {content.columns.map((column, index) => (
-              <div key={column} className={styles.column}>
-                <span>{column}</span>
-                <motion.div
-                  className={styles.job}
-                  animate={{ y: animate ? [0, -3, 0] : 0 }}
-                  transition={{
-                    duration: 4,
-                    delay: index * 0.4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {content.cards[index]}
-                  <b />
-                  <b />
-                  <small>{index === 2 ? "✓ CHECKED" : "→"}</small>
-                </motion.div>
+        {scene === "fulfillment" && (
+          <>
+            <div className={art.floor} />
+            <div className={art.rack}>
+              <span>PICK BATCH · A</span>
+              <div>
+                {Array.from({ length: 6 }, (_, i) => (
+                  <i key={i} />
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-        <motion.div
-          className={styles.editor}
-          animate={{ y: animate ? [0, -4, 0] : 0, rotate: 4 }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <span className={styles.label}>{content.note}</span>
-          <div className={styles.retailChecklist}>
-            {content.lines.map((line) => (
-              <div key={line}>
-                <span>✓</span>
-                {line}
+            </div>
+            <div className={art.chiller}>
+              <span>CHILLER · B</span>
+              <div>
+                <i />
+                <i />
+                <i />
               </div>
-            ))}
-          </div>
-        </motion.div>
+            </div>
+            <div className={art.picklist}>
+              <b>PICK LIST</b>
+              <span>✓ Grocery</span>
+              <span>✓ Chilled items</span>
+              <span>→ Cart location</span>
+            </div>
+            <motion.div
+              className={art.cart}
+              animate={{ x: animate ? [-8, 14, -8] : 0 }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className={art.goods}>
+                <i />
+                <i />
+                <i />
+              </div>
+              <div className={art.basket} />
+              <b />
+              <b />
+            </motion.div>
+            <span className={art.sceneCaption}>
+              ORDER → PICK BATCH → READY FOR DELIVERY
+            </span>
+          </>
+        )}
+        {scene === "promotion" && (
+          <>
+            <div className={art.original}>
+              <span>ORIGINAL ITEM</span>
+              <div className={art.bottle} />
+              <b>Unavailable</b>
+            </div>
+            <motion.div
+              className={art.swap}
+              animate={{ x: animate ? [-3, 3, -3] : 0 }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              ⇄
+            </motion.div>
+            <div className={art.alternative}>
+              <span>SUBSTITUTE ITEM</span>
+              <div className={art.package} />
+              <b>✓ Alternative selected</b>
+              <div className={art.quantity}>
+                − <strong>1</strong> +
+              </div>
+            </div>
+            <motion.div
+              className={art.coupon}
+              animate={{ y: animate ? [0, -3, 0] : 0, rotate: -4 }}
+              transition={{ duration: 5, repeat: Infinity }}
+            >
+              <strong>%</strong>
+              <div>
+                <b>PROMOTION CHECK</b>
+                <span>Free items · Delivery discount</span>
+                <small>Eligibility before confirmation</small>
+              </div>
+            </motion.div>
+          </>
+        )}
+        {scene === "receipt" && (
+          <>
+            <div className={art.receiptHalo} />
+            <div className={art.printer}>
+              <span>ORDER DOCUMENTS</span>
+              <i />
+              <div />
+            </div>
+            <motion.div
+              className={art.receipt}
+              animate={{ y: animate ? [-4, 4, -4] : 0 }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <b>RECEIPT</b>
+              <small>ORDER SUMMARY</small>
+              <div className={art.receiptLines}>
+                {[0, 1, 2].map((i) => (
+                  <span key={i}>
+                    <i />
+                    <i />
+                  </span>
+                ))}
+              </div>
+              <strong>PAYMENT DETAILS</strong>
+              <span>Credit-card installment</span>
+              <div className={art.barcode} />
+            </motion.div>
+            <div className={art.paymentCard}>
+              <i />
+              <span>PAYMENT</span>
+              <b>•••• &nbsp; •••• &nbsp; ••••</b>
+              <small>INSTALLMENT PLAN</small>
+            </div>
+            <div className={art.receiptStatus}>
+              ✓ REQUEST &nbsp; → &nbsp; VERIFY &nbsp; → &nbsp; PRINT
+            </div>
+          </>
+        )}
+        {scene === "quality" && (
+          <>
+            <div className={art.codeWindow}>
+              <div className={art.codeHeader}>
+                <i />
+                <i />
+                <i />
+                <span>REVIEW / REFACTOR</span>
+              </div>
+              <div className={art.codeLines}>
+                {[0, 1, 2, 3, 4, 5].map((i) => (
+                  <div key={i}>
+                    <small>{i + 1}</small>
+                    <motion.i
+                      animate={{ scaleX: animate ? [0.7, 1, 0.7] : 1 }}
+                      transition={{
+                        duration: 5,
+                        delay: i * 0.15,
+                        repeat: Infinity,
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className={art.codeFooter}>SHARED LOGIC · CLEARER RULES</div>
+            </div>
+            <div className={art.testReport}>
+              <b>UNIT TESTS</b>
+              {["Order rules", "UI conditions", "Receipt flow"].map(
+                (label, i) => (
+                  <div key={label}>
+                    <motion.span
+                      animate={{ opacity: animate ? [0.5, 1, 0.5] : 1 }}
+                      transition={{
+                        duration: 3,
+                        delay: i * 0.4,
+                        repeat: Infinity,
+                      }}
+                    >
+                      ✓
+                    </motion.span>
+                    {label}
+                  </div>
+                ),
+              )}
+              <small>VERIFY · REVIEW · REFINE</small>
+            </div>
+            <div className={art.review}>
+              <span>✓</span>
+              <div>
+                <b>QA & CODE REVIEW</b>
+                <small>Feedback into better code</small>
+              </div>
+            </div>
+          </>
+        )}
         <footer className={styles.footer}>
           <span>{content.footer}</span>
           <span>{content.caption}</span>
