@@ -30,21 +30,18 @@ const BIRTH_DATE = {
 
 const CAREER_START_YEAR = 2020;
 
-const calculateAge = (
-  birthDate: typeof BIRTH_DATE,
-  today = new Date(),
-) => {
+const calculateAge = (birthDate: typeof BIRTH_DATE, today = new Date()) => {
   const hasHadBirthdayThisYear =
     today.getMonth() > birthDate.month ||
     (today.getMonth() === birthDate.month && today.getDate() >= birthDate.day);
 
-  return today.getFullYear() - birthDate.year - (hasHadBirthdayThisYear ? 0 : 1);
+  return (
+    today.getFullYear() - birthDate.year - (hasHadBirthdayThisYear ? 0 : 1)
+  );
 };
 
-const calculateYearsOfExperience = (
-  startYear: number,
-  today = new Date(),
-) => today.getFullYear() - startYear;
+const calculateYearsOfExperience = (startYear: number, today = new Date()) =>
+  today.getFullYear() - startYear;
 
 const age = calculateAge(BIRTH_DATE);
 const yearsOfExperience = calculateYearsOfExperience(CAREER_START_YEAR);
@@ -103,6 +100,7 @@ export enum Company {
   TIK_SYSTEMS = "T.I.K. SYSTEMS",
   LUCA_BLOCK = "LUCA BLOCK",
   GOTHER_SEO = "Search Engine Optimization (Gother)",
+  BIG_C = "Big C",
 }
 
 export type Exhibition = {
@@ -121,6 +119,11 @@ export type Exhibition = {
   | { artwork: "packaging"; image?: never }
   | { artwork: "knowledge"; image?: never }
   | { artwork: "gother"; image?: never }
+  | {
+      artwork: "retail";
+      retailScene: "fulfillment" | "promotion" | "receipt" | "quality";
+      image?: never;
+    }
   | { artwork?: never; image: string }
 );
 
@@ -150,7 +153,13 @@ export const EXHIBITIONS: Exhibition[] = [
     title: "ERP Job Tracking System",
     description:
       "Factory performance tracking platform with real-time packaging design capabilities including dieline and texture customization.",
-    tech: ["Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Framer Motion",
+      "Shadcn UI",
+      "Tailwind CSS",
+    ],
     artwork: "erp",
     company: Company.LUCA_BLOCK,
     experience: "2024 - 2026",
@@ -200,10 +209,61 @@ export const EXHIBITIONS: Exhibition[] = [
     title: "Gother Flight Platform",
     description:
       "React and Next.js flight booking experience - responsive across web and mobile, with flight detail flows, campaign carousels, pre-booking validation, and measurable LCP gains through bundle optimization.",
-    tech: ["React", "Next.js", "TypeScript", "Framer Motion", "Shadcn UI", "Tailwind CSS"],
+    tech: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Framer Motion",
+      "Shadcn UI",
+      "Tailwind CSS",
+    ],
     artwork: "gother",
     company: Company.GOTHER_SEO,
     experience: "March - July 2026 (Contract)",
+  },
+  {
+    index: "09",
+    title: "Order Management & Fulfillment",
+    description:
+      "Developed retail order workflows across History, Rider, and Picker lists, including out-of-hours order indicators and cart and chiller locations grouped by pick batch. Updated order documents for hotel-channel orders and enforced item-editing rules based on payment conditions.",
+    tech: ["API Integration", "Fulfillment Workflows", "Unit Testing"],
+    artwork: "retail",
+    retailScene: "fulfillment",
+    company: Company.BIG_C,
+    experience: "August - December 2026 (Contract)",
+  },
+  {
+    index: "10",
+    title: "Product Substitution & Promotions",
+    description:
+      "Built product substitution flows with item selection, quantity controls, confirmation dialogs, and loading and empty states. Refined pricing and button conditions, and handled free-item promotions, delivery discounts, and explanations for unapplied promotions.",
+    tech: ["Business Logic", "UI States", "Unit Testing"],
+    artwork: "retail",
+    retailScene: "promotion",
+    company: Company.BIG_C,
+    experience: "August - December 2026 (Contract)",
+  },
+  {
+    index: "11",
+    title: "Receipts, Billing & Order Documents",
+    description:
+      "Integrated receipt requests and print actions into Order Details with store-configuration checks, confirmation dialogs, and result panels. Updated order PDFs to display credit-card installment information and added a shipping filter to the backend operation-type configuration API.",
+    tech: ["API Integration", "PDF Documents", "Backend API"],
+    artwork: "retail",
+    retailScene: "receipt",
+    company: Company.BIG_C,
+    experience: "August - December 2026 (Contract)",
+  },
+  {
+    index: "12",
+    title: "Testing & Code Quality",
+    description:
+      "Expanded unit-test coverage for retail business rules, resolved review feedback and merge conflicts, and reduced duplicate logic through shared constants and refactoring. Collaborated with QA on defect verification and feature demos, alongside sprint planning, grooming, and task estimation.",
+    tech: ["Unit Testing", "Refactoring", "QA Collaboration", "Code Review"],
+    artwork: "retail",
+    retailScene: "quality",
+    company: Company.BIG_C,
+    experience: "August - December 2026 (Contract)",
   },
 ];
 

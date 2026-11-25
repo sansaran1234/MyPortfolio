@@ -21,8 +21,24 @@ import { FrontendArtwork } from "../FrontendArtwork";
 import { PackagingArtwork } from "../PackagingArtwork";
 import { KnowledgeArtwork } from "../KnowledgeArtwork";
 import { GotherArtwork } from "../GotherArtwork";
+import { RetailArtwork } from "../RetailArtwork";
 
 const EASE = [0.22, 1, 0.36, 1] as readonly [number, number, number, number];
+
+const TIMELINE_TITLES: Record<string, string> = {
+  "01": "E-Commerce Logistics",
+  "02": "Travel & Booking",
+  "03": "ERP & Job Tracking",
+  "04": "AI Development",
+  "05": "Frontend Development",
+  "06": "3D Packaging Store",
+  "07": "Mentoring & Knowledge Sharing",
+  "08": "Flight Platform",
+  "09": "Orders & Fulfillment",
+  "10": "Substitution & Promotions",
+  "11": "Receipts & Billing",
+  "12": "Testing & Code Quality",
+};
 
 const COMPANY_TIMELINE = Array.from(
   new Set(EXHIBITIONS.map((project) => project.company)),
@@ -50,10 +66,13 @@ const ExhibitionRail = ({
   onSelect: (index: number) => void;
 }) => {
   return (
-    <nav aria-label="Work experience by company" className="lg:col-span-4">
-      {/* Keep scaled markers and keyboard focus outlines inside the scroll area. */}
-      <div className="px-2 pb-2 lg:sticky lg:top-24 lg:max-h-[calc(100svh-8rem)] lg:overflow-y-auto lg:pr-4">
-        <div className="relative mt-10 pl-9">
+    <nav
+      aria-label="Work experience by company"
+      className="hidden lg:col-span-4 lg:block"
+    >
+      {/* Short viewports use page scrolling so every company remains reachable. */}
+      <div className="px-2 pb-2 lg:pr-4 lg:[@media(min-height:800px)]:sticky lg:[@media(min-height:800px)]:top-24">
+        <div className="relative pl-6">
           {/* Static track */}
           <span
             aria-hidden
@@ -66,7 +85,7 @@ const ExhibitionRail = ({
             className="absolute left-[3px] top-2 bottom-2 w-px origin-top bg-[var(--gallery-quaternary)]"
           />
 
-          <ol className="flex flex-col gap-8">
+          <ol className="flex flex-col gap-4">
             {COMPANY_TIMELINE.map(({ company, period, projects }) => {
               const isActive = projects.some(({ index }) => index === active);
               return (
@@ -74,43 +93,52 @@ const ExhibitionRail = ({
                   {/* Node marker */}
                   <span
                     aria-hidden
-                    className={`absolute -left-9 top-[7px] h-[9px] w-[9px] -translate-x-px rounded-full border transition-all duration-500 ${
+                    className={`absolute -left-6 top-[7px] h-[9px] w-[9px] -translate-x-px rounded-full border transition-all duration-500 ${
                       isActive
                         ? "scale-125 border-[var(--gallery-quaternary)] bg-[var(--gallery-quaternary)]"
                         : "border-[var(--gallery-line)] bg-[var(--gallery-bg)]"
                     }`}
                   />
-                  <h3 className="font-gallery-display text-base font-medium leading-snug text-[var(--gallery-text)]">
-                    {company}
-                  </h3>
-                  <p className="mt-1 font-gallery-body text-[11px] tracking-[0.08em] text-[var(--gallery-subtext)]">
-                    {period}
-                  </p>
-                  <ul className="mt-3">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                    <h3 className="font-gallery-display text-sm font-semibold leading-5 text-[var(--gallery-text)]">
+                      {company === "Search Engine Optimization (Gother)"
+                        ? "Gother"
+                        : company}
+                    </h3>
+                    <p className="font-gallery-body text-[11px] leading-5 text-[var(--gallery-subtext)]">
+                      {period
+                        .replace("March", "Mar")
+                        .replace("July", "Jul")
+                        .replace("August", "Aug")
+                        .replace("December", "Dec")}
+                    </p>
+                  </div>
+                  <ul className="mt-1">
                     {projects.map(({ project, index }, branchIndex) => (
-                      <li key={project.index} className="relative pl-6">
+                      <li key={project.index} className="relative pl-4">
                         <span
                           aria-hidden
                           className={cn(
                             "absolute left-0 top-0 w-px bg-[var(--gallery-line)]",
                             branchIndex === projects.length - 1
-                              ? "h-5"
+                              ? "h-3.5"
                               : "h-full",
                           )}
                         />
                         <span
                           aria-hidden
-                          className="absolute left-0 top-5 h-px w-4 bg-[var(--gallery-line)]"
+                          className="absolute left-0 top-3.5 h-px w-3 bg-[var(--gallery-line)]"
                         />
                         <button
                           type="button"
                           data-cursor="hover"
                           onClick={() => onSelect(index)}
+                          title={project.title.replace(/\n/g, " ")}
                           aria-current={
                             index === active ? "location" : undefined
                           }
                           className={cn(
-                            "flex min-h-10 w-full items-baseline gap-2 rounded-md px-2 py-2 text-left font-gallery-body text-sm leading-relaxed transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gallery-text)]",
+                            "flex min-h-7 w-full items-baseline gap-2 rounded-md px-2 py-1 text-left font-gallery-body text-[13px] leading-5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gallery-text)]",
                             index === active
                               ? "bg-[var(--gallery-tertiary)]/35 text-[var(--gallery-text)]"
                               : "text-[var(--gallery-subtext)] hover:bg-[var(--gallery-tertiary)]/15 hover:text-[var(--gallery-text)]",
@@ -119,7 +147,10 @@ const ExhibitionRail = ({
                           <span className="shrink-0 text-[10px] tabular-nums opacity-60">
                             {project.index}
                           </span>
-                          <span>{project.title.replace(/\n/g, " ")}</span>
+                          <span>
+                            {TIMELINE_TITLES[project.index] ??
+                              project.title.replace(/\n/g, " ")}
+                          </span>
                         </button>
                       </li>
                     ))}
@@ -218,6 +249,8 @@ const ExhibitionPanel = ({
             <KnowledgeArtwork />
           ) : project.artwork === "gother" ? (
             <GotherArtwork />
+          ) : project.artwork === "retail" ? (
+            <RetailArtwork scene={project.retailScene} />
           ) : (
             <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
               <Image
