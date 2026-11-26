@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import styles from "./TravelArtwork.module.css";
+import { ArtworkCloud, ArtworkSun } from "./ArtworkSky";
 
 export const TravelArtwork = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,12 +23,16 @@ export const TravelArtwork = () => {
           <span>SEARCH · SELECT · TAKE OFF</span>
           <strong>Every journey starts here.</strong>
         </header>
-        <div className={styles.sun} />
+        <div className={styles.sun}>
+          <ArtworkSun />
+        </div>
         <motion.div
           className={styles.cloud}
           animate={{ x: animate ? [0, 12, 0] : 0 }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        />
+        >
+          <ArtworkCloud />
+        </motion.div>
         <div className={styles.flightPath} />
         <div className={styles.origin} />
         <div className={styles.destination} />

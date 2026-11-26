@@ -141,20 +141,81 @@
 .head {
   position: absolute;
   top: 0;
-  left: 28%;
-  width: 41%;
-  height: 40%;
-  background: #d9b28d;
+  left: 30%;
+  width: 36%;
+  height: 35%;
+  background: linear-gradient(110deg, #e8c7a5, #c99d78);
   border-radius: 45% 45% 50% 50%;
-  border-top: 1.5cqw solid #756454;
+  border-top: 1cqw solid #756454;
+  border-left: 0.4cqw solid #756454;
+  transform: rotate(7deg);
+}
+.neck {
+  position: absolute;
+  left: 42%;
+  top: 29%;
+  width: 15%;
+  height: 20%;
+  background: #cba37f;
+  border-radius: 0.4cqw;
+}
+.head::before {
+  content: "";
+  position: absolute;
+  right: -15%;
+  top: 35%;
+  width: 22%;
+  height: 25%;
+  background: #d8b18d;
+  border-radius: 50%;
+}
+.head::after {
+  content: "";
+  position: absolute;
+  right: 16%;
+  top: 25%;
+  width: 0.3cqw;
+  height: 0.3cqw;
+  background: #64564c;
+  border-radius: 50%;
+}
+.learner .head {
+  transform: rotate(-8deg) scaleX(-1);
+}
+.body::before {
+  content: "";
+  position: absolute;
+  left: 36%;
+  top: 0;
+  width: 28%;
+  height: 24%;
+  background: #f5ecdb;
+  clip-path: polygon(0 0, 50% 70%, 100% 0);
+}
+.arm::after {
+  content: "";
+  position: absolute;
+  right: -15%;
+  top: 10%;
+  width: 35%;
+  height: 80%;
+  border-radius: 45%;
+  background: #dbb590;
+}
+.learner .arm::after {
+  right: auto;
+  left: -15%;
+}
+.body {
+  box-shadow: inset -1cqw 0 1cqw #536c791a;
 }
 .body {
   position: absolute;
   bottom: 0;
   left: 8%;
-  width: 84%;
+  width: 78%;
   height: 57%;
-  border-radius: 40% 40% 0 0;
+  border-radius: 35% 35% 8% 8%;
   background: #89aabb;
 }
 .learner .body {
@@ -171,30 +232,32 @@
   height: 17%;
   background: #89aabb;
   border-radius: 1cqw;
-  transform: rotate(-25deg);
+  transform: rotate(18deg);
 }
 .learner .arm {
   left: -25%;
   background: #9dac87;
-  transform: rotate(25deg);
+  transform: rotate(-18deg);
 }
 .desk {
   position: absolute;
   left: 16%;
   top: 81%;
   width: 70%;
-  height: 1.6%;
-  background: #bca07d;
-  border-radius: 1cqw;
+  height: 2.4%;
+  background: linear-gradient(#d9be96 0 35%, #b5966e 36%);
+  border: 1px solid #ad916b;
+  border-radius: 0.4cqw;
+  box-shadow: 0 0.6cqw 0.7cqw #76644818;
 }
 .desk::before,
 .desk::after {
   content: "";
   position: absolute;
   top: 100%;
-  width: 1.3%;
+  width: 2%;
   height: 4cqw;
-  background: #bca07d;
+  background: linear-gradient(90deg, #bda17b, #967c59);
 }
 .desk::before {
   left: 8%;
@@ -205,25 +268,37 @@
 .laptop {
   position: absolute;
   left: 40%;
-  top: 70%;
+  top: 68%;
   width: 22%;
-  height: 11%;
-  background: #cadbe0;
-  border: 1px solid #8ba2ad;
-  border-radius: 1cqw 1cqw 0 0;
+  height: 12%;
+  background: linear-gradient(135deg, #dce9e8, #a6c3d0);
+  border: 0.6cqw solid #637b86;
+  border-bottom-width: 0.9cqw;
+  border-radius: 0.6cqw 0.6cqw 0.2cqw 0.2cqw;
   display: grid;
   place-items: center;
-  font: 3cqw monospace;
+  font: 2.5cqw monospace;
+  color: #5d7c8c;
+}
+.laptop::before {
+  content: "";
+  position: absolute;
+  top: -0.5cqw;
+  left: 49%;
+  width: 0.25cqw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #dce7e6;
 }
 .laptop::after {
   content: "";
   position: absolute;
-  bottom: -0.6cqw;
-  left: -10%;
-  width: 120%;
-  height: 0.6cqw;
-  background: #8ba2ad;
-  border-radius: 0 0 1cqw 1cqw;
+  bottom: -1.7cqw;
+  left: -15%;
+  width: 130%;
+  height: 1.2cqw;
+  background: linear-gradient(#b9cdd4 0 65%, #7c959f 66%);
+  clip-path: polygon(10% 0, 90% 0, 100% 75%, 95% 100%, 5% 100%, 0 75%);
 }
 .bubble {
   position: absolute;

@@ -108,63 +108,146 @@
   left: 35%;
   top: 61%;
   width: 30%;
-  height: 20%;
+  aspect-ratio: 1.65;
+}
+.cartShadow {
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  width: 87%;
+  height: 8%;
+  background: #52656c20;
+  border-radius: 50%;
+}
+.cartFrame {
+  position: absolute;
+  left: 18%;
+  top: 28%;
+  width: 68%;
+  height: 54%;
+  border-left: 0.6cqw solid #738b92;
+  border-bottom: 0.6cqw solid #738b92;
+  border-radius: 0 0 0 1cqw;
+  transform: skewX(12deg);
+}
+.cartHandle {
+  position: absolute;
+  left: 0;
+  top: 16%;
+  width: 23%;
+  height: 12%;
+  border-top: 0.8cqw solid #648f9b;
+  border-right: 0.6cqw solid #738b92;
+  border-radius: 0.6cqw 0.7cqw 0 0;
 }
 .basket {
   position: absolute;
-  left: 12%;
-  top: 22%;
-  width: 80%;
-  height: 50%;
-  border: 2px solid #6e8790;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0 15%,
-    #8ea4ab 15% 17%
-  );
-  transform: skewX(-8deg);
+  left: 18%;
+  top: 28%;
+  width: 78%;
+  height: 40%;
+  background: #718d97;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 10% 100%);
 }
 .basket::before {
   content: "";
   position: absolute;
-  left: -18%;
-  top: -30%;
-  width: 20%;
-  height: 40%;
-  border-top: 2px solid #6e8790;
-  border-right: 2px solid #6e8790;
+  inset: 0.45cqw;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 13%, #93aab0 13% 15%),
+    repeating-linear-gradient(0deg, #dce5ddcc 0 29%, #93aab0 29% 33%);
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 10% 100%);
 }
 .cart > b {
   position: absolute;
-  bottom: 7%;
-  left: 23%;
-  width: 3cqw;
+  bottom: 2%;
+  left: 25%;
+  width: 12%;
   aspect-ratio: 1;
-  border: 0.8cqw solid #61767e;
+  border: 1px solid #526970;
   border-radius: 50%;
-  background: #eee8d7;
+  background: radial-gradient(
+    circle,
+    #657e86 0 15%,
+    #d5ded8 17% 38%,
+    #526970 40% 68%,
+    #81969a 70%
+  );
+}
+.cart > b::before {
+  content: "";
+  position: absolute;
+  left: 40%;
+  top: -45%;
+  width: 25%;
+  height: 50%;
+  background: #738b92;
 }
 .cart > b:last-child {
   left: 73%;
 }
 .goods {
   position: absolute;
-  left: 22%;
-  top: 0;
+  left: 29%;
+  bottom: 40%;
   display: flex;
   align-items: end;
-  gap: 1cqw;
+  gap: 0.6cqw;
 }
 .goods i {
-  width: 4cqw;
-  height: 5cqw;
-  background: #d1b084;
-  border: 1px solid #b89a73;
+  position: relative;
+  display: block;
 }
-.goods i:nth-child(2) {
-  height: 7cqw;
-  background: #9eb7a0;
-  border-radius: 1cqw 1cqw 0 0;
+.groceryBag {
+  width: 6.5cqw;
+  height: 8cqw;
+  background: linear-gradient(90deg, #d8b88c 0 78%, #c19c70 78%);
+  border: 1px solid #b49369;
+  border-radius: 0.3cqw;
+  transform: rotate(-6deg);
+}
+.groceryBag::before {
+  content: "";
+  position: absolute;
+  left: 22%;
+  top: -26%;
+  width: 50%;
+  height: 38%;
+  border: 0.35cqw solid #ac895e;
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+.groceryBottle {
+  width: 3.5cqw;
+  height: 9cqw;
+  background: linear-gradient(#9bb7a0 0 38%, #f1e8c9 38% 68%, #9bb7a0 68%);
+  border: 1px solid #7d9b85;
+  border-radius: 1.2cqw 1.2cqw 0.4cqw 0.4cqw;
+}
+.groceryBottle::before {
+  content: "";
+  position: absolute;
+  left: 23%;
+  top: -12%;
+  width: 54%;
+  height: 16%;
+  background: #678674;
+  border-radius: 0.2cqw;
+}
+.groceryCarton {
+  width: 4.6cqw;
+  height: 7.2cqw;
+  background: linear-gradient(#c3d9e4 0 30%, #f7efdb 30% 65%, #a4c5d5 65%);
+  clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+  transform: rotate(8deg);
+}
+.groceryCarton::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  width: 100%;
+  height: 1px;
+  background: #85a8bb;
 }
 .sceneCaption {
   position: absolute;

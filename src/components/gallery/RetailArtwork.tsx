@@ -101,10 +101,13 @@ export const RetailArtwork = ({ scene }: { scene: keyof typeof SCENES }) => {
               animate={{ x: animate ? [-8, 14, -8] : 0 }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             >
+              <div className={art.cartShadow} />
+              <div className={art.cartFrame} />
+              <div className={art.cartHandle} />
               <div className={art.goods}>
-                <i />
-                <i />
-                <i />
+                <i className={art.groceryBag} />
+                <i className={art.groceryBottle} />
+                <i className={art.groceryCarton} />
               </div>
               <div className={art.basket} />
               <b />

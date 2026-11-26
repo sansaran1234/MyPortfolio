@@ -46,27 +46,13 @@
   right: 12%;
   width: 12%;
   aspect-ratio: 1;
-  border-radius: 50%;
-  background: #edcf8e;
 }
 .cloud {
   position: absolute;
   top: 38%;
   right: 7%;
   width: 23%;
-  height: 5%;
-  background: #fffaf2;
-  border-radius: 60% 80% 20% 30%;
-}
-.cloud::before {
-  content: "";
-  position: absolute;
-  left: 25%;
-  bottom: 0;
-  width: 40%;
-  height: 190%;
-  background: inherit;
-  border-radius: 50%;
+  height: 9%;
 }
 .flightPath {
   position: absolute;

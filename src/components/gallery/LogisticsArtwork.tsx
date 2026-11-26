@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import styles from "./LogisticsArtwork.module.css";
+import { ArtworkCloud, ArtworkSun } from "./ArtworkSky";
 
 export const LogisticsArtwork = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,8 +23,12 @@ export const LogisticsArtwork = () => {
           <span>ORDER · PACK · DELIVER</span>
           <strong>A little world of logistics.</strong>
         </div>
-        <div className={styles.sun} />
-        <div className={styles.cloud} />
+        <div className={styles.sun}>
+          <ArtworkSun />
+        </div>
+        <div className={styles.cloud}>
+          <ArtworkCloud />
+        </div>
         <div className={styles.hill} />
         <div className={styles.route} />
 
@@ -87,12 +92,18 @@ export const LogisticsArtwork = () => {
           animate={{ x: animate ? [0, 18, 0] : 0 }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
+          <div className={styles.truckShadow} />
+          <div className={styles.chassis} />
           <div className={styles.cargo}>
             <span>→</span>
           </div>
           <div className={styles.cab}>
-            <i />
+            <i className={styles.window} />
+            <i className={styles.doorHandle} />
+            <i className={styles.headlight} />
           </div>
+          <div className={styles.mirror} />
+          <div className={styles.bumper} />
           <b className={styles.wheelBack} />
           <b className={styles.wheelFront} />
         </motion.div>
