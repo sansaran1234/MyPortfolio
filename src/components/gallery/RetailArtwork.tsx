@@ -139,8 +139,20 @@ export const RetailArtwork = ({ scene }: { scene: keyof typeof SCENES }) => {
             </div>
             <motion.div
               className={art.coupon}
-              animate={{ y: animate ? [0, -3, 0] : 0, rotate: -4 }}
-              transition={{ duration: 5, repeat: Infinity }}
+              initial={false}
+              style={{ rotate: -4 }}
+              animate={{ y: animate ? [0, -4, 0] : 0 }}
+              transition={{
+                y: animate
+                  ? {
+                      duration: 6,
+                      times: [0, 0.5, 1],
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatType: "loop",
+                    }
+                  : { duration: reducedMotion ? 0 : 0.3, ease: "easeOut" },
+              }}
             >
               <strong>%</strong>
               <div>

@@ -92,8 +92,20 @@ export const TravelArtwork = () => {
         </div>
         <motion.div
           className={styles.ticket}
-          animate={{ y: animate ? [0, -4, 0] : 0, rotate: -5 }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          initial={false}
+          style={{ rotate: -5 }}
+          animate={{ y: animate ? [0, -4, 0] : 0 }}
+          transition={{
+            y: animate
+              ? {
+                  duration: 6,
+                  times: [0, 0.5, 1],
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }
+              : { duration: reducedMotion ? 0 : 0.3, ease: "easeOut" },
+          }}
         >
           <span className={styles.ticketLabel}>
             BOARDING PASS <b>✓ CONFIRMED</b>

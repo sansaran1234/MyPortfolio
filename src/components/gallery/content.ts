@@ -269,7 +269,7 @@ export const EXHIBITIONS: Exhibition[] = [
 
 export const CAREER_METRICS = [
   { value: "2059+", label: "Contributions" },
-  { value: "6+", label: "Years Experience" },
+  { value: `${yearsOfExperience}+`, label: "Years Experience" },
   { value: "124+", label: "Weekly Commits" },
   { value: "100+", label: "Delivered Features" },
 ];
